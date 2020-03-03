@@ -8,10 +8,11 @@ export default createGlobalStyle`
   body {
     margin: 0;
     background: #E9EAEB;
-    font-family: sans-serif;
-    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
     line-height: 1.4;
-    overflow: hidden;
+    color: #404040;
+
     height: 100vh;
   }
 
