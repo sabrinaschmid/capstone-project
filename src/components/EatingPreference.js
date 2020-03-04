@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 
 const EatingPreference = ({ dish }) => {
@@ -18,8 +18,8 @@ const EatingPreference = ({ dish }) => {
 const EatingPreferenceStyled = styled.span`
   padding: 6px 12px;
   margin: 6px 12px;
-  border: #ff7e43 2px solid;
-  background: #ff7e43;
+  border: #ffdf9f 1px solid;
+  background: #ffa743;
   color: #ffffff;
   border-radius: 4px;
   position: absolute;
