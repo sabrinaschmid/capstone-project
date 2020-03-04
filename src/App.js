@@ -1,11 +1,11 @@
 import React from 'react'
-import DishList from './components/dish-list'
+import Dish from './components/Dish'
 
 function App() {
   return (
     <div>
       <h1>TastyTravel</h1>
-      <DishList />
+      <Dish />
     </div>
   )
 }
