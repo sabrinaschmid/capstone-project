@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../firebase'
 import styled from 'styled-components/macro'
+import EatingPreference from './EatingPreference'
 
 function useDishes() {
   const [dishes, setDishes] = useState([])
@@ -24,7 +25,6 @@ function useDishes() {
 
 export default function Dish() {
   const dishes = useDishes()
-
   return (
     <DishListStyled>
       {dishes.map(dish => (
@@ -35,9 +35,7 @@ export default function Dish() {
               src="https://source.unsplash.com/random/400x225"
               alt=""
             />
-            <TagStyled>
-              {dish.vegan ? 'vegan' : dish.vegetarian ? 'vegetarisch' : ''}
-            </TagStyled>
+            <EatingPreference dish={dish} />
           </ImageTagStyled>
           <TranslatedTitleStyled>
             {dish.translatedDishTitle}
