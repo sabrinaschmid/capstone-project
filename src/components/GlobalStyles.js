@@ -8,6 +8,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     background: #FFF9EE;
+    font-family: 'Poppins', sans-serif;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 1.4;
