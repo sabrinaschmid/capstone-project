@@ -27,99 +27,84 @@ export default function Dish() {
 
   return (
     <DishListStyled>
-      <RowStyled>
-        {dishes.map(dish => (
-          <DishStyled key={dish.id}>
+      {dishes.map(dish => (
+        <DishStyled key={dish.id}>
+          <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
+          <ImageTagStyled>
             <ImageStyled
-              src="https://source.unsplash.com/random/130x100"
+              src="https://source.unsplash.com/random/400x225"
               alt=""
             />
             <TagStyled>
               {dish.vegan ? 'vegan' : dish.vegetarian ? 'vegetarisch' : ''}
             </TagStyled>
-            <OriginalTitleStyled> {dish.originalDishTitle}</OriginalTitleStyled>
-            <TranslatedTitleStyled>
-              {' '}
-              {dish.translatedDishTitle}
-            </TranslatedTitleStyled>
-            <IntolerancesStyled>
-              <IntoleranceStyled> {dish.lactose}</IntoleranceStyled>
-              <IntoleranceStyled> {dish.fructose}</IntoleranceStyled>
-              <IntoleranceStyled> {dish.histamine}</IntoleranceStyled>
-            </IntolerancesStyled>
-          </DishStyled>
-        ))}
-      </RowStyled>
+          </ImageTagStyled>
+          <TranslatedTitleStyled>
+            {dish.translatedDishTitle}
+          </TranslatedTitleStyled>
+          <IntolerancesStyled>
+            <IntoleranceStyled> {dish.lactose}</IntoleranceStyled>
+            <IntoleranceStyled> {dish.fructose}</IntoleranceStyled>
+            <IntoleranceStyled> {dish.histamine}</IntoleranceStyled>
+          </IntolerancesStyled>
+        </DishStyled>
+      ))}
     </DishListStyled>
   )
 }
 
 const DishListStyled = styled.section``
 
-const RowStyled = styled.div`
+const DishStyled = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 20px 8px;
+  padding: 12px;
+  border: #ffdf9f 1px solid;
+  border-radius: 4px;
+  background: #ffffff;
+`
+const OriginalTitleStyled = styled.h3`
+  display: flex;
+  font-size: 24px;
+  color: #164c1a;
 `
 
-const DishStyled = styled.div`
-  display: grid;
-  grid-template-columns: 130px auto;
-  grid-template-rows: auto;
-  grid-column-gap: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 10px 10px 10px #0002;
+const ImageTagStyled = styled.div`
+  display: flex;
+  position: relative;
 `
 const ImageStyled = styled.img`
-  /* display: flex;
-  cursor: default;
-  position: relative;
+  width: 100%;
   background: white;
-  padding: 10px; */
-  grid-area: 1 / 1 / 4 / 2;
+  border-radius: 4px;
 `
-
 const TagStyled = styled.span`
-  padding: 10px 14px;
+  padding: 6px 12px;
   margin: 6px 12px;
-  border: #ffa743 2px solid;
-  background: #ffa743;
-  color: #404040;
-  border-radius: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  grid-area: 1 / 2 / 2 / 3;
-`
-
-const OriginalTitleStyled = styled.h3`
-  /* display: flex;
-  flex-direction: column;
-  padding: 10px; */
-  grid-area: 2 / 2 / 3 / 3;
-  display: grid;
-  align-content: flex-start;
+  border: #ff7e43 2px solid;
+  background: #ff7e43;
+  color: #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  right: -4px;
+  top: 2px;
 `
 const TranslatedTitleStyled = styled.h4`
-  /* display: flex;
-  flex-direction: column;
-  padding: 10px; */
-  grid-area: 3 / 2 / 4 / 3;
-  display: grid;
+  display: flex;
+  font-size: 18px;
   font-style: italic;
 `
-
 const IntolerancesStyled = styled.div`
-  grid-area: 4 / 1 / 5 / 3;
   display: flex;
   flex-wrap: wrap;
 `
 const IntoleranceStyled = styled.span`
   display: flex;
-  padding: 10px 14px;
-  margin: 6px 12px;
+  padding: 8px 14px;
+  margin: 0 6px 6px 0;
   border: #164c1a 2px solid;
   background: #164c1a;
   color: #e9eaeb;
-  border-radius: 12px;
+  border-radius: 6px;
 `

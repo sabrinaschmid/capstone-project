@@ -7,12 +7,11 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    background: #E9EAEB;
+    background: #FFF9EE;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 1.4;
     color: #404040;
-
     height: 100vh;
   }
 
