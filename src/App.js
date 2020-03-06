@@ -1,19 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import styled from 'styled-components/macro'
+// import styled from 'styled-components/macro'
 import DishDetail from './components/DishDetail'
 import HomePage from './components/HomePage'
+import firebase from 'firebase'
+
+function useDishes() {
+  const [dishes, setDishes] = useState([])
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('dishes')
+      .onSnapshot(snapshot => {
+        const newDish = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+
+        setDishes(newDish)
+      })
+  }, [])
+
+  return dishes
+}
 
 function App() {
+  const dishes = useDishes()
+
   return (
     <Router>
       {/* <AppGrid> */}
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage dishesState={dishes} />
         </Route>
-        <Route path="/dish">
-          <DishDetail />
+        <Route path="/dish/:id">
+          <DishDetail dishesState={dishes} />
         </Route>
       </Switch>
       {/* </AppGrid> */}

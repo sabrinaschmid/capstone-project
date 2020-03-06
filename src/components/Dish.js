@@ -5,31 +5,31 @@ import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 import { Link } from 'react-router-dom'
 
-function useDishes() {
-  const [dishes, setDishes] = useState([])
+// function useDishes() {
+//   const [dishes, setDishes] = useState([])
 
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection('dishes')
-      .onSnapshot(snapshot => {
-        const newDish = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
+//   useEffect(() => {
+//     firebase
+//       .firestore()
+//       .collection('dishes')
+//       .onSnapshot(snapshot => {
+//         const newDish = snapshot.docs.map(doc => ({
+//           id: doc.id,
+//           ...doc.data(),
+//         }))
 
-        setDishes(newDish)
-      })
-  }, [])
+//         setDishes(newDish)
+//       })
+//   }, [])
 
-  return dishes
-}
+//   return dishes
+// }
 
-export default function Dish() {
-  const dishes = useDishes()
+export default function Dish({ dishesState }) {
+  // const dishes = useDishes()
   return (
     <DishListStyled>
-      {dishes.map(dish => (
+      {dishesState.map(dish => (
         <Link to={`/dish/${dish.id}`}>
           <DishStyled key={dish.id}>
             <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
