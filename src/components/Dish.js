@@ -3,6 +3,7 @@ import firebase from '../firebase'
 import styled from 'styled-components/macro'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
+import { Link } from 'react-router-dom'
 
 function useDishes() {
   const [dishes, setDishes] = useState([])
@@ -29,20 +30,22 @@ export default function Dish() {
   return (
     <DishListStyled>
       {dishes.map(dish => (
-        <DishStyled key={dish.id}>
-          <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
-          <ImagePreferenceStyled>
-            <ImageStyled
-              src="https://source.unsplash.com/random/400x225"
-              alt=""
-            />
-            <EatingPreference dish={dish} />
-          </ImagePreferenceStyled>
-          <TranslatedTitleStyled>
-            {dish.translatedDishTitle}
-          </TranslatedTitleStyled>
-          <Intolerances dish={dish} />
-        </DishStyled>
+        <Link to={`/dish/${dish.id}`}>
+          <DishStyled key={dish.id}>
+            <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
+            <ImagePreferenceStyled>
+              <ImageStyled
+                src="https://source.unsplash.com/random/400x225"
+                alt=""
+              />
+              <EatingPreference dish={dish} />
+            </ImagePreferenceStyled>
+            <TranslatedTitleStyled>
+              {dish.translatedDishTitle}
+            </TranslatedTitleStyled>
+            <Intolerances dish={dish} />
+          </DishStyled>
+        </Link>
       ))}
     </DishListStyled>
   )

@@ -14,9 +14,16 @@ export default createGlobalStyle`
     line-height: 1.4;
     color: #404040;
     height: 100vh;
+    text-decoration: none;
   }
 
   input, button, textarea {
     font-size: 1em;
+
+  }
+
+  a {
+    text-decoration: none;
+    color: #404040;
   }
 `

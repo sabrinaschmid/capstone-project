@@ -1,7 +1,12 @@
 import React from 'react'
-import logo from '../images/logo.png'
 import styled from 'styled-components/macro'
+import Dish from './Dish'
+import PageLayout from './PageLayout'
 
 export default function DishDetail() {
-  return <img src={logo} alt="Logo" />
+  return (
+    <PageLayout>
+      <p>Details</p>
+    </PageLayout>
+  )
 }
