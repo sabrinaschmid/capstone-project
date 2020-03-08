@@ -54,24 +54,24 @@ const IntolerancesStyled = styled.div`
 `
 
 const LactoseIconStyled = styled.img`
-  height: 27px;
-  padding-right: 8px;
+  height: 24px;
+  padding-right: 6px;
 `
 
 const FructoseIconStyled = styled.img`
-  height: 26px;
-  padding-right: 8px;
+  height: 24px;
+  padding-right: 6px;
 `
 
 const HistamineIconStyled = styled.img`
-  height: 26px;
-  padding-right: 8px;
+  height: 24px;
+  padding-right: 6px;
 `
 
 const IntolerantStyled = styled.span`
   display: flex;
-  padding: 10px 16px;
-  margin: 0 6px 6px 0;
+  padding: 10px 10px;
+  margin: 0 4px 6px 0;
   border: #ffa743 2px solid;
   background: #ffa743;
   color: #ffffff;
@@ -79,7 +79,7 @@ const IntolerantStyled = styled.span`
 `
 const NotIntolerantStyled = styled.span`
   display: flex;
-  padding: 10px 16px;
+  padding: 10px 10px;
   margin: 0 6px 6px 0;
   border: #164c1a 2px solid;
   background: #164c1a;

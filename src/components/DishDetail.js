@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import Dish from './Dish'
 import PageLayout from './PageLayout'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from 'react-router-dom'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 import firebase from 'firebase'
 
 const DishDetail = ({ match }) => {
-  const [dishId, setDishId] = useState('testid')
+  const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
 
   useEffect(() => {
@@ -23,7 +16,6 @@ const DishDetail = ({ match }) => {
       .firestore()
       .collection('dishes')
       .doc(`${match.params.dishId}`)
-      // .doc(`${dishId}`)
       .get()
       .then(doc => {
         setSingleDish(doc.data())
@@ -32,6 +24,15 @@ const DishDetail = ({ match }) => {
         console.log('Error getting documents: ', error)
       })
   }, [])
+
+  function renderIngredients() {
+    const ings = singleDish?.ingredients
+    if (ings) {
+      return ings.map((singleIngredient, index) => {
+        return <li key={index}>{singleIngredient}</li>
+      })
+    }
+  }
 
   return (
     <PageLayout title={singleDish.originalDishTitle}>
@@ -49,22 +50,16 @@ const DishDetail = ({ match }) => {
         <IntoleranceHeadlineStyled>Intoleranzen</IntoleranceHeadlineStyled>
         <Intolerances dish={singleDish}></Intolerances>
         <IngredientsHeadlineStyled>Übliche Zutaten</IngredientsHeadlineStyled>
-
-        {/* <IngredientsStyled> */}
-        {/* {singleDish.ingredients.map(ingredient => (
-            <IngredientStyled key={ingredient.id}>
-              {ingredient}
-            </IngredientStyled>
-          ))} */}
-        {/* {singleDish ? renderIngredients() : ''} */}
-        {/* </IngredientsStyled> */}
+        <IngredientsStyled>{renderIngredients()} </IngredientsStyled>
       </DetailPageStyled>
     </PageLayout>
   )
 }
 
-const DetailPageStyled = styled.section``
-
+const DetailPageStyled = styled.section`
+  margin: 20px 8px;
+  padding: 4px;
+`
 const DetailTranslatedTitleStyled = styled.h2`
   color: #164c1a;
   font-size: 24px;
@@ -78,18 +73,9 @@ const IngredientsHeadlineStyled = styled.h3`
   font-size: 20px;
   margin: 32px 0 12px;
 `
-
-const IngredientsStyled = styled.ul``
-
-const IngredientStyled = styled.li``
-
-const DetailDishStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 20px 8px;
-  padding: 6px;
+const IngredientsStyled = styled.ul`
+  padding-left: 24px;
 `
-
 const ImagePreferenceStyled = styled.div`
   display: flex;
   position: relative;

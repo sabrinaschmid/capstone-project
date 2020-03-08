@@ -44,13 +44,12 @@ const DishListHeadlineStyled = styled.h2`
   padding: 12px;
   margin-bottom: 0;
 `
-
 const DishListStyled = styled.section``
 
 const DishStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px 8px;
+  margin: 20px 6px;
   padding: 12px;
   border: #ffdf9f 1px solid;
   border-radius: 10px;
