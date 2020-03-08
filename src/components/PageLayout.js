@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import logo from '../icons/logo.png'
 
 export default function PageLayout({ title, children }) {
   return (
     <PageStyled>
-      <Header>{title}</Header>
+      <Header>
+        <LogoStyled src={logo} alt="" />
+        {title}
+      </Header>
       {children}
     </PageStyled>
   )
@@ -22,6 +26,10 @@ const Header = styled.header`
   align-items: center;
   background: #bbc0b6;
   color: #164c1a;
-  font-size: 26px;
+  font-size: 6vw;
   font-family: 'Poppins';
+`
+const LogoStyled = styled.img`
+  height: 36px;
+  padding-right: 12px;
 `
