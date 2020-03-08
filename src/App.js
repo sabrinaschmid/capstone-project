@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DishDetail from './components/DishDetail'
 import HomePage from './components/HomePage'
 import firebase from 'firebase'
+import PageLayout from './components/PageLayout'
 
 function useDishes() {
   const [dishes, setDishes] = useState([])
@@ -35,8 +36,8 @@ function App() {
         <Route exact path="/">
           <HomePage dishesState={dishes} />
         </Route>
-        <Route path="/dish/:id">
-          <DishDetail dishesState={dishes} />
+        <Route path="/dish/:dishId" component={DishDetail}>
+          {/* <DishDetail /> */}
         </Route>
       </Switch>
       {/* </AppGrid> */}
