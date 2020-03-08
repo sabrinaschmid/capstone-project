@@ -26,7 +26,7 @@ const Header = styled.header`
   align-items: center;
   background: #bbc0b6;
   color: #164c1a;
-  font-size: 26px;
+  font-size: 6vw;
   font-family: 'Poppins';
 `
 const LogoStyled = styled.img`
