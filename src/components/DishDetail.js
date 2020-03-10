@@ -6,6 +6,34 @@ import Intolerances from './Intolerances'
 import firebase from 'firebase'
 
 const DishDetail = ({ match }) => {
+  // var pathReference = storage.ref('images/melanzane_antipasti_2.jpg')
+  // var gsReference = storage.refFromURL(
+  //   'gs://bucket/images/melanzane_antipasti_2.jpg'
+  // )
+
+  // pathReference
+  //   .child('images/melanzane_antipasti_2.jpg')
+  //   .getDownloadURL()
+  //   .then(function(url) {
+  //     // `url` is the download URL for 'images/stars.jpg'
+
+  //     // This can be downloaded directly:
+  //     var xhr = new XMLHttpRequest()
+  //     xhr.responseType = 'blob'
+  //     xhr.onload = function(event) {
+  //       var blob = xhr.response
+  //     }
+  //     xhr.open('GET', url)
+  //     xhr.send()
+
+  //     // Or inserted into an <img> element:
+  //     var img = document.getElementById('melanzane')
+  //     img.src = url
+  //   })
+  //   .catch(function(error) {
+  //     // Handle any errors
+  //   })
+
   const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
 
@@ -18,7 +46,17 @@ const DishDetail = ({ match }) => {
       .doc(`${match.params.dishId}`)
       .get()
       .then(doc => {
-        setSingleDish(doc.data())
+        var storage = firebase.storage()
+        var storageRef = storage.ref()
+        var data = doc.data()
+
+        storageRef
+          .child('images/melanzane_antipasti_2.jpg')
+          .getDownloadURL()
+          .then(url => {
+            data.imagePath = url
+            setSingleDish(data)
+          })
       })
       .catch(function(error) {
         console.log('Error getting documents: ', error)
@@ -41,10 +79,7 @@ const DishDetail = ({ match }) => {
           {singleDish.translatedDishTitle}
         </DetailTranslatedTitleStyled>
         <ImagePreferenceStyled>
-          <ImageStyled
-            src="https://source.unsplash.com/random/400x225"
-            alt=""
-          />
+          <ImageStyled src={singleDish.imagePath} alt="" />
           <EatingPreference dish={singleDish} />
         </ImagePreferenceStyled>
         <IntoleranceHeadlineStyled>Intoleranzen</IntoleranceHeadlineStyled>
