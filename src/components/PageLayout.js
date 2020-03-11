@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import logo from '../icons/logo.png'
+import logo from '../icons/logo.svg'
 
 export default function PageLayout({ title, children }) {
   return (

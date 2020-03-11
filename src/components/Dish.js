@@ -1,5 +1,4 @@
 import React from 'react'
-import firebase from '../firebase'
 import styled from 'styled-components/macro'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
