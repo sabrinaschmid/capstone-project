@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import apple from '../icons/apple.svg'
@@ -46,6 +47,12 @@ const Intolerances = ({ dish }) => {
       </IntolerancesStyled>
     </>
   )
+}
+
+Intolerances.propTypes = {
+  lactose: PropTypes.bool.isRequired,
+  fructose: PropTypes.string.isRequired,
+  histamine: PropTypes.bool.isRequired,
 }
 
 const IntolerancesStyled = styled.div`

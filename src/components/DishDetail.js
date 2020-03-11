@@ -4,6 +4,7 @@ import PageLayout from './PageLayout'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 import firebase from '../firebase'
+import PropTypes from 'prop-types'
 
 const DishDetail = ({ match }) => {
   const [dishId, setDishId] = useState('')
@@ -60,6 +61,13 @@ const DishDetail = ({ match }) => {
       </DetailPageStyled>
     </PageLayout>
   )
+}
+
+DishDetail.propTypes = {
+  originalDishTitle: PropTypes.string.isRequired,
+  translatedDishTitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string,
+  renderIngredients: PropTypes.func,
 }
 
 const DetailPageStyled = styled.section`

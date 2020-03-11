@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import carrot from '../icons/carrot.svg'
 import leaf from '../icons/leaf.svg'
+import PropTypes from 'prop-types'
 
 const EatingPreference = ({ dish }) => {
   return (
@@ -21,6 +22,11 @@ const EatingPreference = ({ dish }) => {
       )}
     </>
   )
+}
+
+EatingPreference.propTypes = {
+  vegan: PropTypes.bool,
+  vegetarian: PropTypes.bool,
 }
 
 const EatingPreferenceStyled = styled.div`
