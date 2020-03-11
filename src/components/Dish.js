@@ -1,10 +1,9 @@
 import React from 'react'
-import firebase from '../firebase'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import DishDetail from './DishDetail'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
-import { Link } from 'react-router-dom'
-import DishDetail from './DishDetail'
 
 export default function Dish({ dishesState }) {
   return (
@@ -20,10 +19,7 @@ export default function Dish({ dishesState }) {
                 {dish.originalDishTitle}
               </OriginalTitleStyled>
               <ImagePreferenceStyled>
-                <ImageStyled
-                  src="https://source.unsplash.com/random/400x225"
-                  alt=""
-                />
+                <ImageStyled src={dish.imagePath} alt="" />
                 <EatingPreference dish={dish} />
               </ImagePreferenceStyled>
               <TranslatedTitleStyled>

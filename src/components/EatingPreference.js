@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import carrot from '../icons/carrot.png'
-import leaf from '../icons/leaf.png'
+import carrot from '../icons/carrot.svg'
+import leaf from '../icons/leaf.svg'
 
 const EatingPreference = ({ dish }) => {
   return (

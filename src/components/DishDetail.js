@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import PageLayout from './PageLayout'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
-import firebase from 'firebase'
+import firebase from '../firebase'
 
 const DishDetail = ({ match }) => {
   const [dishId, setDishId] = useState('')
@@ -18,7 +18,16 @@ const DishDetail = ({ match }) => {
       .doc(`${match.params.dishId}`)
       .get()
       .then(doc => {
-        setSingleDish(doc.data())
+        const storage = firebase.storage()
+        const storageRef = storage.ref()
+        const data = doc.data()
+        storageRef
+          .child(data.imageString)
+          .getDownloadURL()
+          .then(url => {
+            data.imagePath = url
+            setSingleDish(data)
+          })
       })
       .catch(function(error) {
         console.log('Error getting documents: ', error)
@@ -41,10 +50,7 @@ const DishDetail = ({ match }) => {
           {singleDish.translatedDishTitle}
         </DetailTranslatedTitleStyled>
         <ImagePreferenceStyled>
-          <ImageStyled
-            src="https://source.unsplash.com/random/400x225"
-            alt=""
-          />
+          <ImageStyled src={singleDish.imagePath} alt="" />
           <EatingPreference dish={singleDish} />
         </ImagePreferenceStyled>
         <IntoleranceHeadlineStyled>Intoleranzen</IntoleranceHeadlineStyled>

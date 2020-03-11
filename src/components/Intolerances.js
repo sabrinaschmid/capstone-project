@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import milk from '../icons/milk.png'
-import apple from '../icons/apple.png'
-import wine from '../icons/wine.png'
+import milk from '../icons/milk.svg'
+import apple from '../icons/apple.svg'
+import wine from '../icons/wine.svg'
 
 const Intolerances = ({ dish }) => {
   return (
