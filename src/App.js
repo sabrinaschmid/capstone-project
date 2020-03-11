@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import firebase from 'firebase'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DishDetail from './components/DishDetail'
 import HomePage from './components/HomePage'
-import firebase from 'firebase'
 
 function useDishes() {
   const [dishes, setDishes] = useState([])
@@ -21,7 +21,7 @@ function useDishes() {
           const newDish = snapshot.docs.map((doc, index) => ({
             id: doc.id,
             ...doc.data(),
-            getDownloadURLs: downloadURLs[index],
+            imagePath: downloadURLs[index],
           }))
           setDishes(newDish)
         })
