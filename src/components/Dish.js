@@ -1,46 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import DishDetail from './DishDetail'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 
-export default function Dish({ dishesState }) {
+export default function Dish({ dishesState, dish }) {
   return (
-    <>
-      <DishListHeadlineStyled>
-        Alle italienischen Gerichte
-      </DishListHeadlineStyled>
-      <DishListStyled>
-        {dishesState.map(dish => (
-          <Link to={`/dish/${dish.id}`} children={<DishDetail />}>
-            <DishStyled key={dish.id}>
-              <OriginalTitleStyled>
-                {dish.originalDishTitle}
-              </OriginalTitleStyled>
-              <ImagePreferenceStyled>
-                <ImageStyled src={dish.imagePath} alt="" />
-                <EatingPreference dish={dish} />
-              </ImagePreferenceStyled>
-              <TranslatedTitleStyled>
-                {dish.translatedDishTitle}
-              </TranslatedTitleStyled>
-              <Intolerances dish={dish}></Intolerances>
-            </DishStyled>
-          </Link>
-        ))}
-      </DishListStyled>
-    </>
+    <DishStyled key={dish.id}>
+      <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
+      <ImagePreferenceStyled>
+        <ImageStyled src={dish.imagePath} alt="" />
+        <EatingPreference dish={dish} />
+      </ImagePreferenceStyled>
+      <TranslatedTitleStyled>{dish.translatedDishTitle}</TranslatedTitleStyled>
+      <Intolerances dish={dish}></Intolerances>
+    </DishStyled>
   )
 }
-
-const DishListHeadlineStyled = styled.h2`
-  font-size: 26px;
-  font-weight: bold;
-  padding: 12px;
-  margin-bottom: 0;
-`
-const DishListStyled = styled.section``
 
 const DishStyled = styled.div`
   display: flex;

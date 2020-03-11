@@ -1,11 +1,11 @@
 import React from 'react'
 import PageLayout from './PageLayout'
-import Dish from './Dish'
+import DishList from './DishList'
 
-export default function HomePage({ dish, dishesState }) {
+export default function HomePage({ dishesState }) {
   return (
     <PageLayout title="TastyTravel">
-      <Dish dishesState={dishesState} />
+      <DishList dishesState={dishesState} />
     </PageLayout>
   )
 }
