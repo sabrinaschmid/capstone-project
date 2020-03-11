@@ -4,6 +4,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DishDetail from './components/DishDetail'
 import HomePage from './components/HomePage'
 
+export default function App() {
+  const dishes = useDishes()
+
+  return (
+    <Router>
+      {/* <AppGrid> */}
+      <Switch>
+        <Route exact path="/">
+          <HomePage dishesState={dishes} />
+        </Route>
+        <Route path="/dish/:dishId" component={DishDetail}></Route>
+      </Switch>
+      {/* </AppGrid> */}
+    </Router>
+  )
+}
+
 function useDishes() {
   const [dishes, setDishes] = useState([])
 
@@ -31,23 +48,6 @@ function useDishes() {
   return dishes
 }
 
-function App() {
-  const dishes = useDishes()
-
-  return (
-    <Router>
-      {/* <AppGrid> */}
-      <Switch>
-        <Route exact path="/">
-          <HomePage dishesState={dishes} />
-        </Route>
-        <Route path="/dish/:dishId" component={DishDetail}></Route>
-      </Switch>
-      {/* </AppGrid> */}
-    </Router>
-  )
-}
-
 // const AppGrid = styled.div`
 //   display: grid;
 //   grid-template-rows: auto 48px;
@@ -58,5 +58,3 @@ function App() {
 //   bottom: 0;
 //   height: 100%;
 // `
-
-export default App
