@@ -19,10 +19,7 @@ export default function Dish({ dishesState }) {
                 {dish.originalDishTitle}
               </OriginalTitleStyled>
               <ImagePreferenceStyled>
-                <ImageStyled
-                  src="https://source.unsplash.com/random/400x225"
-                  alt=""
-                />
+                <ImageStyled src={dish.getDownloadURLs} alt="" />
                 <EatingPreference dish={dish} />
               </ImagePreferenceStyled>
               <TranslatedTitleStyled>

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-// import styled from 'styled-components/macro'
 import DishDetail from './components/DishDetail'
 import HomePage from './components/HomePage'
 import firebase from 'firebase'
-import PageLayout from './components/PageLayout'
 
 function useDishes() {
   const [dishes, setDishes] = useState([])
@@ -14,12 +12,19 @@ function useDishes() {
       .firestore()
       .collection('dishes')
       .onSnapshot(snapshot => {
-        const newDish = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-
-        setDishes(newDish)
+        const storage = firebase.storage()
+        const storageRef = storage.ref()
+        const promises = snapshot.docs.map(doc =>
+          storageRef.child(doc.data().imageString).getDownloadURL()
+        )
+        Promise.all(promises).then(downloadURLs => {
+          const newDish = snapshot.docs.map((doc, index) => ({
+            id: doc.id,
+            ...doc.data(),
+            getDownloadURLs: downloadURLs[index],
+          }))
+          setDishes(newDish)
+        })
       })
   }, [])
 
@@ -36,9 +41,7 @@ function App() {
         <Route exact path="/">
           <HomePage dishesState={dishes} />
         </Route>
-        <Route path="/dish/:dishId" component={DishDetail}>
-          {/* <DishDetail /> */}
-        </Route>
+        <Route path="/dish/:dishId" component={DishDetail}></Route>
       </Switch>
       {/* </AppGrid> */}
     </Router>
