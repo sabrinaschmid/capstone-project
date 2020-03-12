@@ -6,6 +6,13 @@ import milk from '../icons/milk.svg'
 import wine from '../icons/wine.svg'
 
 const Intolerances = ({ dish }) => {
+  Intolerances.propTypes = {
+    dish: PropTypes.object,
+    lactose: PropTypes.bool,
+    fructose: PropTypes.string,
+    histamine: PropTypes.bool,
+  }
+
   return (
     <>
       <IntolerancesStyled>
@@ -47,12 +54,6 @@ const Intolerances = ({ dish }) => {
       </IntolerancesStyled>
     </>
   )
-}
-
-Intolerances.propTypes = {
-  lactose: PropTypes.bool.isRequired,
-  fructose: PropTypes.string.isRequired,
-  histamine: PropTypes.bool.isRequired,
 }
 
 const IntolerancesStyled = styled.div`

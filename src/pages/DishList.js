@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import Dish from '../components/Dish'
-import styled from 'styled-components/macro'
-import DishDetail from '../components/DishDetail'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
+import Dish from '../components/Dish'
+import DishDetail from '../components/DishDetail'
 
 export default function DishList({ dishesState }) {
+  DishList.propTypes = {
+    dishesState: PropTypes.array,
+  }
   return (
     <>
       <DishListHeadlineStyled>
@@ -12,7 +16,7 @@ export default function DishList({ dishesState }) {
       </DishListHeadlineStyled>
       <DishListStyled>
         {dishesState.map(dish => (
-          <Link to={`/dish/${dish.id}`} children={<DishDetail />}>
+          <Link to={`/dish/${dish.id}`} children={<DishDetail />} key={dish.id}>
             <Dish
               dishesState={dishesState}
               dish={dish}

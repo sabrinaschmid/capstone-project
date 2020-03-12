@@ -1,10 +1,17 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
-import PropTypes from 'prop-types'
 
-export default function Dish({ dishesState, dish }) {
+export default function Dish({ dish }) {
+  Dish.propTypes = {
+    dish: PropTypes.object,
+    originalDishTitle: PropTypes.string,
+    imagePath: PropTypes.string,
+    translatedDishTitle: PropTypes.string,
+  }
+
   return (
     <DishStyled key={dish.id}>
       <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
@@ -16,12 +23,6 @@ export default function Dish({ dishesState, dish }) {
       <Intolerances dish={dish}></Intolerances>
     </DishStyled>
   )
-}
-
-Dish.propTypes = {
-  originalDishTitle: PropTypes.string.isRequired,
-  imagePath: PropTypes.string,
-  translatedDishTitle: PropTypes.string.isRequired,
 }
 
 const DishStyled = styled.div`

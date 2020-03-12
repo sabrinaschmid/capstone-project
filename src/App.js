@@ -2,7 +2,7 @@ import firebase from 'firebase'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DishDetail from './components/DishDetail'
-import HomePage from './components/HomePage'
+import HomePage from './pages/HomePage'
 
 export default function App() {
   const dishes = useDishes()
