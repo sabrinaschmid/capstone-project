@@ -1,11 +1,18 @@
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import PageLayout from './PageLayout'
+import firebase from '../firebase'
+import PageLayout from '../pages/PageLayout'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
-import firebase from '../firebase'
 
 const DishDetail = ({ match }) => {
+  DishDetail.propTypes = {
+    singleDish: PropTypes.object,
+    originalDishTitle: PropTypes.string,
+    translatedDishTitle: PropTypes.string,
+    ingredients: PropTypes.array,
+  }
   const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
 

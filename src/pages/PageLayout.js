@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import logo from '../icons/logo.svg'
 
 export default function PageLayout({ title, children }) {
+  PageLayout.propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.object,
+  }
   return (
     <PageStyled>
       <Header>
@@ -26,7 +31,7 @@ const Header = styled.header`
   align-items: center;
   background: #bbc0b6;
   color: #164c1a;
-  font-size: 6vw;
+  font-size: calc(10px + 2vmin);
   font-family: 'Poppins';
 `
 const LogoStyled = styled.img`
