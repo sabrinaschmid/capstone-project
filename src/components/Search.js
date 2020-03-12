@@ -13,14 +13,22 @@ export default function Search({ handleInput }) {
         Nach welchem Gericht suchst Du?
       </SearchHeadlineStyled>
       <SearchBoxStyled>
-        <LabelStyled htmlFor="dish">Name des Gerichts</LabelStyled>
+        <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
-          type="text"
-          name="dishsearch"
-          id="dishsearch"
-          placeholder="z.B. Spaghetti Aglio e Olio"
+          type="search"
+          name="search-dish"
+          id="search-dish"
+          placeholder="z.B. Pasta alla Norma"
         />
+        <LabelStyled htmlFor="search-country">Land</LabelStyled>
+        <SelectStyled name="search-country" id="search-country" disabled>
+          <OptionStyled>Italien *</OptionStyled>
+        </SelectStyled>
+        <NoteStyled>
+          * Aktuell steht nur Italien zur Auswahl. Bald folgen Gerichte aus
+          weiteren Ländern.
+        </NoteStyled>
         <SearchButtonStyled type="submit">
           <SearchIconStyled src={search} alt="" />
           Suchen
@@ -58,10 +66,39 @@ const InputStyled = styled.input`
   height: 40px;
   margin-bottom: 12px;
   box-sizing: border-box;
+  border: 0.7px solid #bbc0b6;
+  padding-left: 6px;
+  border-radius: 5px;
 `
+const SelectStyled = styled.select`
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline;
+  height: 40px;
+  /* margin-bottom: 12px; */
+  box-sizing: border-box;
+  border: 0.7px solid #bbc0b6;
+  width: 100%;
+  padding-left: 6px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #f404040;
+`
+
+const OptionStyled = styled.option``
+
+const NoteStyled = styled.p`
+  display: flex;
+  padding-left: 6px;
+  font-size: 12px;
+  font-style: italic;
+`
+
 const SearchIconStyled = styled.img`
-  height: 24px;
-  padding-right: 6px;
+  height: 22px;
+  padding-right: 12px;
 `
 const SearchButtonStyled = styled.button`
   display: flex;
@@ -69,12 +106,13 @@ const SearchButtonStyled = styled.button`
   align-self: center;
   cursor: pointer;
   padding: 10px 10px;
-  margin: 12px 12px 12px 0;
+  margin: 12px 12px 8px 0;
   width: 50vw;
   background: #ff7e43;
   border: #ff7e43 2px solid;
   color: #ffffff;
   border-radius: 5px;
+  font-size: 18px;
 `
 
 // button active

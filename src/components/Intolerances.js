@@ -18,7 +18,6 @@ export default function Intolerances({ dish }) {
       <IntolerancesStyled>
         {dish.lactose ? (
           <IntolerantStyled>
-            icon
             <LactoseIconStyled src={milk} alt="" />
             nicht laktosefrei
           </IntolerantStyled>
