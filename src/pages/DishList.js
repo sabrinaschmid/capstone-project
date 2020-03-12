@@ -17,12 +17,7 @@ export default function DishList({ dishesState }) {
       <DishListStyled>
         {dishesState.map(dish => (
           <Link to={`/dish/${dish.id}`} children={<DishDetail />} key={dish.id}>
-            <Dish
-              dishesState={dishesState}
-              dish={dish}
-              key={dish.id}
-              {...dish}
-            />
+            <Dish dish={dish} key={dish.id} {...dish} />
           </Link>
         ))}
       </DishListStyled>
@@ -33,7 +28,7 @@ export default function DishList({ dishesState }) {
 const DishListHeadlineStyled = styled.h2`
   font-size: 26px;
   font-weight: bold;
-  padding: 12px;
+  padding: 12px 10px 0;
   margin-bottom: 0;
 `
 const DishListStyled = styled.section``

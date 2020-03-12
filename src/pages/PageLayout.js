@@ -6,7 +6,7 @@ import logo from '../icons/logo.svg'
 export default function PageLayout({ title, children }) {
   PageLayout.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.object,
+    children: PropTypes.array,
   }
   return (
     <PageStyled>

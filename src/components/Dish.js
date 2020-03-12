@@ -28,7 +28,7 @@ export default function Dish({ dish }) {
 const DishStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px 6px;
+  margin: 12px 8px 20px;
   padding: 12px;
   border: #ffdf9f 1px solid;
   border-radius: 10px;

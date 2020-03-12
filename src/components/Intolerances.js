@@ -5,7 +5,7 @@ import apple from '../icons/apple.svg'
 import milk from '../icons/milk.svg'
 import wine from '../icons/wine.svg'
 
-const Intolerances = ({ dish }) => {
+export default function Intolerances({ dish }) {
   Intolerances.propTypes = {
     dish: PropTypes.object,
     lactose: PropTypes.bool,
@@ -18,6 +18,7 @@ const Intolerances = ({ dish }) => {
       <IntolerancesStyled>
         {dish.lactose ? (
           <IntolerantStyled>
+            icon
             <LactoseIconStyled src={milk} alt="" />
             nicht laktosefrei
           </IntolerantStyled>
@@ -94,5 +95,3 @@ const NotIntolerantStyled = styled.span`
   color: #ffffff;
   border-radius: 40px;
 `
-
-export default Intolerances

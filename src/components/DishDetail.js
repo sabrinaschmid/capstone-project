@@ -6,7 +6,7 @@ import PageLayout from '../pages/PageLayout'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 
-const DishDetail = ({ match }) => {
+export default function DishDetail({ match }) {
   DishDetail.propTypes = {
     singleDish: PropTypes.object,
     originalDishTitle: PropTypes.string,
@@ -98,5 +98,3 @@ const ImageStyled = styled.img`
   background: white;
   border-radius: 10px;
 `
-
-export default DishDetail

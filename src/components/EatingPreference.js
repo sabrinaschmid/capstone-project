@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import carrot from '../icons/carrot.svg'
 import leaf from '../icons/leaf.svg'
 
-const EatingPreference = ({ dish }) => {
+export default function EatingPreference({ dish }) {
   EatingPreference.propTypes = {
     vegan: PropTypes.bool,
     vegetarian: PropTypes.bool,
@@ -51,5 +51,3 @@ const VegetarianIconStyled = styled.img`
   height: 28px;
   padding-right: 4px;
 `
-
-export default EatingPreference
