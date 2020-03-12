@@ -6,7 +6,7 @@ import logo from '../icons/logo.svg'
 export default function PageLayout({ title, children }) {
   PageLayout.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.array,
+    children: PropTypes.object,
   }
   return (
     <PageStyled>
@@ -31,7 +31,7 @@ const Header = styled.header`
   align-items: center;
   background: #bbc0b6;
   color: #164c1a;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(14px + 2vmin);
   font-family: 'Poppins';
 `
 const LogoStyled = styled.img`

@@ -26,7 +26,7 @@ export default function DishList({ dishesState }) {
 }
 
 const DishListHeadlineStyled = styled.h2`
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   padding: 12px 10px 0;
   margin-bottom: 0;

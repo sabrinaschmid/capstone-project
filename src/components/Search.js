@@ -20,15 +20,13 @@ export default function Search({ handleInput }) {
           name="search-dish"
           id="search-dish"
           placeholder="z.B. Pasta alla Norma"
+          required
         />
         <LabelStyled htmlFor="search-country">Land</LabelStyled>
         <SelectStyled name="search-country" id="search-country" disabled>
           <OptionStyled>Italien *</OptionStyled>
         </SelectStyled>
-        <NoteStyled>
-          * Aktuell steht nur Italien zur Auswahl. Bald folgen Gerichte aus
-          weiteren Ländern.
-        </NoteStyled>
+        <NoteStyled>* Bald folgen Gerichte aus weiteren Ländern.</NoteStyled>
         <SearchButtonStyled type="submit">
           <SearchIconStyled src={search} alt="" />
           Suchen
@@ -41,30 +39,30 @@ export default function Search({ handleInput }) {
 const SearchStyled = styled.section``
 
 const SearchHeadlineStyled = styled.h2`
-  font-size: 26px;
-  font-weight: bold;
   padding: 12px 10px 0;
   margin-bottom: 0;
+  font-size: 22px;
 `
 
 const SearchBoxStyled = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 12px 8px 2px; /* Abstand der Box nach außen*/
+  margin: 12px 8px 2px;
   padding: 20px 12px 20px 12px;
-  border: #ffdf9f 1px solid;
+  /* border: #bbc0b6 1px solid; */
   border-radius: 10px;
-  background: #ffffff;
+  background: #bbc0b6;
+  box-shadow: 0 1px 3px #bbc0b6;
+  /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
 `
 const LabelStyled = styled.label`
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 `
 
 const InputStyled = styled.input`
-  display: inline;
   height: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   box-sizing: border-box;
   border: 0.7px solid #bbc0b6;
   padding-left: 6px;
@@ -75,24 +73,20 @@ const SelectStyled = styled.select`
   -webkit-appearance: none;
   appearance: none;
   border: none;
-  display: inline;
   height: 40px;
-  /* margin-bottom: 12px; */
   box-sizing: border-box;
   border: 0.7px solid #bbc0b6;
-  width: 100%;
   padding-left: 6px;
   font-size: 16px;
   border-radius: 5px;
-  color: #f404040;
+  background: #d9dbde;
 `
-
 const OptionStyled = styled.option``
 
 const NoteStyled = styled.p`
   display: flex;
   padding-left: 6px;
-  font-size: 12px;
+  font-size: 13px;
   font-style: italic;
 `
 
@@ -106,8 +100,9 @@ const SearchButtonStyled = styled.button`
   align-self: center;
   cursor: pointer;
   padding: 10px 10px;
-  margin: 12px 12px 8px 0;
+  margin: 12px 12px 4px 0;
   width: 50vw;
+  height: 48px;
   background: #ff7e43;
   border: #ff7e43 2px solid;
   color: #ffffff;
