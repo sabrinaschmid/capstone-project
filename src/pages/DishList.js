@@ -20,7 +20,7 @@ export default function DishList({ dishes, searchDish }) {
   return (
     <>
       <DishListHeadlineStyled>
-        Alle italienischen Gerichte
+        {filteredDishes ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </DishListHeadlineStyled>
       <DishListStyled>
         {filteredDishes.map(dish => (
@@ -36,7 +36,7 @@ export default function DishList({ dishes, searchDish }) {
 const DishListHeadlineStyled = styled.h2`
   font-size: 22px;
   font-weight: bold;
-  padding: 12px 10px 0;
+  padding: 8px 10px 0;
   margin-bottom: 0;
 `
 const DishListStyled = styled.section``

@@ -24,6 +24,7 @@ export default function App() {
       {/* </AppGrid> */}
     </Router>
   )
+
   function handleInput(event) {
     return setSearchDish(event.target.value)
   }

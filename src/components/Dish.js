@@ -28,12 +28,12 @@ export default function Dish({ dish }) {
 const DishStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 12px 8px 20px;
-  padding: 4px 12px 20px;
+  margin: 8px 8px 20px;
+  padding: 2px 12px 20px;
   /* border: #ffdf9f 1px solid; */
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0 1px 2px #ffdf9f;
+  box-shadow: 0 1px 2px #ffa743;
 `
 const OriginalTitleStyled = styled.h3`
   display: flex;

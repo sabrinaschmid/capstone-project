@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import search from '../icons/search.svg'
+import discard from '../icons/discard.svg'
+import Dish from './Dish'
 
-export default function Search({ handleInput }) {
+export default function Search({ handleInput, filteredDishes }) {
   Search.propTypes = {
     handleInput: PropTypes.func,
+    filteresDishes: PropTypes.array,
   }
+
+  function handleDefault(event) {
+    return event.preventDefault()
+    {
+      /* // filteredDishes.length > 0 || Enter ? Anker :  zu filteredDish mit Index 0 springen */
+    }
+  }
+
   return (
     <SearchStyled>
-      <SearchHeadlineStyled>
-        Nach welchem Gericht suchst Du?
-      </SearchHeadlineStyled>
-      <SearchBoxStyled>
+      <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
+      <SearchFormStyled onSubmit={handleDefault}>
         <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
@@ -27,11 +35,11 @@ export default function Search({ handleInput }) {
           <OptionStyled>Italien *</OptionStyled>
         </SelectStyled>
         <NoteStyled>* Bald folgen Gerichte aus weiteren Ländern.</NoteStyled>
-        <SearchButtonStyled type="submit">
-          <SearchIconStyled src={search} alt="" />
-          Suchen
+        <SearchButtonStyled type="reset">
+          <SearchIconStyled src={discard} alt="" />
+          Suche zurücksetzen
         </SearchButtonStyled>
-      </SearchBoxStyled>
+      </SearchFormStyled>
     </SearchStyled>
   )
 }
@@ -39,21 +47,19 @@ export default function Search({ handleInput }) {
 const SearchStyled = styled.section``
 
 const SearchHeadlineStyled = styled.h2`
-  padding: 12px 10px 0;
   margin-bottom: 0;
+  padding: 4px 10px 0;
   font-size: 22px;
 `
 
-const SearchBoxStyled = styled.form`
+const SearchFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 12px 8px 2px;
-  padding: 20px 12px 20px 12px;
-  /* border: #bbc0b6 1px solid; */
-  border-radius: 10px;
+  margin: 8px 8px 2px;
+  padding: 18px 12px 20px 12px;
   background: #bbc0b6;
+  border-radius: 10px;
   box-shadow: 0 1px 3px #bbc0b6;
-  /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
 `
 const LabelStyled = styled.label`
   display: inline-block;
@@ -61,53 +67,53 @@ const LabelStyled = styled.label`
 `
 
 const InputStyled = styled.input`
-  height: 40px;
-  margin-bottom: 16px;
   box-sizing: border-box;
-  border: 0.7px solid #bbc0b6;
+  height: 40px;
+  margin-bottom: 12px;
   padding-left: 6px;
   border-radius: 5px;
+  border: 0.7px solid #bbc0b6;
 `
 const SelectStyled = styled.select`
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  border: none;
-  height: 40px;
   box-sizing: border-box;
-  border: 0.7px solid #bbc0b6;
-  padding-left: 6px;
+  height: 40px;
   font-size: 16px;
-  border-radius: 5px;
+  padding-left: 6px;
   background: #d9dbde;
+  border-radius: 5px;
+  border: 0.7px solid #bbc0b6;
 `
 const OptionStyled = styled.option``
 
 const NoteStyled = styled.p`
   display: flex;
-  padding-left: 6px;
+  margin-top: 2px;
+  padding-top: 0;
+  padding-left: 2px;
   font-size: 13px;
   font-style: italic;
 `
-
 const SearchIconStyled = styled.img`
-  height: 22px;
+  height: 18px;
   padding-right: 12px;
 `
 const SearchButtonStyled = styled.button`
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-self: center;
-  cursor: pointer;
+  height: 44px;
+  width: 60vw;
+  margin: 0 12px 2px 0;
   padding: 10px 10px;
-  margin: 12px 12px 4px 0;
-  width: 50vw;
-  height: 48px;
-  background: #ff7e43;
-  border: #ff7e43 2px solid;
-  color: #ffffff;
+  background: #ffffff;
+  font-size: 16px;
+  color: #ff7e43;
   border-radius: 5px;
-  font-size: 18px;
+  border: #ff7e43 2px solid;
 `
 
 // button active
