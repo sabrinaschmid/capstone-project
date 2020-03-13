@@ -4,14 +4,16 @@ import DishList from './DishList'
 import PageLayout from './PageLayout'
 import Search from '../components/Search'
 
-export default function HomePage({ handleInput, dishesState }) {
+export default function HomePage({ handleInput, dishes, searchDish }) {
   HomePage.propTypes = {
-    dishesState: PropTypes.array,
+    handleInput: PropTypes.func,
+    dishes: PropTypes.array,
+    searchDish: PropTypes.string,
   }
   return (
     <PageLayout title="TastyTravel">
       <Search handleInput={handleInput} />
-      <DishList dishesState={dishesState} />
+      <DishList dishes={dishes} searchDish={searchDish} />
     </PageLayout>
   )
 }

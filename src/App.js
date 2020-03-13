@@ -8,26 +8,24 @@ export default function App() {
   const dishes = useDishes()
   const [searchDish, setSearchDish] = useState('')
 
-  // let filteredDishes = dishes.filter(dish => {
-  //   return dish.title.toLowerCase().includes(setSearchDish.toLowerCase())
-  // })
-
   return (
     <Router>
       {/* <AppGrid> */}
       <Switch>
         <Route exact path="/">
-          <HomePage dishesState={dishes} handleInput={handleInput} />
+          <HomePage
+            dishes={dishes}
+            handleInput={handleInput}
+            searchDish={searchDish}
+          />
         </Route>
         <Route path="/dish/:dishId" component={DishDetail}></Route>
       </Switch>
       {/* </AppGrid> */}
     </Router>
   )
-
   function handleInput(event) {
-    console.log(event.target.value)
-    setSearchDish({ searchDish: event.target.value })
+    return setSearchDish(event.target.value)
   }
 }
 
