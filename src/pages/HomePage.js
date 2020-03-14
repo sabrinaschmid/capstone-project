@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
+import Search from '../components/Search'
 import DishList from './DishList'
 import PageLayout from './PageLayout'
-import Search from '../components/Search'
 
-export default function HomePage({ handleInput, dishes, searchDish }) {
+export default function HomePage({ dishes }) {
   HomePage.propTypes = {
-    handleInput: PropTypes.func,
     dishes: PropTypes.array,
-    searchDish: PropTypes.string,
   }
+
+  const [searchDish, setSearchDish] = useState('')
+
+  function handleInput(event) {
+    return setSearchDish(event.target.value)
+  }
+
   return (
     <PageLayout title="TastyTravel">
       <Search handleInput={handleInput} />

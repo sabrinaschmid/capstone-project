@@ -20,23 +20,42 @@ export default function DishList({ dishes, searchDish }) {
   return (
     <>
       <DishListHeadlineStyled>
-        {filteredDishes ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
+        {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </DishListHeadlineStyled>
-      <DishListStyled>
-        {filteredDishes.map(dish => (
-          <Link to={`/dish/${dish.id}`} children={<DishDetail />} key={dish.id}>
-            <Dish dish={dish} key={dish.id} {...dish} />
-          </Link>
-        ))}
-      </DishListStyled>
+      <SearchResultStyled>
+        {filteredDishes.length > 0 ? (
+          <DishListStyled>
+            {filteredDishes.map(dish => (
+              <Link
+                to={`/dish/${dish.id}`}
+                children={<DishDetail />}
+                key={dish.id}
+              >
+                <Dish dish={dish} key={dish.id} {...dish} />
+              </Link>
+            ))}
+          </DishListStyled>
+        ) : (
+          <NoResultsStyled>
+            Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
+          </NoResultsStyled>
+        )}
+      </SearchResultStyled>
     </>
   )
 }
 
 const DishListHeadlineStyled = styled.h2`
   font-size: 22px;
-  font-weight: bold;
   padding: 8px 10px 0;
   margin-bottom: 0;
 `
+const SearchResultStyled = styled.div``
+
+const NoResultsStyled = styled.h3`
+  font-size: 20px;
+  padding: 8px 10px 0;
+  margin-bottom: 0;
+`
+
 const DishListStyled = styled.section``

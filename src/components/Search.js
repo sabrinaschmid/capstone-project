@@ -2,19 +2,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import discard from '../icons/discard.svg'
-import Dish from './Dish'
 
-export default function Search({ handleInput, filteredDishes }) {
+export default function Search({ handleInput }) {
   Search.propTypes = {
     handleInput: PropTypes.func,
-    filteresDishes: PropTypes.array,
   }
 
   function handleDefault(event) {
     return event.preventDefault()
-    {
-      /* // filteredDishes.length > 0 || Enter ? Anker :  zu filteredDish mit Index 0 springen */
-    }
   }
 
   return (

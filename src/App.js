@@ -6,28 +6,19 @@ import HomePage from './pages/HomePage'
 
 export default function App() {
   const dishes = useDishes()
-  const [searchDish, setSearchDish] = useState('')
 
   return (
     <Router>
       {/* <AppGrid> */}
       <Switch>
         <Route exact path="/">
-          <HomePage
-            dishes={dishes}
-            handleInput={handleInput}
-            searchDish={searchDish}
-          />
+          <HomePage dishes={dishes} />
         </Route>
         <Route path="/dish/:dishId" component={DishDetail}></Route>
       </Switch>
       {/* </AppGrid> */}
     </Router>
   )
-
-  function handleInput(event) {
-    return setSearchDish(event.target.value)
-  }
 }
 
 function useDishes() {
