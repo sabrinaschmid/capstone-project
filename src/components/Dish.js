@@ -28,15 +28,16 @@ export default function Dish({ dish }) {
 const DishStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px 6px;
-  padding: 12px;
-  border: #ffdf9f 1px solid;
+  margin: 8px 8px 20px;
+  padding: 2px 12px 20px;
+  /* border: #ffdf9f 1px solid; */
   border-radius: 10px;
   background: #ffffff;
+  box-shadow: 0 1px 2px #ffa743;
 `
 const OriginalTitleStyled = styled.h3`
   display: flex;
-  font-size: 24px;
+  font-size: 20px;
   color: #164c1a;
 `
 
@@ -53,4 +54,5 @@ const TranslatedTitleStyled = styled.h4`
   display: flex;
   font-size: 18px;
   font-style: italic;
+  margin: 14px 0;
 `

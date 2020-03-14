@@ -6,7 +6,7 @@ import PageLayout from '../pages/PageLayout'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 
-const DishDetail = ({ match }) => {
+export default function DishDetail({ match }) {
   DishDetail.propTypes = {
     singleDish: PropTypes.object,
     originalDishTitle: PropTypes.string,
@@ -74,20 +74,9 @@ const DetailPageStyled = styled.section`
   padding: 4px;
 `
 const DetailTranslatedTitleStyled = styled.h2`
-  color: #164c1a;
-  font-size: 24px;
+  font-size: 22px;
   font-style: italic;
-`
-const IntoleranceHeadlineStyled = styled.h3`
-  font-size: 20px;
-  margin: 32px 0 12px;
-`
-const IngredientsHeadlineStyled = styled.h3`
-  font-size: 20px;
-  margin: 32px 0 12px;
-`
-const IngredientsStyled = styled.ul`
-  padding-left: 24px;
+  margin-top: 2px;
 `
 const ImagePreferenceStyled = styled.div`
   display: flex;
@@ -98,5 +87,15 @@ const ImageStyled = styled.img`
   background: white;
   border-radius: 10px;
 `
-
-export default DishDetail
+const IntoleranceHeadlineStyled = styled.h3`
+  font-size: 20px;
+  margin: 24px 0 18px;
+`
+const IngredientsHeadlineStyled = styled.h3`
+  font-size: 20px;
+  margin: 24px 0 0;
+`
+const IngredientsStyled = styled.ul`
+  padding-left: 24px;
+  line-height: 1.8em;
+`

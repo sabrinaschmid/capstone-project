@@ -5,7 +5,7 @@ import apple from '../icons/apple.svg'
 import milk from '../icons/milk.svg'
 import wine from '../icons/wine.svg'
 
-const Intolerances = ({ dish }) => {
+export default function Intolerances({ dish }) {
   Intolerances.propTypes = {
     dish: PropTypes.object,
     lactose: PropTypes.bool,
@@ -78,8 +78,8 @@ const HistamineIconStyled = styled.img`
 
 const IntolerantStyled = styled.span`
   display: flex;
-  padding: 10px 10px;
-  margin: 0 4px 6px 0;
+  padding: 10px;
+  margin: 0 4px 8px 0;
   border: #ffa743 2px solid;
   background: #ffa743;
   color: #ffffff;
@@ -87,12 +87,10 @@ const IntolerantStyled = styled.span`
 `
 const NotIntolerantStyled = styled.span`
   display: flex;
-  padding: 10px 10px;
-  margin: 0 6px 6px 0;
+  padding: 10px;
+  margin: 0 6px 8px 0;
   border: #164c1a 2px solid;
   background: #164c1a;
   color: #ffffff;
   border-radius: 40px;
 `
-
-export default Intolerances

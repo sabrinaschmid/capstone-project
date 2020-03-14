@@ -12,7 +12,7 @@ export default function App() {
       {/* <AppGrid> */}
       <Switch>
         <Route exact path="/">
-          <HomePage dishesState={dishes} />
+          <HomePage dishes={dishes} />
         </Route>
         <Route path="/dish/:dishId" component={DishDetail}></Route>
       </Switch>

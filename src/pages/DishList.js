@@ -1,39 +1,61 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Dish from '../components/Dish'
 import DishDetail from '../components/DishDetail'
 
-export default function DishList({ dishesState }) {
+export default function DishList({ dishes, searchDish }) {
   DishList.propTypes = {
-    dishesState: PropTypes.array,
+    dishes: PropTypes.array,
+    searchDish: PropTypes.string,
   }
+
+  let filteredDishes = dishes.filter(dish => {
+    return dish.originalDishTitle
+      .toLowerCase()
+      .includes(searchDish.toLowerCase())
+  })
+
   return (
     <>
-      <DishListHeadlineStyled>
-        Alle italienischen Gerichte
+      <DishListHeadlineStyled id="headline">
+        {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </DishListHeadlineStyled>
-      <DishListStyled>
-        {dishesState.map(dish => (
-          <Link to={`/dish/${dish.id}`} children={<DishDetail />} key={dish.id}>
-            <Dish
-              dishesState={dishesState}
-              dish={dish}
-              key={dish.id}
-              {...dish}
-            />
-          </Link>
-        ))}
-      </DishListStyled>
+      <SearchResultStyled>
+        {filteredDishes.length > 0 ? (
+          <DishListStyled>
+            {filteredDishes.map(dish => (
+              <Link
+                to={`/dish/${dish.id}`}
+                children={<DishDetail />}
+                key={dish.id}
+              >
+                <Dish dish={dish} key={dish.id} {...dish} />
+              </Link>
+            ))}
+          </DishListStyled>
+        ) : (
+          <NoResultsStyled>
+            Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
+          </NoResultsStyled>
+        )}
+      </SearchResultStyled>
     </>
   )
 }
 
 const DishListHeadlineStyled = styled.h2`
-  font-size: 26px;
-  font-weight: bold;
-  padding: 12px;
+  font-size: 22px;
+  padding: 8px 10px 0;
   margin-bottom: 0;
 `
+const SearchResultStyled = styled.div``
+
+const NoResultsStyled = styled.h3`
+  font-size: 20px;
+  padding: 8px 10px 0;
+  margin-bottom: 0;
+`
+
 const DishListStyled = styled.section``
