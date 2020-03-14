@@ -5,12 +5,12 @@ import styled from 'styled-components/macro'
 import Dish from '../components/Dish'
 import DishDetail from '../components/DishDetail'
 
-export default function DishList({ dishes, searchDish }) {
-  DishList.propTypes = {
-    dishes: PropTypes.array,
-    searchDish: PropTypes.string,
-  }
+DishList.propTypes = {
+  dishes: PropTypes.array,
+  searchDish: PropTypes.string,
+}
 
+export default function DishList({ dishes, searchDish }) {
   let filteredDishes = dishes.filter(dish => {
     return dish.originalDishTitle
       .toLowerCase()

@@ -3,11 +3,11 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import discard from '../icons/discard.svg'
 
-export default function Search({ handleInput }) {
-  Search.propTypes = {
-    handleInput: PropTypes.func,
-  }
+Search.propTypes = {
+  handleInput: PropTypes.func,
+}
 
+export default function Search({ handleInput }) {
   function handleDefault(event) {
     return event.preventDefault()
   }

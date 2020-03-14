@@ -2,22 +2,28 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import firebase from '../firebase'
-import applecircle from '../icons/applecircle.svg'
-import milkcircle from '../icons/milkcircle.svg'
-import winecircle from '../icons/winecircle.svg'
+import orangeapple from '../icons/orangeapple.svg'
+import greenapple from '../icons/greenapple.svg'
+import orangemilk from '../icons/orangemilk.svg'
+import greenmilk from '../icons/greenmilk.svg'
+import orangewine from '../icons/orangewine.svg'
+import greenwine from '../icons/greenwine.svg'
 import PageLayout from '../pages/PageLayout'
 import EatingPreference from './EatingPreference'
 
+DishDetail.propTypes = {
+  singleDish: PropTypes.object,
+  originalDishTitle: PropTypes.string,
+  translatedDishTitle: PropTypes.string,
+  ingredients: PropTypes.array,
+}
+
 export default function DishDetail({ match }) {
-  DishDetail.propTypes = {
-    singleDish: PropTypes.object,
-    originalDishTitle: PropTypes.string,
-    translatedDishTitle: PropTypes.string,
-    ingredients: PropTypes.array,
-  }
   const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
-  const [toggleIngredients, setToggleIngredients] = useState(false)
+  const [toggleLactose, setToggleLactose] = useState(false)
+  const [toggleFructose, setToggleFructose] = useState(false)
+  const [toggleHistamine, setToggleHistamine] = useState(false)
 
   useEffect(() => {
     setDishId(match.params.dishId)
@@ -80,8 +86,16 @@ export default function DishDetail({ match }) {
     }
   }
 
-  function handleClick(event) {
-    return event.stopPropagation(), setToggleIngredients(!toggleIngredients)
+  function handleLactoseClick(event) {
+    return event.stopPropagation(), setToggleLactose(!toggleLactose)
+  }
+
+  function handleFructoseClick(event) {
+    return event.stopPropagation(), setToggleFructose(!toggleFructose)
+  }
+
+  function handleHistamineClick(event) {
+    return event.stopPropagation(), setToggleHistamine(!toggleHistamine)
   }
 
   return (
@@ -97,9 +111,13 @@ export default function DishDetail({ match }) {
 
         <IntoleranceHeadlineStyled>Intoleranzen</IntoleranceHeadlineStyled>
 
-        <IntoleranceBoxStyled onClick={handleClick}>
+        <IntoleranceBoxStyled onClick={handleLactoseClick}>
           <IntoleranceInfoStyled>
-            <IntoleranceIconStyled src={milkcircle} alt="" />
+            {singleDish.lactose ? (
+              <IntoleranceIconStyled src={orangemilk} alt="" />
+            ) : (
+              <IntoleranceIconStyled src={greenmilk} alt="" />
+            )}
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>LAKTOSE</IntoleranceNameStyled>
               <IntoleranceStyled>
@@ -118,16 +136,20 @@ export default function DishDetail({ match }) {
           <CriticalIngredientsLink>
             {singleDish.lactose ? 'Kritische Zutaten' : ''}
           </CriticalIngredientsLink>
-          {toggleIngredients && (
+          {toggleLactose && (
             <CriticalIngredients>
               {renderLactoseIngredients()}
             </CriticalIngredients>
           )}
         </IntoleranceBoxStyled>
 
-        <IntoleranceBoxStyled onClick={handleClick}>
+        <IntoleranceBoxStyled onClick={handleFructoseClick}>
           <IntoleranceInfoStyled>
-            <IntoleranceIconStyled src={applecircle} alt="" />
+            {singleDish.fructose == 'viel enthalten' ? (
+              <IntoleranceIconStyled src={orangeapple} alt="" />
+            ) : (
+              <IntoleranceIconStyled src={greenapple} alt="" />
+            )}
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>FRUKTOSE</IntoleranceNameStyled>
               <IntoleranceStyled>
@@ -144,20 +166,22 @@ export default function DishDetail({ match }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>
-            {singleDish.fructose == 'viel enthalten'
-              ? 'Kritische Zutaten einblenden'
-              : ''}
+            {singleDish.fructose == 'viel enthalten' ? 'Kritische Zutaten' : ''}
           </CriticalIngredientsLink>
-          {toggleIngredients && (
+          {toggleFructose && (
             <CriticalIngredients>
               {renderFructoseIngredients()}
             </CriticalIngredients>
           )}
         </IntoleranceBoxStyled>
 
-        <IntoleranceBoxStyled onClick={handleClick}>
+        <IntoleranceBoxStyled onClick={handleHistamineClick}>
           <IntoleranceInfoStyled>
-            <IntoleranceIconStyled src={winecircle} alt="" />
+            {singleDish.histamine ? (
+              <IntoleranceIconStyled src={orangewine} alt="" />
+            ) : (
+              <IntoleranceIconStyled src={greenwine} alt="" />
+            )}
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>HISTAMIN</IntoleranceNameStyled>
               <IntoleranceStyled>
@@ -176,7 +200,7 @@ export default function DishDetail({ match }) {
           <CriticalIngredientsLink>
             {singleDish.histamine ? 'Kritische Zutaten' : ''}
           </CriticalIngredientsLink>
-          {toggleIngredients && (
+          {toggleHistamine && (
             <CriticalIngredients>
               {renderHistamineIngredients()}
             </CriticalIngredients>
@@ -191,6 +215,7 @@ export default function DishDetail({ match }) {
 }
 
 const IntoleranceBoxStyled = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   margin: 8px 0 20px;
@@ -231,13 +256,14 @@ const NotIntolerantStyled = styled.p`
 const CriticalIngredientsLink = styled.p`
   position: relative;
   display: inline-block;
-  align-self: flex-end;
-  justify-self: flex-end;
+  /* align-self: flex-end; */
+  /* justify-self: flex-end; */
   text-decoration: underline;
 `
 
 const CriticalIngredients = styled.ul`
-  padding-left: 24px;
+  padding-left: 18px;
+  margin-top: 0;
   line-height: 1.8em;
 `
 
@@ -268,6 +294,6 @@ const IngredientsHeadlineStyled = styled.h3`
   margin: 24px 0 0;
 `
 const IngredientsStyled = styled.ul`
-  padding-left: 24px;
+  padding-left: 36px;
   line-height: 1.8em;
 `

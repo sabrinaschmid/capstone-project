@@ -4,11 +4,10 @@ import Search from '../components/Search'
 import DishList from './DishList'
 import PageLayout from './PageLayout'
 
+HomePage.propTypes = {
+  dishes: PropTypes.array,
+}
 export default function HomePage({ dishes }) {
-  HomePage.propTypes = {
-    dishes: PropTypes.array,
-  }
-
   const [searchDish, setSearchDish] = useState('')
 
   function handleInput(event) {
