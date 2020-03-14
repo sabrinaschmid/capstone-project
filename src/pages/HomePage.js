@@ -14,9 +14,13 @@ export default function HomePage({ dishes }) {
     return setSearchDish(event.target.value)
   }
 
+  function handleReset() {
+    return setSearchDish('')
+  }
+
   return (
     <PageLayout title="TastyTravel">
-      <Search handleInput={handleInput} />
+      <Search handleInput={handleInput} handleReset={handleReset} />
       <DishList dishes={dishes} searchDish={searchDish} />
     </PageLayout>
   )
