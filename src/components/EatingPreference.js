@@ -4,12 +4,12 @@ import styled from 'styled-components/macro'
 import carrot from '../icons/carrot.svg'
 import leaf from '../icons/leaf.svg'
 
-export default function EatingPreference({ dish }) {
-  EatingPreference.propTypes = {
-    vegan: PropTypes.bool,
-    vegetarian: PropTypes.bool,
-  }
+EatingPreference.propTypes = {
+  vegan: PropTypes.bool,
+  vegetarian: PropTypes.bool,
+}
 
+export default function EatingPreference({ dish }) {
   return (
     <>
       {dish.vegan ? (
@@ -29,7 +29,7 @@ export default function EatingPreference({ dish }) {
   )
 }
 
-const EatingPreferenceStyled = styled.div`
+const EatingPreferenceStyled = styled.span`
   display: flex;
   align-items: stretch;
   padding: 8px 10px;

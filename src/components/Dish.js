@@ -4,14 +4,14 @@ import styled from 'styled-components/macro'
 import EatingPreference from './EatingPreference'
 import Intolerances from './Intolerances'
 
-export default function Dish({ dish }) {
-  Dish.propTypes = {
-    dish: PropTypes.object,
-    originalDishTitle: PropTypes.string,
-    imagePath: PropTypes.string,
-    translatedDishTitle: PropTypes.string,
-  }
+Dish.propTypes = {
+  dish: PropTypes.object,
+  originalDishTitle: PropTypes.string,
+  imagePath: PropTypes.string,
+  translatedDishTitle: PropTypes.string,
+}
 
+export default function Dish({ dish }) {
   return (
     <DishStyled key={dish.id}>
       <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
@@ -30,7 +30,6 @@ const DishStyled = styled.div`
   flex-direction: column;
   margin: 8px 8px 20px;
   padding: 2px 12px 20px;
-  /* border: #ffdf9f 1px solid; */
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 1px 2px #ffa743;

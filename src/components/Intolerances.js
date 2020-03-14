@@ -5,14 +5,13 @@ import apple from '../icons/apple.svg'
 import milk from '../icons/milk.svg'
 import wine from '../icons/wine.svg'
 
+Intolerances.propTypes = {
+  dish: PropTypes.object,
+  lactose: PropTypes.bool,
+  fructose: PropTypes.string,
+  histamine: PropTypes.bool,
+}
 export default function Intolerances({ dish }) {
-  Intolerances.propTypes = {
-    dish: PropTypes.object,
-    lactose: PropTypes.bool,
-    fructose: PropTypes.string,
-    histamine: PropTypes.bool,
-  }
-
   return (
     <>
       <IntolerancesStyled>

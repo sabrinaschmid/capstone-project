@@ -3,10 +3,11 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import logo from '../icons/logo.svg'
 
+PageLayout.propTypes = {
+  title: PropTypes.string,
+}
+
 export default function PageLayout({ title, children }) {
-  PageLayout.propTypes = {
-    title: PropTypes.string,
-  }
   return (
     <PageStyled>
       <Header>

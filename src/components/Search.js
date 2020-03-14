@@ -3,11 +3,11 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import discard from '../icons/discard.svg'
 
-export default function Search({ handleInput }) {
-  Search.propTypes = {
-    handleInput: PropTypes.func,
-  }
+Search.propTypes = {
+  handleInput: PropTypes.func,
+}
 
+export default function Search({ handleInput, handleReset }) {
   function handleDefault(event) {
     return event.preventDefault()
   }
@@ -30,7 +30,7 @@ export default function Search({ handleInput }) {
           <OptionStyled>Italien *</OptionStyled>
         </SelectStyled>
         <NoteStyled>* Bald folgen Gerichte aus weiteren Ländern.</NoteStyled>
-        <SearchButtonStyled type="reset">
+        <SearchButtonStyled type="reset" onClick={handleReset}>
           <SearchIconStyled src={discard} alt="" />
           Suche zurücksetzen
         </SearchButtonStyled>
