@@ -54,7 +54,7 @@ const BackButtonStyled = styled.button`
   cursor: pointer;
   display: flex;
   height: 48px;
-  width: 48px;
+
   padding: 10px 0;
   background: #bbc0b6;
   border: none;
