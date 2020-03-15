@@ -145,7 +145,7 @@ export default function DishDetail({ match }) {
 
         <IntoleranceBoxStyled onClick={handleFructoseClick}>
           <IntoleranceInfoStyled>
-            {singleDish.fructose == 'viel enthalten' ? (
+            {singleDish.fructose === 'viel enthalten' ? (
               <IntoleranceIconStyled src={orangeapple} alt="" />
             ) : (
               <IntoleranceIconStyled src={greenapple} alt="" />
@@ -153,7 +153,7 @@ export default function DishDetail({ match }) {
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>FRUKTOSE</IntoleranceNameStyled>
               <IntoleranceStyled>
-                {singleDish.fructose == 'viel enthalten' ? (
+                {singleDish.fructose === 'viel enthalten' ? (
                   <IntolerantStyled>
                     Dieses Gericht enthält typischerweise Fruktose.
                   </IntolerantStyled>
@@ -166,7 +166,9 @@ export default function DishDetail({ match }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>
-            {singleDish.fructose == 'viel enthalten' ? 'Kritische Zutaten' : ''}
+            {singleDish.fructose === 'viel enthalten'
+              ? 'Kritische Zutaten'
+              : ''}
           </CriticalIngredientsLink>
           {toggleFructose && (
             <CriticalIngredients>
