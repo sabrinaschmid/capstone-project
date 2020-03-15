@@ -10,6 +10,13 @@ HomePage.propTypes = {
 export default function HomePage({ dishes }) {
   const [searchDish, setSearchDish] = useState('')
 
+  return (
+    <PageLayout title="TastyTravel">
+      <Search handleInput={handleInput} handleReset={handleReset} />
+      <DishList dishes={dishes} searchDish={searchDish} />
+    </PageLayout>
+  )
+
   function handleInput(event) {
     return setSearchDish(event.target.value)
   }
@@ -17,11 +24,4 @@ export default function HomePage({ dishes }) {
   function handleReset() {
     return setSearchDish('')
   }
-
-  return (
-    <PageLayout title="TastyTravel">
-      <Search handleInput={handleInput} handleReset={handleReset} />
-      <DishList dishes={dishes} searchDish={searchDish} />
-    </PageLayout>
-  )
 }
