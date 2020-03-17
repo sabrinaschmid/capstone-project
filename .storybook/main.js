@@ -1,5 +1,3 @@
-import { action } from '@storybook/addon-actions'
-
 module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
+import EatingPreference from '../components/EatingPreference'
+import IntoleranceIngredients from '../components/IntoleranceIngredients'
 import firebase from '../firebase'
-import AppGrid from '../pages/AppGrid'
-import EatingPreference from './EatingPreference'
-import IntoleranceIngredients from './IntoleranceIngredients'
+import AppGrid from './AppGrid'
 
 DishDetail.propTypes = {
   singleDish: PropTypes.object,
@@ -46,9 +46,7 @@ export default function DishDetail({ match }) {
   return (
     <AppGrid title={originalDishTitle}>
       <DetailPageStyled>
-        <DetailTranslatedTitleStyled>
-          {translatedDishTitle}
-        </DetailTranslatedTitleStyled>
+        <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
         <ImageWithPreferenceStyled>
           <ImageStyled src={imagePath} alt="" />
           <EatingPreference dish={singleDish} />
@@ -56,7 +54,7 @@ export default function DishDetail({ match }) {
         <HeadlineStyled>Intoleranzen</HeadlineStyled>
         <IntoleranceIngredients singleDish={singleDish} />
         <HeadlineStyled>Alle Zutaten</HeadlineStyled>
-        <IngredientsStyled>{renderAllIngredients()} </IngredientsStyled>
+        <AllIngredientsStyled>{renderAllIngredients()} </AllIngredientsStyled>
       </DetailPageStyled>
     </AppGrid>
   )
@@ -75,7 +73,7 @@ const DetailPageStyled = styled.section`
   margin: 20px 8px;
   padding: 4px;
 `
-const DetailTranslatedTitleStyled = styled.h2`
+const TranslatedTitleStyled = styled.h2`
   margin-top: 2px;
   font-size: 22px;
 `
@@ -92,7 +90,7 @@ const HeadlineStyled = styled.h3`
   margin: 24px 0 18px;
   font-size: 20px;
 `
-const IngredientsStyled = styled.ul`
+const AllIngredientsStyled = styled.ul`
   padding-left: 36px;
   line-height: 1.8em;
 `

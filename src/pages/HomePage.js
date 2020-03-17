@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import Search from '../components/Search'
-import DishList from './DishList'
+import DishList from '../components/DishList'
 import AppGrid from './AppGrid'
 
 HomePage.propTypes = {

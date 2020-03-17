@@ -21,39 +21,39 @@ export default function IntolerancesIngredients({ singleDish }) {
   const [toggleHistamine, setToggleHistamine] = useState(false)
 
   function handleLactoseClick(event) {
-    return event.stopPropagation(), setToggleLactose(!toggleLactose)
+    return event.stopPropagation() || setToggleLactose(!toggleLactose)
   }
 
   function handleFructoseClick(event) {
-    return event.stopPropagation(), setToggleFructose(!toggleFructose)
+    return event.stopPropagation() || setToggleFructose(!toggleFructose)
   }
 
   function handleHistamineClick(event) {
-    return event.stopPropagation(), setToggleHistamine(!toggleHistamine)
+    return event.stopPropagation() || setToggleHistamine(!toggleHistamine)
   }
 
   function renderLactoseIngredients() {
-    const lactoseIngs = singleDish?.ingredientsWithLactose
-    if (lactoseIngs) {
-      return lactoseIngs.map((singleIngredient, index) => {
+    const lactoseIngredients = singleDish?.ingredientsWithLactose
+    if (lactoseIngredients) {
+      return lactoseIngredients.map((singleIngredient, index) => {
         return <li key={index}>{singleIngredient}</li>
       })
     }
   }
 
   function renderFructoseIngredients() {
-    const fructoseIngs = singleDish?.ingredientsWithFructose
-    if (fructoseIngs) {
-      return fructoseIngs.map((singleIngredient, index) => {
+    const fructoseIngredients = singleDish?.ingredientsWithFructose
+    if (fructoseIngredients) {
+      return fructoseIngredients.map((singleIngredient, index) => {
         return <li key={index}>{singleIngredient}</li>
       })
     }
   }
 
   function renderHistamineIngredients() {
-    const histamineIngs = singleDish?.ingredientsWithHistamine
-    if (histamineIngs) {
-      return histamineIngs.map((singleIngredient, index) => {
+    const histamineIngredients = singleDish?.ingredientsWithHistamine
+    if (histamineIngredients) {
+      return histamineIngredients.map((singleIngredient, index) => {
         return <li key={index}>{singleIngredient}</li>
       })
     }
@@ -64,9 +64,9 @@ export default function IntolerancesIngredients({ singleDish }) {
       <IntoleranceBoxStyled onClick={handleLactoseClick}>
         <IntoleranceInfoStyled>
           {lactose ? (
-            <IntoleranceIconStyled src={orangemilk} alt="" />
+            <IconStyled src={orangemilk} alt="" />
           ) : (
-            <IntoleranceIconStyled src={greenmilk} alt="" />
+            <IconStyled src={greenmilk} alt="" />
           )}
           <IntoleranceTextStyled>
             <IntoleranceNameStyled>LAKTOSE</IntoleranceNameStyled>
@@ -96,9 +96,9 @@ export default function IntolerancesIngredients({ singleDish }) {
       <IntoleranceBoxStyled onClick={handleFructoseClick}>
         <IntoleranceInfoStyled>
           {fructose === 'viel enthalten' ? (
-            <IntoleranceIconStyled src={orangeapple} alt="" />
+            <IconStyled src={orangeapple} alt="" />
           ) : (
-            <IntoleranceIconStyled src={greenapple} alt="" />
+            <IconStyled src={greenapple} alt="" />
           )}
           <IntoleranceTextStyled>
             <IntoleranceNameStyled>FRUKTOSE</IntoleranceNameStyled>
@@ -128,9 +128,9 @@ export default function IntolerancesIngredients({ singleDish }) {
       <IntoleranceBoxStyled onClick={handleHistamineClick}>
         <IntoleranceInfoStyled>
           {histamine ? (
-            <IntoleranceIconStyled src={orangewine} alt="" />
+            <IconStyled src={orangewine} alt="" />
           ) : (
-            <IntoleranceIconStyled src={greenwine} alt="" />
+            <IconStyled src={greenwine} alt="" />
           )}
           <IntoleranceTextStyled>
             <IntoleranceNameStyled>HISTAMIN</IntoleranceNameStyled>
@@ -160,20 +160,20 @@ export default function IntolerancesIngredients({ singleDish }) {
   )
 }
 
-const IntoleranceBoxStyled = styled.div`
+const IntoleranceBoxStyled = styled.section`
   cursor: pointer;
   display: flex;
   flex-direction: column;
   margin: 8px 0 20px;
   padding: 18px;
-  border-radius: 10px;
   background: #ffffff;
+  border-radius: 10px;
   box-shadow: 0 1px 2px #ffa743;
 `
 const IntoleranceInfoStyled = styled.div`
   display: flex;
 `
-const IntoleranceIconStyled = styled.img`
+const IconStyled = styled.img`
   height: 70px;
   padding-right: 24px;
 `
@@ -181,32 +181,29 @@ const IntoleranceTextStyled = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 const IntoleranceNameStyled = styled.h3`
   display: flex;
-  font-size: 18px;
   margin-top: 0;
+  font-size: 18px;
 `
 const IntoleranceStyled = styled.div``
 
 const IntolerantStyled = styled.p`
+  margin-top: 0;
   color: #ffa743;
   font-size: 18px;
-  margin-top: 0;
 `
-
 const NotIntolerantStyled = styled.p`
   color: #164c1a;
   font-size: 18px;
 `
 const CriticalIngredientsLink = styled.p`
-  position: relative;
   display: inline-block;
+  position: relative;
   text-decoration: underline;
 `
-
 const CriticalIngredients = styled.ul`
-  padding-left: 18px;
   margin-top: 0;
+  padding-left: 18px;
   line-height: 1.8em;
 `
