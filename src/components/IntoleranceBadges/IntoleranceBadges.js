@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import apple from '../icons/apple.svg'
-import milk from '../icons/milk.svg'
-import wine from '../icons/wine.svg'
+import apple from '../../icons/apple.svg'
+import milk from '../../icons/milk.svg'
+import wine from '../../icons/wine.svg'
 
 IntolerancesBadges.propTypes = {
   dish: PropTypes.object,

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import greenapple from '../icons/greenapple.svg'
-import greenmilk from '../icons/greenmilk.svg'
-import greenwine from '../icons/greenwine.svg'
-import orangeapple from '../icons/orangeapple.svg'
-import orangemilk from '../icons/orangemilk.svg'
-import orangewine from '../icons/orangewine.svg'
+import greenapple from '../../icons/greenapple.svg'
+import greenmilk from '../../icons/greenmilk.svg'
+import greenwine from '../../icons/greenwine.svg'
+import orangeapple from '../../icons/orangeapple.svg'
+import orangemilk from '../../icons/orangemilk.svg'
+import orangewine from '../../icons/orangewine.svg'
 
 IntolerancesIngredients.propTypes = {
   singleDish: PropTypes.object,
@@ -168,7 +168,7 @@ const IntoleranceBoxStyled = styled.section`
   padding: 18px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 1px 2px #ffa743;
+  box-shadow: 0 1px 3px #bbc0b6;
 `
 const IntoleranceInfoStyled = styled.div`
   display: flex;

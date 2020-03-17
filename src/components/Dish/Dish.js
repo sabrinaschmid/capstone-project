@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import EatingPreference from './EatingPreference'
-import IntoleranceBadges from './IntoleranceBadges'
+import EatingPreference from '../EatingPreference'
+import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
 
 Dish.propTypes = {
   dish: PropTypes.object,

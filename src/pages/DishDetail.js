@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import EatingPreference from '../components/EatingPreference'
-import IntoleranceIngredients from '../components/IntoleranceIngredients'
+import IntoleranceIngredients from '../components/IntoleranceIngredients/IntoleranceIngredients'
 import firebase from '../firebase'
 import AppGrid from './AppGrid'
 

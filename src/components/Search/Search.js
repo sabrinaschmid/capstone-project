@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import reset from '../icons/reset.svg'
+import reset from '../../icons/reset.svg'
 
 Search.propTypes = {
   handleInput: PropTypes.func,
@@ -97,6 +97,7 @@ const ResetButtonStyled = styled.button`
   align-self: center;
   height: 44px;
   min-width: 220px;
+  max-width: 300px;
   width: 60vw;
   margin: 0 12px 2px 12px;
   padding: 10px 10px;
