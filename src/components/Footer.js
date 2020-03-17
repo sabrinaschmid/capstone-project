@@ -15,6 +15,8 @@ export default function Footer() {
 
 const FooterStyled = styled.footer`
   display: flex;
+  position: absolute;
+  bottom: 0;
   padding: 12px 10px;
   background: #bbc0b6;
   color: #404040;

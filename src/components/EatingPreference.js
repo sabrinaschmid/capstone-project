@@ -10,16 +10,18 @@ EatingPreference.propTypes = {
 }
 
 export default function EatingPreference({ dish }) {
+  const { vegan, vegetarian } = dish
+
   return (
     <>
-      {dish.vegan ? (
+      {vegan ? (
         <EatingPreferenceStyled>
-          <VeganIconStyled src={leaf} alt="" />
+          <IconStyled src={leaf} alt="" />
           vegan
         </EatingPreferenceStyled>
-      ) : dish.vegetarian ? (
+      ) : vegetarian ? (
         <EatingPreferenceStyled>
-          <VegetarianIconStyled src={carrot} alt="" />
+          <IconStyled src={carrot} alt="" />
           vegetarisch
         </EatingPreferenceStyled>
       ) : (
@@ -32,22 +34,17 @@ export default function EatingPreference({ dish }) {
 const EatingPreferenceStyled = styled.span`
   display: flex;
   align-items: stretch;
-  padding: 8px 10px;
-  margin: 6px 12px;
-  border: #9fa39b 1px solid;
-  background: #bbc0b6;
-  color: #164c1a;
-  border-radius: 40px;
   position: absolute;
   right: -4px;
   top: 2px;
+  margin: 6px 12px;
+  padding: 8px 10px;
+  background: #bbc0b6;
+  color: #164c1a;
+  border-radius: 40px;
 `
 
-const VeganIconStyled = styled.img`
-  height: 24px;
-  padding-right: 6px;
-`
-const VegetarianIconStyled = styled.img`
+const IconStyled = styled.img`
   height: 24px;
   padding-right: 6px;
 `
