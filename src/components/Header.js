@@ -38,6 +38,7 @@ const HeaderStyled = styled.header`
   font-size: calc(14px + 1.5vmin);
   font-family: 'Poppins';
   position: relative;
+  box-shadow: 0 1px 3px #bbc0b6;
 `
 const Logo = styled.div`
   display: flex;

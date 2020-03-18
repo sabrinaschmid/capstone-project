@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import DishDetail from '../pages/DishDetail'
-import Dish from './Dish/Dish'
+import DishDetail from '../../pages/DishDetail'
+import Dish from '../Dish/Dish'
 
 DishList.propTypes = {
   dishes: PropTypes.array,
