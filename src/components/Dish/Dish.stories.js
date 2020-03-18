@@ -19,7 +19,7 @@ export default {
 const dish = {
   originalDishTitle: 'Melanzane alla parmigiana',
   translatedDishTitle: 'Auberginenauflauf',
-  imagePath: 'https://source.unsplash.com/random/398x224',
+  imagePath: 'https://source.unsplash.com/food/398x224',
   vegan: 'true',
 }
 
