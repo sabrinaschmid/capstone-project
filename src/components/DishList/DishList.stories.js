@@ -28,7 +28,7 @@ const dish1 = {
 const dish2 = {
   originalDishTitle: 'Scroppino',
   translatedDishTitle: 'Alkoholisches Zitronen-Sorbet',
-  imagePath: 'https://source.unsplash.com/food/398x224',
+  imagePath: 'https://source.unsplash.com/random/398x224',
   vegan: 'true',
 }
 
