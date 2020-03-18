@@ -20,11 +20,7 @@ export default function Header({ title }) {
         <Route
           exact
           path="/dish/:dishId"
-          render={() => (
-            <BackButtonStyled type="submit">
-              <BackIcon src={back} alt="back-button" />
-            </BackButtonStyled>
-          )}
+          render={() => <BackIcon src={back} alt="back-button" />}
         />
       </Link>
 
@@ -42,24 +38,26 @@ const HeaderStyled = styled.header`
   font-size: calc(14px + 1.5vmin);
   font-family: 'Poppins';
   position: relative;
+  box-shadow: 0 1px 3px #bbc0b6;
 `
-const Logo = styled.div``
+const Logo = styled.div`
+  display: flex;
+  align-content: center;
+`
 
 const IconStyled = styled.img`
   height: 36px;
   padding-right: 12px;
 `
 
-const BackButtonStyled = styled.button`
+const BackIcon = styled.img`
   cursor: pointer;
   display: flex;
   height: 48px;
-
-  padding: 10px 0;
+  padding: 10px;
   background: #bbc0b6;
   border: none;
   position: absolute;
   top: 0;
   left: 0;
 `
-const BackIcon = styled.img``

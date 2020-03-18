@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import Search from '../components/Search'
-import DishList from './DishList'
-import PageLayout from './PageLayout'
+import DishList from '../components/DishList/DishList'
+import Search from '../components/Search/Search'
+import AppGrid from './AppGrid'
 
 HomePage.propTypes = {
   dishes: PropTypes.array,
 }
+
 export default function HomePage({ dishes }) {
   const [searchDish, setSearchDish] = useState('')
 
   return (
-    <PageLayout title="TastyTravel">
+    <AppGrid title="TastyTravel">
       <Search handleInput={handleInput} handleReset={handleReset} />
       <DishList dishes={dishes} searchDish={searchDish} />
-    </PageLayout>
+    </AppGrid>
   )
 
   function handleInput(event) {

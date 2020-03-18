@@ -1,46 +1,48 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import EatingPreference from './EatingPreference'
-import Intolerances from './Intolerances'
+import EatingPreference from '../EatingPreference'
+import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
 
 Dish.propTypes = {
   dish: PropTypes.object,
+  id: PropTypes.string,
   originalDishTitle: PropTypes.string,
   imagePath: PropTypes.string,
   translatedDishTitle: PropTypes.string,
 }
 
 export default function Dish({ dish }) {
+  const { id, originalDishTitle, imagePath, translatedDishTitle } = dish
+
   return (
-    <DishStyled key={dish.id}>
-      <OriginalTitleStyled>{dish.originalDishTitle}</OriginalTitleStyled>
-      <ImagePreferenceStyled>
-        <ImageStyled src={dish.imagePath} alt="" />
+    <DishStyled key={id}>
+      <OriginalTitleStyled>{originalDishTitle}</OriginalTitleStyled>
+      <ImageWithPreferenceStyled>
+        <ImageStyled src={imagePath} alt="" />
         <EatingPreference dish={dish} />
-      </ImagePreferenceStyled>
-      <TranslatedTitleStyled>{dish.translatedDishTitle}</TranslatedTitleStyled>
-      <Intolerances dish={dish}></Intolerances>
+      </ImageWithPreferenceStyled>
+      <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
+      <IntoleranceBadges dish={dish} />
     </DishStyled>
   )
 }
 
-const DishStyled = styled.div`
+const DishStyled = styled.section`
   display: flex;
   flex-direction: column;
   margin: 8px 8px 20px;
   padding: 2px 12px 20px;
-  border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0 1px 2px #ffa743;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px #bbc0b6;
 `
 const OriginalTitleStyled = styled.h3`
   display: flex;
-  font-size: 20px;
   color: #164c1a;
+  font-size: 20px;
 `
-
-const ImagePreferenceStyled = styled.div`
+const ImageWithPreferenceStyled = styled.div`
   display: flex;
   position: relative;
 `
@@ -51,7 +53,6 @@ const ImageStyled = styled.img`
 `
 const TranslatedTitleStyled = styled.h4`
   display: flex;
-  font-size: 18px;
-  font-style: italic;
   margin: 14px 0;
+  font-size: 18px;
 `
