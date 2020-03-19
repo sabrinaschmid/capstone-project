@@ -24,6 +24,10 @@ const AppGridStyled = styled.main`
   align-content: flex-start;
   position: relative;
   overflow: auto;
+  max-width: 767px;
   min-height: 100vh;
+  margin: auto;
   padding-bottom: 120px;
+  background: var(--light-orange);
+  border: solid 1px #bbc0b6;
 `

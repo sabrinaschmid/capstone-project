@@ -63,21 +63,19 @@ const IntolerantStyled = styled.span`
   display: flex;
   margin: 0 4px 8px 0;
   padding: 10px;
-  background: #ffa743;
-  color: #ffffff;
-  border: #ffa743 2px solid;
+  background: var(--medium-orange);
+  color: var(--white);
   border-radius: 40px;
 `
 const NotIntolerantStyled = styled.span`
   display: flex;
   margin: 0 6px 8px 0;
   padding: 10px;
-  background: #164c1a;
-  color: #ffffff;
-  border: #164c1a 2px solid;
+  background: var(--dark-green);
+  color: var(--white);
   border-radius: 40px;
 `
 const IconStyled = styled.img`
-  height: 24px;
+  height: 22px;
   padding-right: 6px;
 `

@@ -41,12 +41,11 @@ const HeaderStyled = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #bbc0b6;
-  color: #164c1a;
+  background: var(--light-green);
+  color: var(--dark-green);
   font-size: calc(14px + 1.5vmin);
   font-family: 'Poppins';
   position: relative;
-  box-shadow: 0 1px 3px #bbc0b6;
 `
 const Logo = styled.div`
   display: flex;
@@ -63,7 +62,7 @@ const Button = styled.button`
   display: flex;
   height: 48px;
   padding: 10px;
-  background: #bbc0b6;
+  background: var(--light-green);
   border: none;
   position: absolute;
   top: 0;

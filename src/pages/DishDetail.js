@@ -87,7 +87,7 @@ const ImageWithPreferenceStyled = styled.div`
 `
 const ImageStyled = styled.img`
   width: 100%;
-  background: white;
+  background: var(--white);
   border-radius: 10px;
 `
 const HeadlineStyled = styled.h3`

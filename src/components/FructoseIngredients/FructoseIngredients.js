@@ -20,9 +20,9 @@ export default function FructoseIngredients({ singleDish }) {
             <IconStyled src={orangeapple} alt="" />
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>FRUKTOSE</IntoleranceNameStyled>
-              <IntolerantStyled>
+              <ContainsStyled>
                 Dieses Gericht enthält typischerweise Fruktose.
-              </IntolerantStyled>
+              </ContainsStyled>
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
@@ -38,9 +38,9 @@ export default function FructoseIngredients({ singleDish }) {
             <IconStyled src={greenapple} alt="" />
             <IntoleranceTextStyled>
               <IntoleranceNameStyled>FRUKTOSE</IntoleranceNameStyled>
-              <NotIntolerantStyled>
+              <ContainsNotStyled>
                 Dieses Gericht enthält typischerweise keine Fruktose.
-              </NotIntolerantStyled>
+              </ContainsNotStyled>
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
         </NonCriticalBoxStyled>
@@ -70,7 +70,7 @@ const CriticalBoxStyled = styled.section`
   flex-direction: column;
   margin: 8px 0 20px;
   padding: 18px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
   box-shadow: 0 1px 3px #bbc0b6;
 `
@@ -80,9 +80,9 @@ const NonCriticalBoxStyled = styled.section`
   flex-direction: column;
   margin: 8px 0 20px;
   padding: 18px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 
 const IntoleranceInfoStyled = styled.div`
@@ -101,14 +101,14 @@ const IntoleranceNameStyled = styled.h3`
   margin-top: 0;
   font-size: 18px;
 `
-const IntolerantStyled = styled.p`
+const ContainsStyled = styled.p`
   margin-top: 0;
-  color: #ffa743;
+  color: var(--medium-orange);
   font-size: 18px;
 `
-const NotIntolerantStyled = styled.p`
+const ContainsNotStyled = styled.p`
   margin-top: 0;
-  color: #164c1a;
+  color: var(--dark-green);
   font-size: 18px;
 `
 const CriticalIngredientsLink = styled.p`

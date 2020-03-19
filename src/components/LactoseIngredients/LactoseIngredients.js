@@ -70,7 +70,7 @@ const CriticalBoxStyled = styled.section`
   flex-direction: column;
   margin: 8px 0 20px;
   padding: 18px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
   box-shadow: 0 1px 3px #bbc0b6;
 `
@@ -80,9 +80,9 @@ const NonCriticalBoxStyled = styled.section`
   flex-direction: column;
   margin: 8px 0 20px;
   padding: 18px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 
 const IntoleranceInfoStyled = styled.div`
@@ -103,12 +103,12 @@ const IntoleranceNameStyled = styled.h3`
 `
 const ContainsStyled = styled.p`
   margin-top: 0;
-  color: #ffa743;
+  color: var(--medium-orange);
   font-size: 18px;
 `
 const ContainsNotStyled = styled.p`
   margin-top: 0;
-  color: #164c1a;
+  color: var(--dark-green);
   font-size: 18px;
 `
 const CriticalIngredientsLink = styled.p`

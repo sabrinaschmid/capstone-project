@@ -58,7 +58,7 @@ const SearchFormStyled = styled.form`
   padding: 18px 12px 20px 12px;
   background: #bbc0b6;
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 const LabelStyled = styled.label`
   display: inline-block;
@@ -71,7 +71,7 @@ const InputStyled = styled.input`
   margin-bottom: 12px;
   padding-left: 6px;
   border-radius: 5px;
-  border: 0.7px solid #bbc0b6;
+  border: 0.7px solid var(--light-green);
 `
 const SelectStyled = styled.select`
   -moz-appearance: none;
@@ -81,9 +81,9 @@ const SelectStyled = styled.select`
   height: 40px;
   font-size: 16px;
   padding-left: 6px;
-  background: #d9dbde;
+  background: var(--light-grey);
   border-radius: 5px;
-  border: 0.7px solid #bbc0b6;
+  border: 0.7px solid var(--light-green);
 `
 const OptionStyled = styled.option``
 
@@ -106,10 +106,10 @@ const ResetButtonStyled = styled.button`
   width: 60vw;
   margin: 0 12px 2px 12px;
   padding: 10px 10px;
-  background: #ffffff;
-  color: #ff7e43;
+  background: var(--white);
+  color: var(--dark-orange);
   border-radius: 5px;
-  border: #ff7e43 2px solid;
+  border: 2px solid var(--dark-orange);
   font-size: 16px;
 `
 const ResetIconStyled = styled.img`
