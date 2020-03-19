@@ -4,6 +4,6 @@ describe('No search result', () => {
 
     cy.get('input[name="search-dish"]').type('xxxyyy')
     cy.contains('Dein Suchergebnis')
-    cy.contains('Es gibt leider kein Suchergebnis für')
+    cy.contains('Es gibt leider kein Suchergebnis für').end()
   })
 })
