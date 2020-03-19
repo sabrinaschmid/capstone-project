@@ -2,7 +2,9 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import EatingPreference from '../components/EatingPreference'
-import IntoleranceIngredients from '../components/IntoleranceIngredients/IntoleranceIngredients'
+import FructoseIngredients from '../components/FructoseIngredients/FructoseIngredients'
+import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
+import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
 import AppGrid from './AppGrid'
 
@@ -52,7 +54,9 @@ export default function DishDetail({ match }) {
           <EatingPreference dish={singleDish} />
         </ImageWithPreferenceStyled>
         <HeadlineStyled>Intoleranzen</HeadlineStyled>
-        <IntoleranceIngredients singleDish={singleDish} />
+        <LactoseIngredients singleDish={singleDish} />
+        <FructoseIngredients singleDish={singleDish} />
+        <HistamineIngredients singleDish={singleDish} />
         <HeadlineStyled>Alle Zutaten</HeadlineStyled>
         <AllIngredientsStyled>{renderAllIngredients()} </AllIngredientsStyled>
       </DetailPageStyled>

@@ -61,39 +61,75 @@ export default function IntolerancesIngredients({ singleDish }) {
 
   return (
     <>
-      <IntoleranceBoxStyled onClick={handleLactoseClick}>
-        <IntoleranceInfoStyled>
-          {lactose ? (
-            <IconStyled src={orangemilk} alt="" />
-          ) : (
-            <IconStyled src={greenmilk} alt="" />
-          )}
-          <IntoleranceTextStyled>
-            <IntoleranceNameStyled>LAKTOSE</IntoleranceNameStyled>
-            <IntoleranceStyled>
+      <TestifHasCriticalIngredients>
+        {lactose ? (
+          <IntoleranceBoxStyled onClick={handleLactoseClick}>
+            <IntoleranceInfoStyled>
               {lactose ? (
-                <IntolerantStyled>
-                  Dieses Gericht enthält typischerweise Laktose.
-                </IntolerantStyled>
+                <IconStyled src={orangemilk} alt="" />
               ) : (
-                <NotIntolerantStyled>
-                  Dieses Gericht enthält typischerweise keine Laktose.
-                </NotIntolerantStyled>
+                <IconStyled src={greenmilk} alt="" />
               )}
-            </IntoleranceStyled>
-          </IntoleranceTextStyled>
-        </IntoleranceInfoStyled>
-        <CriticalIngredientsLink>
-          {lactose ? 'Ungeeignete Zutaten' : ''}
-        </CriticalIngredientsLink>
-        {toggleLactose && (
-          <CriticalIngredients>
-            {renderLactoseIngredients()}
-          </CriticalIngredients>
+              <IntoleranceTextStyled>
+                <IntoleranceNameStyled>LAKTOSE</IntoleranceNameStyled>
+                <IntoleranceStyled>
+                  {lactose ? (
+                    <IntolerantStyled>
+                      Dieses Gericht enthält typischerweise Laktose.
+                    </IntolerantStyled>
+                  ) : (
+                    <NotIntolerantStyled>
+                      Dieses Gericht enthält typischerweise keine Laktose.
+                    </NotIntolerantStyled>
+                  )}
+                </IntoleranceStyled>
+              </IntoleranceTextStyled>
+            </IntoleranceInfoStyled>
+            <CriticalIngredientsLink>
+              {lactose ? 'Ungeeignete Zutaten' : ''}
+            </CriticalIngredientsLink>
+            {toggleLactose && (
+              <CriticalIngredients>
+                {renderLactoseIngredients()}
+              </CriticalIngredients>
+            )}
+          </IntoleranceBoxStyled>
+        ) : (
+          <IntoleranceBoxNonClickableStyled>
+            <IntoleranceInfoStyled>
+              {lactose ? (
+                <IconStyled src={orangemilk} alt="" />
+              ) : (
+                <IconStyled src={greenmilk} alt="" />
+              )}
+              <IntoleranceTextStyled>
+                <IntoleranceNameStyled>LAKTOSE</IntoleranceNameStyled>
+                <IntoleranceStyled>
+                  {lactose ? (
+                    <IntolerantStyled>
+                      Dieses Gericht enthält typischerweise Laktose.
+                    </IntolerantStyled>
+                  ) : (
+                    <NotIntolerantStyled>
+                      Dieses Gericht enthält typischerweise keine Laktose.
+                    </NotIntolerantStyled>
+                  )}
+                </IntoleranceStyled>
+              </IntoleranceTextStyled>
+            </IntoleranceInfoStyled>
+            <CriticalIngredientsLink>
+              {lactose ? 'Ungeeignete Zutaten' : ''}
+            </CriticalIngredientsLink>
+            {toggleLactose && (
+              <CriticalIngredients>
+                {renderLactoseIngredients()}
+              </CriticalIngredients>
+            )}
+          </IntoleranceBoxNonClickableStyled>
         )}
-      </IntoleranceBoxStyled>
+      </TestifHasCriticalIngredients>
 
-      <IntoleranceBoxStyled onClick={handleFructoseClick}>
+      {/* <IntoleranceBoxStyled onClick={handleFructoseClick}>
         <IntoleranceInfoStyled>
           {fructose === 'viel enthalten' ? (
             <IconStyled src={orangeapple} alt="" />
@@ -155,10 +191,12 @@ export default function IntolerancesIngredients({ singleDish }) {
             {renderHistamineIngredients()}
           </CriticalIngredients>
         )}
-      </IntoleranceBoxStyled>
+      </IntoleranceBoxStyled> */}
     </>
   )
 }
+
+const TestifHasCriticalIngredients = styled.div``
 
 const IntoleranceBoxStyled = styled.section`
   cursor: pointer;
@@ -170,6 +208,17 @@ const IntoleranceBoxStyled = styled.section`
   border-radius: 10px;
   box-shadow: 0 1px 3px #bbc0b6;
 `
+const IntoleranceBoxNonClickableStyled = styled.div`
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0 20px;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px #bbc0b6;
+`
+
 const IntoleranceInfoStyled = styled.div`
   display: flex;
 `

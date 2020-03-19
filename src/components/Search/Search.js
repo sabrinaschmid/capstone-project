@@ -7,17 +7,22 @@ Search.propTypes = {
   handleInput: PropTypes.func,
 }
 
-export default function Search({ handleInput, handleReset }) {
+export default function Search({ handleInput, handleReset, searchDish }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
-      <SearchFormStyled onSubmit={handleDefault}>
+      <SearchFormStyled
+        onSubmit={handleDefault}
+        action="{handleInput}"
+        method="get"
+      >
         <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
           type="search"
           name="search-dish"
           id="search-dish"
+          value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
         />
@@ -35,7 +40,7 @@ export default function Search({ handleInput, handleReset }) {
   )
 
   function handleDefault(event) {
-    return event.preventDefault()
+    return event.preventDefault() || event.target.blur()
   }
 }
 

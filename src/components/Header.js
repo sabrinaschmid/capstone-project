@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import back from '../icons/back.svg'
 import logo from '../icons/logo.svg'
@@ -10,23 +10,31 @@ Header.propTypes = {
 }
 
 export default function Header({ title }) {
+  const history = useHistory()
+
   return (
     <HeaderStyled>
       <Logo>
         <Route exact path="/" render={() => <IconStyled src={logo} alt="" />} />
       </Logo>
 
-      <Link className="backlink" to="/">
-        <Route
-          exact
-          path="/dish/:dishId"
-          render={() => <BackIcon src={back} alt="back-button" />}
-        />
-      </Link>
+      <Route
+        exact
+        path="/dish/:dishId"
+        render={() => (
+          <Button onClick={onClick}>
+            <BackIcon src={back} />
+          </Button>
+        )}
+      />
 
       {title}
     </HeaderStyled>
   )
+
+  function onClick() {
+    history.goBack()
+  }
 }
 
 const HeaderStyled = styled.header`
@@ -50,13 +58,21 @@ const IconStyled = styled.img`
   padding-right: 12px;
 `
 
-const BackIcon = styled.img`
+const Button = styled.button`
   cursor: pointer;
   display: flex;
   height: 48px;
   padding: 10px;
   background: #bbc0b6;
   border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
+const BackIcon = styled.img`
+  height: 48px;
+  padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
