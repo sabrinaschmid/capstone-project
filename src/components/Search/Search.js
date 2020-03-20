@@ -11,11 +11,7 @@ export default function Search({ handleInput, handleReset, searchDish }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
-      <SearchFormStyled
-        onSubmit={handleDefault}
-        action="{handleInput}"
-        method="get"
-      >
+      <SearchFormStyled onSubmit={handleDefault} hasInput={searchDish}>
         <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
@@ -49,7 +45,6 @@ const SearchStyled = styled.section``
 const SearchHeadlineStyled = styled.h2`
   margin-bottom: 0;
   padding: 4px 10px 0;
-  font-size: 22px;
 `
 const SearchFormStyled = styled.form`
   display: flex;
@@ -79,7 +74,6 @@ const SelectStyled = styled.select`
   appearance: none;
   box-sizing: border-box;
   height: 40px;
-  font-size: 16px;
   padding-left: 6px;
   background: var(--light-grey);
   border-radius: 5px;
@@ -110,7 +104,6 @@ const ResetButtonStyled = styled.button`
   color: var(--dark-orange);
   border-radius: 5px;
   border: 2px solid var(--dark-orange);
-  font-size: 16px;
 `
 const ResetIconStyled = styled.img`
   height: 18px;

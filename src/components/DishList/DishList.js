@@ -55,7 +55,6 @@ const DishListStyled = styled.section``
 const HeadlineStyled = styled.h2`
   margin-bottom: 0;
   padding: 8px 10px 0;
-  font-size: 22px;
 `
 const SearchResultStyled = styled.div``
 
@@ -64,5 +63,4 @@ const FilteredListStyled = styled.div``
 const NoResultsStyled = styled.h3`
   margin-top: 0;
   padding: 8px 10px 0;
-  font-size: 20px;
 `

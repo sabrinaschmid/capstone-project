@@ -16,13 +16,10 @@ DishDetail.propTypes = {
 }
 
 export default function DishDetail({ match }) {
-  const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
   const { originalDishTitle, translatedDishTitle, imagePath } = singleDish
 
   useEffect(() => {
-    setDishId(match.params.dishId)
-
     firebase
       .firestore()
       .collection('dishes')
@@ -74,12 +71,11 @@ export default function DishDetail({ match }) {
 }
 
 const DetailPageStyled = styled.section`
-  margin: 20px 8px;
+  margin: 20px 8px 0;
   padding: 4px;
 `
 const TranslatedTitleStyled = styled.h2`
   margin-top: 2px;
-  font-size: 22px;
 `
 const ImageWithPreferenceStyled = styled.div`
   display: flex;

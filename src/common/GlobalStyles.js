@@ -6,20 +6,30 @@ export default createGlobalStyle`
   }
 
   body {
-
+    height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 1.4;
-    color: var(--dark-grey);
-    height: 100vh;
     text-decoration: none;
+    color: var(--dark-grey);
   }
 
-  input, button, textarea {
-    font-size: 1em;
+  h2 {
+    font-size: 22px;
+  }
 
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  input, button, textarea, select {
+    font-size: 16px;
   }
 
   a {
@@ -28,7 +38,7 @@ export default createGlobalStyle`
   }
 
   :root {
-    --white: #fff;
+    --white: #ffffff;
     --light-grey: #d9dbde;
     --dark-grey: #404040;
     --light-green: #bbc0b6;

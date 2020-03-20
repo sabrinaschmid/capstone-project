@@ -40,7 +40,6 @@ const DishStyled = styled.section`
 const OriginalTitleStyled = styled.h3`
   display: flex;
   color: var(--dark-green);
-  font-size: 20px;
 `
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
@@ -54,5 +53,4 @@ const ImageStyled = styled.img`
 const TranslatedTitleStyled = styled.h4`
   display: flex;
   margin: 14px 0;
-  font-size: 18px;
 `

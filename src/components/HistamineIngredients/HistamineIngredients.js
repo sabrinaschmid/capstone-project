@@ -99,7 +99,6 @@ const IntoleranceTextStyled = styled.div`
 const IntoleranceNameStyled = styled.h3`
   display: flex;
   margin-top: 0;
-  font-size: 18px;
 `
 const ContainsStyled = styled.p`
   margin-top: 0;
