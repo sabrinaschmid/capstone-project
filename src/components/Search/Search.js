@@ -21,7 +21,6 @@ export default function Search({ handleInput, handleReset, searchDish }) {
           value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
-          URLParams={true}
         />
         <LabelStyled htmlFor="select-country">Land</LabelStyled>
         <SelectStyled name="select-country" id="select-country" disabled>

@@ -23,7 +23,8 @@ export default function HomePage({ dishes }) {
   function useQuery() {
     return new URLSearchParams(useLocation().search)
   }
-  const query = useQuery()
+
+  useQuery()
   const history = useHistory()
   const [searchDish, setSearchDish] = useState('')
 
@@ -39,12 +40,12 @@ export default function HomePage({ dishes }) {
   )
 
   function handleInput(event) {
-    console.log(query.get('search'))
     history.push('/?search=' + event.target.value)
     return setSearchDish(event.target.value)
   }
 
   function handleReset() {
-    return setSearchDish('') || history.push('/')
+    history.push('/')
+    return setSearchDish('')
   }
 }
