@@ -16,6 +16,12 @@ export default createGlobalStyle`
     color: var(--dark-grey);
   }
 
+  h1 {
+    font-size: calc(14px + 1.5vmin);
+    font-family: 'Poppins'; 
+    color: var(--dark-green);
+  }
+
   h2 {
     font-size: 22px;
   }

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FaChevronLeft } from 'react-icons/fa'
 import { Route, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import back from '../icons/back.svg'
 import logo from '../icons/logo.svg'
 
 Header.propTypes = {
@@ -23,17 +23,18 @@ export default function Header({ title }) {
         path="/dish/:dishId"
         render={() => (
           <Button onClick={onClick}>
-            <BackIcon src={back} />
+            <FaChevronLeft className="back-icon" />
           </Button>
         )}
       />
 
-      {title}
+      <TitleStyled>{title}</TitleStyled>
     </HeaderStyled>
   )
 
   function onClick() {
     history.goBack()
+    //schreibe den queryString auf der Homepage in das Inputfeld
   }
 }
 
@@ -42,11 +43,9 @@ const HeaderStyled = styled.header`
   justify-content: center;
   align-items: center;
   background: var(--light-green);
-  color: var(--dark-green);
-  font-size: calc(14px + 1.5vmin);
-  font-family: 'Poppins';
   position: relative;
 `
+
 const Logo = styled.div`
   display: flex;
   align-content: center;
@@ -61,18 +60,25 @@ const Button = styled.button`
   cursor: pointer;
   display: flex;
   height: 48px;
-  padding: 10px;
   background: var(--light-green);
+  color: var(--dark-green);
   border: none;
   position: absolute;
   top: 0;
   left: 0;
-`
+  transition: all 0.3s ease-out;
 
-const BackIcon = styled.img`
-  height: 48px;
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  .back-icon {
+    display: flex;
+    align-items: center;
+    /* color: var(--dark-green); */
+    height: 46px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  :hover {
+    color: var(--light-orange);
+  }
 `
+const TitleStyled = styled.h1``

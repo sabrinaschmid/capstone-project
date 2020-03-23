@@ -119,4 +119,9 @@ const CriticalIngredients = styled.ul`
   margin-top: 0;
   padding-left: 18px;
   line-height: 1.8em;
+
+  .list {
+    color: hotpink;
+    transition: all 5s ease-out;
+  }
 `

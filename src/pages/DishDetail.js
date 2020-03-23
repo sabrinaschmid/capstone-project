@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import EatingPreference from '../components/EatingPreference'
@@ -7,13 +6,6 @@ import HistamineIngredients from '../components/HistamineIngredients/HistamineIn
 import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
 import AppGrid from './AppGrid'
-
-DishDetail.propTypes = {
-  singleDish: PropTypes.object,
-  originalDishTitle: PropTypes.string,
-  translatedDishTitle: PropTypes.string,
-  ingredients: PropTypes.array,
-}
 
 export default function DishDetail({ match }) {
   const [singleDish, setSingleDish] = useState({})
@@ -40,7 +32,7 @@ export default function DishDetail({ match }) {
       .catch(function(error) {
         console.log('Error getting documents: ', error)
       })
-  }, [])
+  }, [match.params.dishId])
 
   return (
     <AppGrid title={originalDishTitle}>

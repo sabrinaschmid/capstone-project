@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
 import Search from '../components/Search/Search'
@@ -11,6 +11,15 @@ HomePage.propTypes = {
 }
 
 export default function HomePage({ dishes }) {
+  useEffect(() => {
+    const url = window.location.href
+    if (url.includes('=')) {
+      const index = url.indexOf('=')
+      const searchQuery = url.slice(index + 1)
+      setSearchDish(searchQuery)
+    }
+  }, [])
+
   function useQuery() {
     return new URLSearchParams(useLocation().search)
   }
@@ -36,6 +45,6 @@ export default function HomePage({ dishes }) {
   }
 
   function handleReset() {
-    return setSearchDish
+    return setSearchDish('') || history.push('/')
   }
 }

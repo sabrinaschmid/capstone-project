@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components/macro'
-import reset from '../../icons/reset.svg'
 
 Search.propTypes = {
   handleInput: PropTypes.func,
@@ -11,7 +11,7 @@ export default function Search({ handleInput, handleReset, searchDish }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
-      <SearchFormStyled onSubmit={handleDefault} hasInput={searchDish}>
+      <SearchFormStyled onSubmit={handleDefault}>
         <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
@@ -21,6 +21,7 @@ export default function Search({ handleInput, handleReset, searchDish }) {
           value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
+          URLParams={true}
         />
         <LabelStyled htmlFor="select-country">Land</LabelStyled>
         <SelectStyled name="select-country" id="select-country" disabled>
@@ -28,7 +29,7 @@ export default function Search({ handleInput, handleReset, searchDish }) {
         </SelectStyled>
         <NoteStyled>* Bald folgen Gerichte aus weiteren Ländern.</NoteStyled>
         <ResetButtonStyled type="reset" onClick={handleReset}>
-          <ResetIconStyled src={reset} alt="" />
+          <FaTimes className="reset-icon" />
           Suche zurücksetzen
         </ResetButtonStyled>
       </SearchFormStyled>
@@ -94,18 +95,28 @@ const ResetButtonStyled = styled.button`
   display: flex;
   justify-content: center;
   align-self: center;
+  align-items: center;
   height: 44px;
   min-width: 220px;
   max-width: 300px;
   width: 60vw;
-  margin: 0 12px 2px 12px;
-  padding: 10px 10px;
+  margin: 0 12px 2px;
+  padding: 6px;
   background: var(--white);
   color: var(--dark-orange);
   border-radius: 5px;
   border: 2px solid var(--dark-orange);
-`
-const ResetIconStyled = styled.img`
-  height: 18px;
-  padding-right: 12px;
+  transition: all 0.3s ease-out;
+
+  .reset-icon {
+    height: 30px;
+    margin-right: 12px;
+  }
+
+  :hover,
+  :active,
+  :focus {
+    background: var(--dark-orange);
+    color: var(--white);
+  }
 `
