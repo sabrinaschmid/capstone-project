@@ -33,14 +33,13 @@ const DishStyled = styled.section`
   flex-direction: column;
   margin: 8px 8px 20px;
   padding: 2px 12px 20px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 const OriginalTitleStyled = styled.h3`
   display: flex;
-  color: #164c1a;
-  font-size: 20px;
+  color: var(--dark-green);
 `
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
@@ -48,11 +47,10 @@ const ImageWithPreferenceStyled = styled.div`
 `
 const ImageStyled = styled.img`
   width: 100%;
-  background: white;
+  background: var(--white);
   border-radius: 10px;
 `
 const TranslatedTitleStyled = styled.h4`
   display: flex;
   margin: 14px 0;
-  font-size: 18px;
 `

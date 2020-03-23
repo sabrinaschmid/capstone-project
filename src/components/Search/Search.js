@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components/macro'
-import reset from '../../icons/reset.svg'
 
 Search.propTypes = {
   handleInput: PropTypes.func,
 }
 
-export default function Search({ handleInput, handleReset }) {
+export default function Search({ handleInput, handleReset, searchDish }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
@@ -18,6 +18,7 @@ export default function Search({ handleInput, handleReset }) {
           type="search"
           name="search-dish"
           id="search-dish"
+          value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
         />
@@ -27,7 +28,7 @@ export default function Search({ handleInput, handleReset }) {
         </SelectStyled>
         <NoteStyled>* Bald folgen Gerichte aus weiteren Ländern.</NoteStyled>
         <ResetButtonStyled type="reset" onClick={handleReset}>
-          <ResetIconStyled src={reset} alt="" />
+          <FaTimes className="reset-icon" />
           Suche zurücksetzen
         </ResetButtonStyled>
       </SearchFormStyled>
@@ -35,7 +36,7 @@ export default function Search({ handleInput, handleReset }) {
   )
 
   function handleDefault(event) {
-    return event.preventDefault()
+    return event.preventDefault() || event.target.blur()
   }
 }
 
@@ -44,7 +45,6 @@ const SearchStyled = styled.section``
 const SearchHeadlineStyled = styled.h2`
   margin-bottom: 0;
   padding: 4px 10px 0;
-  font-size: 22px;
 `
 const SearchFormStyled = styled.form`
   display: flex;
@@ -53,7 +53,7 @@ const SearchFormStyled = styled.form`
   padding: 18px 12px 20px 12px;
   background: #bbc0b6;
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 const LabelStyled = styled.label`
   display: inline-block;
@@ -66,7 +66,7 @@ const InputStyled = styled.input`
   margin-bottom: 12px;
   padding-left: 6px;
   border-radius: 5px;
-  border: 0.7px solid #bbc0b6;
+  border: 0.7px solid var(--light-green);
 `
 const SelectStyled = styled.select`
   -moz-appearance: none;
@@ -74,11 +74,10 @@ const SelectStyled = styled.select`
   appearance: none;
   box-sizing: border-box;
   height: 40px;
-  font-size: 16px;
   padding-left: 6px;
-  background: #d9dbde;
+  background: var(--light-grey);
   border-radius: 5px;
-  border: 0.7px solid #bbc0b6;
+  border: 0.7px solid var(--light-green);
 `
 const OptionStyled = styled.option``
 
@@ -95,19 +94,28 @@ const ResetButtonStyled = styled.button`
   display: flex;
   justify-content: center;
   align-self: center;
+  align-items: center;
   height: 44px;
   min-width: 220px;
   max-width: 300px;
   width: 60vw;
-  margin: 0 12px 2px 12px;
-  padding: 10px 10px;
-  background: #ffffff;
-  color: #ff7e43;
+  margin: 0 12px 2px;
+  padding: 6px;
+  background: var(--white);
+  color: var(--dark-orange);
   border-radius: 5px;
-  border: #ff7e43 2px solid;
-  font-size: 16px;
-`
-const ResetIconStyled = styled.img`
-  height: 18px;
-  padding-right: 12px;
+  border: 2px solid var(--dark-orange);
+  transition: all 0.3s ease-out;
+
+  .reset-icon {
+    height: 30px;
+    margin-right: 12px;
+  }
+
+  :hover,
+  :active,
+  :focus {
+    background: var(--dark-orange);
+    color: var(--white);
+  }
 `

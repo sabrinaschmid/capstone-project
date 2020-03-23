@@ -30,6 +30,7 @@ export default function DishList({ dishes, searchDish }) {
                 to={`/dish/${dish.id}`}
                 children={<DishDetail />}
                 key={dish.id}
+                onClick={onClick}
               >
                 <Dish dish={dish} key={dish.id} {...dish} />
               </Link>
@@ -43,6 +44,10 @@ export default function DishList({ dishes, searchDish }) {
       </SearchResultStyled>
     </DishListStyled>
   )
+
+  function onClick() {
+    return window.scrollTo(0, 0)
+  }
 }
 
 const DishListStyled = styled.section``
@@ -50,7 +55,6 @@ const DishListStyled = styled.section``
 const HeadlineStyled = styled.h2`
   margin-bottom: 0;
   padding: 8px 10px 0;
-  font-size: 22px;
 `
 const SearchResultStyled = styled.div``
 
@@ -59,5 +63,4 @@ const FilteredListStyled = styled.div``
 const NoResultsStyled = styled.h3`
   margin-top: 0;
   padding: 8px 10px 0;
-  font-size: 20px;
 `

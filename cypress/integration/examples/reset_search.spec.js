@@ -1,5 +1,5 @@
 describe('Reset search', () => {
-  it('clears the input field when clicking the button', () => {
+  it('clears the input field when the user clicks the reset button', () => {
     cy.visit('http://localhost:3000/')
 
     cy.get('input[name="search-dish"]').type('norma')

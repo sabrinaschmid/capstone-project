@@ -1,5 +1,5 @@
 describe('No search result', () => {
-  it('shows shows an information text when there are no search results', () => {
+  it('shows an notification message when there are no search results', () => {
     cy.visit('http://localhost:3000/')
 
     cy.get('input[name="search-dish"]').type('xxxyyy')

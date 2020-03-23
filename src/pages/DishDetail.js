@@ -1,26 +1,17 @@
-import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import EatingPreference from '../components/EatingPreference'
-import IntoleranceIngredients from '../components/IntoleranceIngredients/IntoleranceIngredients'
+import FructoseIngredients from '../components/FructoseIngredients/FructoseIngredients'
+import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
+import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
 import AppGrid from './AppGrid'
 
-DishDetail.propTypes = {
-  singleDish: PropTypes.object,
-  originalDishTitle: PropTypes.string,
-  translatedDishTitle: PropTypes.string,
-  ingredients: PropTypes.array,
-}
-
 export default function DishDetail({ match }) {
-  const [dishId, setDishId] = useState('')
   const [singleDish, setSingleDish] = useState({})
   const { originalDishTitle, translatedDishTitle, imagePath } = singleDish
 
   useEffect(() => {
-    setDishId(match.params.dishId)
-
     firebase
       .firestore()
       .collection('dishes')
@@ -41,7 +32,7 @@ export default function DishDetail({ match }) {
       .catch(function(error) {
         console.log('Error getting documents: ', error)
       })
-  }, [])
+  }, [match.params.dishId])
 
   return (
     <AppGrid title={originalDishTitle}>
@@ -52,7 +43,9 @@ export default function DishDetail({ match }) {
           <EatingPreference dish={singleDish} />
         </ImageWithPreferenceStyled>
         <HeadlineStyled>Intoleranzen</HeadlineStyled>
-        <IntoleranceIngredients singleDish={singleDish} />
+        <LactoseIngredients singleDish={singleDish} />
+        <FructoseIngredients singleDish={singleDish} />
+        <HistamineIngredients singleDish={singleDish} />
         <HeadlineStyled>Alle Zutaten</HeadlineStyled>
         <AllIngredientsStyled>{renderAllIngredients()} </AllIngredientsStyled>
       </DetailPageStyled>
@@ -70,12 +63,11 @@ export default function DishDetail({ match }) {
 }
 
 const DetailPageStyled = styled.section`
-  margin: 20px 8px;
+  margin: 20px 8px 0;
   padding: 4px;
 `
 const TranslatedTitleStyled = styled.h2`
   margin-top: 2px;
-  font-size: 22px;
 `
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
@@ -83,7 +75,7 @@ const ImageWithPreferenceStyled = styled.div`
 `
 const ImageStyled = styled.img`
   width: 100%;
-  background: white;
+  background: var(--white);
   border-radius: 10px;
 `
 const HeadlineStyled = styled.h3`

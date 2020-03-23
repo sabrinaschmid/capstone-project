@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/GlobalStyles'
-import IntoleranceIngredients from './IntoleranceIngredients'
+import LactoseIngredients from './LactoseIngredients'
 import DishDetail from '../../pages/DishDetail'
 
 const Wrapper = styled.div`
@@ -9,34 +9,28 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Intolerance Toggle',
-  component: IntoleranceIngredients,
+  title: 'IngredientsToggle/Lactose Toggle',
+  component: LactoseIngredients,
   DishDetail,
 }
 
 const singleDishA = {
   lactose: true,
-  fructose: 'viel enthalten',
-  histamine: true,
-  toggleLactose: true,
-  singleIngredient: 'Käse',
 }
 export const Critical = () => (
   <Wrapper>
     <GlobalStyles />
-    <IntoleranceIngredients singleDish={singleDishA}></IntoleranceIngredients>
+    <LactoseIngredients singleDish={singleDishA}></LactoseIngredients>
   </Wrapper>
 )
 
 const singleDishB = {
   lactose: false,
-  fructose: 'wenig enthalten',
-  histamine: false,
 }
 
 export const NotCritical = () => (
   <Wrapper>
     <GlobalStyles />
-    <IntoleranceIngredients singleDish={singleDishB}></IntoleranceIngredients>
+    <LactoseIngredients singleDish={singleDishB}></LactoseIngredients>
   </Wrapper>
 )

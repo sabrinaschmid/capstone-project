@@ -39,12 +39,12 @@ const EatingPreferenceStyled = styled.span`
   top: 2px;
   margin: 6px 12px;
   padding: 8px 10px;
-  background: #bbc0b6;
-  color: #164c1a;
+  background: var(--light-green);
+  color: var(--dark-green);
   border-radius: 40px;
 `
 
 const IconStyled = styled.img`
-  height: 24px;
+  height: 22px;
   padding-right: 6px;
 `

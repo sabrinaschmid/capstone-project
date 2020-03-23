@@ -18,7 +18,7 @@ const FooterStyled = styled.footer`
   position: absolute;
   bottom: 0;
   padding: 12px 10px;
-  background: #bbc0b6;
-  color: #404040;
+  background: var(--light-green);
+  color: var(--dark-grey);
   font-size: 12px;
 `
