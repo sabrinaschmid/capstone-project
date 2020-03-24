@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
 import Search from '../components/Search/Search'
 import AppGrid from './AppGrid'
-// import useQuery from './hooks/useQuery'
 
 HomePage.propTypes = {
   dishes: PropTypes.array,
