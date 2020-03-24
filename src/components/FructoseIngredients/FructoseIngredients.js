@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
 import greenapple from '../../icons/greenapple.svg'
 import orangeapple from '../../icons/orangeapple.svg'
@@ -11,6 +12,11 @@ FructoseIngredients.propTypes = {
 export default function FructoseIngredients({ singleDish }) {
   const { fructose } = singleDish
   const [toggleFructose, setToggleFructose] = useState(false)
+  const style = useSpring({
+    opacity: toggleFructose ? 1 : 0,
+    transform: toggleFructose ? 'translate3d(0,0,0)' : 'translate3d(0,-50px,0)',
+    config: config.gentle,
+  })
 
   return (
     <CheckForCriticalIngredients>
@@ -26,11 +32,13 @@ export default function FructoseIngredients({ singleDish }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
-          {toggleFructose && (
-            <CriticalIngredients>
-              {renderFructoseIngredients()}
-            </CriticalIngredients>
-          )}
+          <Animation style={style}>
+            {toggleFructose && (
+              <CriticalIngredients>
+                {renderFructoseIngredients()}
+              </CriticalIngredients>
+            )}
+          </Animation>
         </CriticalBoxStyled>
       ) : (
         <NonCriticalBoxStyled>
@@ -115,6 +123,8 @@ const CriticalIngredientsLink = styled.p`
   position: relative;
   text-decoration: underline;
 `
+const Animation = styled(animated.div)``
+
 const CriticalIngredients = styled.ul`
   margin-top: 0;
   padding-left: 18px;

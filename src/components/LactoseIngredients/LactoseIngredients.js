@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
 import greenmilk from '../../icons/greenmilk.svg'
 import orangemilk from '../../icons/orangemilk.svg'
@@ -12,6 +12,11 @@ LactoseIngredients.propTypes = {
 export default function LactoseIngredients({ singleDish }) {
   const { lactose } = singleDish
   const [toggleLactose, setToggleLactose] = useState(false)
+  const style = useSpring({
+    opacity: toggleLactose ? 1 : 0,
+    transform: toggleLactose ? 'translate3d(0,0,0)' : 'translate3d(0,-50px,0)',
+    config: config.gentle,
+  })
 
   return (
     <CheckForCriticalIngredients>
@@ -27,13 +32,13 @@ export default function LactoseIngredients({ singleDish }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
-          <Outer>
+          <Animation style={style}>
             {toggleLactose && (
               <CriticalIngredients>
                 {renderLactoseIngredients()}
               </CriticalIngredients>
             )}
-          </Outer>
+          </Animation>
         </CriticalBoxStyled>
       ) : (
         <NonCriticalBoxStyled>
@@ -122,42 +127,10 @@ const CriticalIngredientsLink = styled.p`
   position: relative;
   text-decoration: underline;
 `
-const Outer = styled(animated.div)`
-  /* word-break: break-word;
-  background: #f2f2f2;
-  margin: 10px -20px 10px;
-  position: relative;
-  overflow: hidden; */
-  /* 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-  }
+const Animation = styled(animated.div)``
 
-  &::before {
-    height: 8px;
-    background: linear-gradient(#0002, #0000);
-  }
-
-  &::after {
-    height: 8px;
-    bottom: 0;
-    background: linear-gradient(#0000, #0001);
-  } */
-`
 const CriticalIngredients = styled.ul`
   margin-top: 0;
   padding-left: 18px;
   line-height: 1.8em;
 `
-//   :active {
-//     transition: all 10s ease-in;
-//   }
-
-//   .list {
-//     color: hotpink;
-//   }
-// `
