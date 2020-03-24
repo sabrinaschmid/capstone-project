@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import DishDetail from '../../pages/DishDetail'
@@ -17,9 +17,11 @@ export default function DishList({ dishes, searchDish }) {
       .includes(searchDish.toLowerCase())
   })
 
+  const headlineRef = useRef()
+
   return (
-    <DishListStyled>
-      <HeadlineStyled id="headline">
+    <DishListStyled ref={headlineRef}>
+      <HeadlineStyled>
         {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </HeadlineStyled>
       <SearchResultStyled>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
 import Search from '../components/Search/Search'
@@ -27,14 +27,17 @@ export default function HomePage({ dishes }) {
   useQuery()
   const history = useHistory()
   const [searchDish, setSearchDish] = useState('')
+  const dishListRef = useRef()
 
   return (
     <AppGrid title="TastyTravel">
       <Search
         handleInput={handleInput}
+        handleDefault={handleDefault}
         handleReset={handleReset}
         searchDish={searchDish}
       />
+      <div ref={dishListRef}></div>
       <DishList dishes={dishes} searchDish={searchDish} />
     </AppGrid>
   )
@@ -42,6 +45,18 @@ export default function HomePage({ dishes }) {
   function handleInput(event) {
     history.push('/?search=' + event.target.value)
     return setSearchDish(event.target.value)
+  }
+
+  function handleDefault(event) {
+    return (
+      event.preventDefault() ||
+      event.target.blur() ||
+      window.scrollTo({
+        top: dishListRef.current.offsetTop,
+        left: 0,
+        behavior: 'smooth',
+      })
+    )
   }
 
   function handleReset() {

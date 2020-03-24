@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components/macro'
 import greenmilk from '../../icons/greenmilk.svg'
 import orangemilk from '../../icons/orangemilk.svg'
@@ -26,11 +27,13 @@ export default function LactoseIngredients({ singleDish }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
-          {toggleLactose && (
-            <CriticalIngredients>
-              {renderLactoseIngredients()}
-            </CriticalIngredients>
-          )}
+          <Outer>
+            {toggleLactose && (
+              <CriticalIngredients>
+                {renderLactoseIngredients()}
+              </CriticalIngredients>
+            )}
+          </Outer>
         </CriticalBoxStyled>
       ) : (
         <NonCriticalBoxStyled>
@@ -56,7 +59,11 @@ export default function LactoseIngredients({ singleDish }) {
     const lactoseIngredients = singleDish?.ingredientsWithLactose
     if (lactoseIngredients) {
       return lactoseIngredients.map((singleIngredient, index) => {
-        return <li key={index}>{singleIngredient}</li>
+        return (
+          <li key={index} className="list">
+            {singleIngredient}
+          </li>
+        )
       })
     }
   }
@@ -115,13 +122,42 @@ const CriticalIngredientsLink = styled.p`
   position: relative;
   text-decoration: underline;
 `
+const Outer = styled(animated.div)`
+  /* word-break: break-word;
+  background: #f2f2f2;
+  margin: 10px -20px 10px;
+  position: relative;
+  overflow: hidden; */
+  /* 
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  &::before {
+    height: 8px;
+    background: linear-gradient(#0002, #0000);
+  }
+
+  &::after {
+    height: 8px;
+    bottom: 0;
+    background: linear-gradient(#0000, #0001);
+  } */
+`
 const CriticalIngredients = styled.ul`
   margin-top: 0;
   padding-left: 18px;
   line-height: 1.8em;
-
-  .list {
-    color: hotpink;
-    transition: all 5s ease-out;
-  }
 `
+//   :active {
+//     transition: all 10s ease-in;
+//   }
+
+//   .list {
+//     color: hotpink;
+//   }
+// `

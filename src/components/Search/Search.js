@@ -7,7 +7,12 @@ Search.propTypes = {
   handleInput: PropTypes.func,
 }
 
-export default function Search({ handleInput, handleReset, searchDish }) {
+export default function Search({
+  handleInput,
+  handleDefault,
+  handleReset,
+  searchDish,
+}) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
@@ -34,10 +39,6 @@ export default function Search({ handleInput, handleReset, searchDish }) {
       </SearchFormStyled>
     </SearchStyled>
   )
-
-  function handleDefault(event) {
-    return event.preventDefault() || event.target.blur()
-  }
 }
 
 const SearchStyled = styled.section``
