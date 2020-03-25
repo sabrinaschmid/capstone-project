@@ -34,7 +34,6 @@ export default function Header({ title }) {
 
   function onClick() {
     history.goBack()
-    //schreibe den queryString auf der Homepage in das Inputfeld
   }
 }
 

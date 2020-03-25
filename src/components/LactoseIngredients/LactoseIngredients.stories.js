@@ -16,6 +16,7 @@ export default {
 
 const singleDishA = {
   lactose: true,
+  ingredientsWithLactose: ['Parmesan', 'Mozzarella'],
 }
 export const Critical = () => (
   <Wrapper>
