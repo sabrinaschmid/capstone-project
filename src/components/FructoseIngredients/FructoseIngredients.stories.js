@@ -16,6 +16,7 @@ export default {
 
 const singleDishA = {
   fructose: 'viel enthalten',
+  ingredientsWithFructose: ['Zucker', 'Zitronensaft', 'Aubergine'],
 }
 export const Critical = () => (
   <Wrapper>

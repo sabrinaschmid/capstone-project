@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
 import greenmilk from '../../icons/greenmilk.svg'
 import orangemilk from '../../icons/orangemilk.svg'
@@ -11,6 +12,11 @@ LactoseIngredients.propTypes = {
 export default function LactoseIngredients({ singleDish }) {
   const { lactose } = singleDish
   const [toggleLactose, setToggleLactose] = useState(false)
+  const style = useSpring({
+    opacity: toggleLactose ? 1 : 0,
+    transform: toggleLactose ? 'translate3d(0,0,0)' : 'translate3d(0,-50px,0)',
+    config: config.gentle,
+  })
 
   return (
     <CheckForCriticalIngredients>
@@ -26,11 +32,13 @@ export default function LactoseIngredients({ singleDish }) {
             </IntoleranceTextStyled>
           </IntoleranceInfoStyled>
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
-          {toggleLactose && (
-            <CriticalIngredients>
-              {renderLactoseIngredients()}
-            </CriticalIngredients>
-          )}
+          <Animation style={style}>
+            {toggleLactose && (
+              <CriticalIngredients>
+                {renderLactoseIngredients()}
+              </CriticalIngredients>
+            )}
+          </Animation>
         </CriticalBoxStyled>
       ) : (
         <NonCriticalBoxStyled>
@@ -56,7 +64,11 @@ export default function LactoseIngredients({ singleDish }) {
     const lactoseIngredients = singleDish?.ingredientsWithLactose
     if (lactoseIngredients) {
       return lactoseIngredients.map((singleIngredient, index) => {
-        return <li key={index}>{singleIngredient}</li>
+        return (
+          <li key={index} className="list">
+            {singleIngredient}
+          </li>
+        )
       })
     }
   }
@@ -115,13 +127,10 @@ const CriticalIngredientsLink = styled.p`
   position: relative;
   text-decoration: underline;
 `
+const Animation = styled(animated.div)``
+
 const CriticalIngredients = styled.ul`
   margin-top: 0;
   padding-left: 18px;
   line-height: 1.8em;
-
-  .list {
-    color: hotpink;
-    transition: all 5s ease-out;
-  }
 `

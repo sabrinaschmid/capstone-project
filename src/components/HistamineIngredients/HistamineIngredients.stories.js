@@ -16,6 +16,7 @@ export default {
 
 const singleDishA = {
   histamine: true,
+  ingredientsWithHistamine: ['Parmesan', 'Sardelle', 'Rotwein'],
 }
 export const Critical = () => (
   <Wrapper>
