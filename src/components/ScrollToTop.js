@@ -32,8 +32,8 @@ const ToTopButton = styled.button`
   border: 2px solid var(--medium-orange);
   transition: all 0.3s ease-out;
   position: fixed;
-  bottom: 8px;
-  right: 8px;
+  bottom: 12px;
+  right: 12px;
 
   .to-top-icon {
     height: 46px;
