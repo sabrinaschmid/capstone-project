@@ -23,7 +23,7 @@ export default function LactoseIngredients({ singleDish }) {
   return (
     <CheckForCriticalIngredients>
       {histamine ? (
-        <CriticalBoxStyled onClick={handleHistamineClick}>
+        <CriticalBoxStyled onClick={toggleBox}>
           <IntoleranceInfoStyled>
             <IconStyled src={orangewine} alt="" />
             <IntoleranceTextStyled>
@@ -36,9 +36,7 @@ export default function LactoseIngredients({ singleDish }) {
           <CriticalIngredientsLink>Ungeeignete Zutaten</CriticalIngredientsLink>
           <Animation style={style}>
             {toggleHistamine && (
-              <CriticalIngredients>
-                {renderHistamineIngredients()}
-              </CriticalIngredients>
+              <CriticalIngredients>{renderIngredients()}</CriticalIngredients>
             )}
           </Animation>
         </CriticalBoxStyled>
@@ -58,11 +56,11 @@ export default function LactoseIngredients({ singleDish }) {
     </CheckForCriticalIngredients>
   )
 
-  function handleHistamineClick(event) {
+  function toggleBox(event) {
     return event.stopPropagation() || setToggleHistamine(!toggleHistamine)
   }
 
-  function renderHistamineIngredients() {
+  function renderIngredients() {
     const histamineIngredients = singleDish?.ingredientsWithHistamine
     if (histamineIngredients) {
       return histamineIngredients.map((singleIngredient, index) => {
@@ -72,24 +70,26 @@ export default function LactoseIngredients({ singleDish }) {
   }
 }
 
-const CheckForCriticalIngredients = styled.div``
+const CheckForCriticalIngredients = styled.div`
+  margin-top: 8px;
+`
 
 const CriticalBoxStyled = styled.section`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  margin: 8px 0 20px;
-  padding: 18px;
+  margin: 0 0 24px;
+  padding: 18px 12px;
   background: var(--white);
   border-radius: 10px;
-  box-shadow: 0 1px 3px #bbc0b6;
+  box-shadow: 0 1px 3px var(--light-green);
 `
 const NonCriticalBoxStyled = styled.section`
   cursor: default;
   display: flex;
   flex-direction: column;
-  margin: 8px 0 20px;
-  padding: 18px;
+  margin: 0 0 24px;
+  padding: 18px 12px;
   background: var(--white);
   border-radius: 10px;
   box-shadow: 0 1px 3px var(--light-green);
@@ -100,7 +100,8 @@ const IntoleranceInfoStyled = styled.div`
 `
 const IconStyled = styled.img`
   height: 70px;
-  padding-right: 24px;
+  margin: 0 4px;
+  padding-right: 16px;
 `
 const IntoleranceTextStyled = styled.div`
   display: flex;
@@ -108,7 +109,6 @@ const IntoleranceTextStyled = styled.div`
 `
 const IntoleranceNameStyled = styled.h3`
   display: flex;
-  margin-top: 0;
 `
 const ContainsStyled = styled.p`
   margin-top: 0;
@@ -124,6 +124,7 @@ const CriticalIngredientsLink = styled.p`
   display: inline-block;
   position: relative;
   text-decoration: underline;
+  margin-top: 0;
 `
 const Animation = styled(animated.div)``
 

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
 import Search from '../components/Search/Search'
-import AppGrid from './AppGrid'
+import Grid from './Grid'
 
 HomePage.propTypes = {
   dishes: PropTypes.array,
@@ -29,7 +29,7 @@ export default function HomePage({ dishes }) {
   const dishListRef = useRef()
 
   return (
-    <AppGrid title="TastyTravel">
+    <Grid title="TastyTravel">
       <Search
         handleInput={handleInput}
         handleDefault={handleDefault}
@@ -38,7 +38,7 @@ export default function HomePage({ dishes }) {
       />
       <div ref={dishListRef}></div>
       <DishList dishes={dishes} searchDish={searchDish} />
-    </AppGrid>
+    </Grid>
   )
 
   function handleInput(event) {

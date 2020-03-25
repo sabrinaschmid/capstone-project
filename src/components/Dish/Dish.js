@@ -31,8 +31,8 @@ export default function Dish({ dish }) {
 const DishStyled = styled.section`
   display: flex;
   flex-direction: column;
-  margin: 8px 8px 20px;
-  padding: 2px 12px 20px;
+  margin-bottom: 24px;
+  padding: 10px 12px 18px;
   background: var(--white);
   border-radius: 10px;
   box-shadow: 0 1px 3px var(--light-green);
@@ -47,10 +47,10 @@ const ImageWithPreferenceStyled = styled.div`
 `
 const ImageStyled = styled.img`
   width: 100%;
+  margin-top: 8px;
   background: var(--white);
   border-radius: 10px;
 `
 const TranslatedTitleStyled = styled.h4`
   display: flex;
-  margin: 14px 0;
 `

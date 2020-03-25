@@ -11,58 +11,48 @@ DishList.propTypes = {
 }
 
 export default function DishList({ dishes, searchDish }) {
+  const headlineRef = useRef()
+
   let filteredDishes = dishes.filter(dish => {
     return dish.originalDishTitle
       .toLowerCase()
       .includes(searchDish.toLowerCase())
   })
 
-  const headlineRef = useRef()
-
   return (
     <DishListStyled ref={headlineRef}>
       <HeadlineStyled>
         {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </HeadlineStyled>
-      <SearchResultStyled>
-        {filteredDishes.length > 0 ? (
-          <FilteredListStyled>
-            {filteredDishes.map(dish => (
-              <Link
-                to={`/dish/${dish.id}`}
-                children={<DishDetail />}
-                key={dish.id}
-                onClick={onClick}
-              >
-                <Dish dish={dish} key={dish.id} {...dish} />
-              </Link>
-            ))}
-          </FilteredListStyled>
-        ) : (
-          <NoResultsStyled>
-            Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
-          </NoResultsStyled>
-        )}
-      </SearchResultStyled>
+      {filteredDishes.length > 0 ? (
+        <SearchResults>
+          {filteredDishes.map(dish => (
+            <Link
+              to={`/dish/${dish.id}`}
+              children={<DishDetail />}
+              key={dish.id}
+              onClick={linkToTop}
+            >
+              <Dish dish={dish} key={dish.id} {...dish} />
+            </Link>
+          ))}
+        </SearchResults>
+      ) : (
+        <NoResultsStyled>
+          Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
+        </NoResultsStyled>
+      )}
     </DishListStyled>
   )
 
-  function onClick() {
+  function linkToTop() {
     return window.scrollTo(0, 0)
   }
 }
 
-const DishListStyled = styled.section``
-
-const HeadlineStyled = styled.h2`
-  margin-bottom: 0;
-  padding: 8px 10px 0;
+const DishListStyled = styled.section`
+  margin-bottom: 24px;
 `
-const SearchResultStyled = styled.div``
-
-const FilteredListStyled = styled.div``
-
-const NoResultsStyled = styled.h3`
-  margin-top: 0;
-  padding: 8px 10px 0;
-`
+const HeadlineStyled = styled.h2``
+const SearchResults = styled.div``
+const NoResultsStyled = styled.h4``

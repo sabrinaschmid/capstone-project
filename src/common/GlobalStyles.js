@@ -23,14 +23,17 @@ export default createGlobalStyle`
   }
 
   h2 {
+    margin: 16px 0 8px;
     font-size: 22px;
   }
 
   h3 {
+    margin: 8px 0 8px;
     font-size: 20px;
   }
 
   h4 {
+    margin: 16px 0 8px;
     font-size: 18px;
   }
 

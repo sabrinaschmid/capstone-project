@@ -43,15 +43,12 @@ export default function Search({
 
 const SearchStyled = styled.section``
 
-const SearchHeadlineStyled = styled.h2`
-  margin-bottom: 0;
-  padding: 4px 10px 0;
-`
+const SearchHeadlineStyled = styled.h2``
 const SearchFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 8px 8px 2px;
-  padding: 18px 12px 20px 12px;
+  margin-bottom: 24px;
+  padding: 18px 12px;
   background: #bbc0b6;
   border-radius: 10px;
   box-shadow: 0 1px 3px var(--light-green);
@@ -60,12 +57,11 @@ const LabelStyled = styled.label`
   display: inline-block;
   padding-bottom: 6px;
 `
-
 const InputStyled = styled.input`
   box-sizing: border-box;
   height: 40px;
   margin-bottom: 12px;
-  padding-left: 6px;
+  padding-left: 8px;
   border-radius: 5px;
   border: 0.7px solid var(--light-green);
 `
@@ -81,7 +77,6 @@ const SelectStyled = styled.select`
   border: 0.7px solid var(--light-green);
 `
 const OptionStyled = styled.option``
-
 const NoteStyled = styled.p`
   display: flex;
   margin-top: 2px;

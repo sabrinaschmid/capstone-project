@@ -5,15 +5,15 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import ScrollToTop from '../components/ScrollToTop'
 
-AppGrid.propTypes = {
+Grid.propTypes = {
   title: PropTypes.string,
 }
 
-export default function AppGrid({ title, children }) {
+export default function Grid({ title, children }) {
   return (
     <AppGridStyled>
       <Header title={title} />
-      {children}
+      <PageContentGrid>{children}</PageContentGrid>
       <Footer />
       <ScrollToTop />
     </AppGridStyled>
@@ -32,4 +32,8 @@ const AppGridStyled = styled.main`
   padding-bottom: 120px;
   background: var(--light-orange);
   border: solid 1px #bbc0b6;
+`
+
+const PageContentGrid = styled.div`
+  margin: 8px 12px;
 `

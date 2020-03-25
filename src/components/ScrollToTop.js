@@ -24,7 +24,8 @@ export default function ScrollToTop() {
 
 const ToTopButton = styled.button`
   cursor: pointer;
-  height: 44px;
+  height: 48px;
+  width: 48px;
   background: var(--medium-orange);
   color: var(--white);
   border-radius: 5px;
@@ -33,14 +34,9 @@ const ToTopButton = styled.button`
   position: fixed;
   bottom: 8px;
   right: 8px;
-  max-width: 100vw;
 
   .to-top-icon {
-    display: flex;
-    align-items: center;
-    height: 42px;
-    margin-left: 8px;
-    margin-right: 8px;
+    height: 46px;
   }
 
   :hover,
