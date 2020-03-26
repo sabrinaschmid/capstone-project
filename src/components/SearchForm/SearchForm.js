@@ -3,7 +3,7 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components/macro'
 
-Search.propTypes = {
+SearchForm.propTypes = {
   handleInput: PropTypes.func,
   handleDefault: PropTypes.func,
   handleReset: PropTypes.func,
@@ -11,7 +11,7 @@ Search.propTypes = {
   searchDish: PropTypes.string,
 }
 
-export default function Search({
+export default function SearchForm({
   handleInput,
   handleDefault,
   handleReset,
@@ -20,8 +20,8 @@ export default function Search({
 }) {
   return (
     <SearchStyled>
-      <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
-      <SearchFormStyled onSubmit={handleDefault}>
+      <HeadlineStyled>Welches Gericht suchst Du?</HeadlineStyled>
+      <FormStyled onSubmit={handleDefault}>
         <LabelStyled htmlFor="searchdish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
@@ -43,15 +43,15 @@ export default function Search({
           <FaTimes className="reset-icon" />
           Suche zurücksetzen
         </ResetButtonStyled>
-      </SearchFormStyled>
+      </FormStyled>
     </SearchStyled>
   )
 }
 
 const SearchStyled = styled.section``
 
-const SearchHeadlineStyled = styled.h2``
-const SearchFormStyled = styled.form`
+const HeadlineStyled = styled.h2``
+const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;

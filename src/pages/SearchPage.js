@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
-import Search from '../components/Search/Search'
+import SearchForm from '../components/SearchForm/SearchForm'
 import Grid from './Grid'
 import useQuery from '../components/hooks/useQuery'
 import ScrollToTop from '../components/ScrollToTop'
@@ -29,7 +29,7 @@ export default function SearchPage({ dishes }) {
 
   return (
     <Grid title="TastyTravel">
-      <Search
+      <SearchForm
         handleInput={handleInput}
         handleDefault={handleDefault}
         handleReset={handleReset}
