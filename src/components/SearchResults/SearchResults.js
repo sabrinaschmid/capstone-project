@@ -5,12 +5,12 @@ import styled from 'styled-components/macro'
 import DetailPage from '../../pages/DetailPage'
 import Dish from '../Dish/Dish'
 
-DishList.propTypes = {
+SearchResults.propTypes = {
   dishes: PropTypes.array,
   searchDish: PropTypes.string,
 }
 
-export default function DishList({ dishes, searchDish }) {
+export default function SearchResults({ dishes, searchDish }) {
   const headlineRef = useRef()
 
   let filteredDishes = dishes.filter(dish => {
@@ -20,12 +20,12 @@ export default function DishList({ dishes, searchDish }) {
   })
 
   return (
-    <DishListStyled ref={headlineRef}>
-      <HeadlineStyled>
+    <DishListStyled>
+      <HeadlineStyled ref={headlineRef}>
         {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </HeadlineStyled>
       {filteredDishes.length > 0 ? (
-        <SearchResults>
+        <ResultsStyled>
           {filteredDishes.map(dish => (
             <Link
               to={`/dish/${dish.id}`}
@@ -36,7 +36,7 @@ export default function DishList({ dishes, searchDish }) {
               <Dish dish={dish} key={dish.id} {...dish} />
             </Link>
           ))}
-        </SearchResults>
+        </ResultsStyled>
       ) : (
         <NoResultsStyled>
           Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
@@ -54,5 +54,5 @@ const DishListStyled = styled.section`
   margin-bottom: 24px;
 `
 const HeadlineStyled = styled.h2``
-const SearchResults = styled.div``
+const ResultsStyled = styled.div``
 const NoResultsStyled = styled.h4``
