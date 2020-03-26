@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Footer from './Footer'
+import Header from './Header'
 
 Grid.propTypes = {
   title: PropTypes.string,
@@ -27,7 +27,7 @@ const AppGridStyled = styled.main`
   max-width: 767px;
   min-height: 100vh;
   margin: auto;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   background: var(--light-orange);
   border: solid 1px #bbc0b6;
 `

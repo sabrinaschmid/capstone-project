@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import GlobalStyles from '../../common/GlobalStyles'
+import GlobalStyles from '../../common/styles/GlobalStyles'
 import IntoleranceBadges from './IntoleranceBadges'
 
 const Wrapper = styled.div`

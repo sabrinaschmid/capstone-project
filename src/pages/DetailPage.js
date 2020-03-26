@@ -5,7 +5,7 @@ import FructoseIngredients from '../components/FructoseIngredients/FructoseIngre
 import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
 import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
-import Grid from './Grid'
+import Grid from '../common/Grid'
 
 export default function DetailPage({ match }) {
   const [singleDish, setSingleDish] = useState({})

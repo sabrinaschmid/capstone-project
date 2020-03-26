@@ -4,9 +4,7 @@ import styled from 'styled-components/macro'
 export default function Footer() {
   return (
     <FooterStyled>
-      &copy; 2020 – Alle Inhalte sind urheberrechtlich geschützt. Diese Webseite
-      nutzt Icons von thenounproject.com unter der Creative Commons Lizenz sowie
-      Bildmaterial von unsplash.com sowie pexels.com. Alle Rechte,
+      &copy; 2020 – Alle Inhalte sind urheberrechtlich geschützt. Alle Rechte,
       einschließlich der Vervielfältigung, Veröffentlichung, Bearbeitung und
       Übersetzung bleiben vorbehalten, Sabrina Schmid
     </FooterStyled>

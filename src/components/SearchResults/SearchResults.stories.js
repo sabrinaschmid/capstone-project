@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import GlobalStyles from '../../common/GlobalStyles'
+import GlobalStyles from '../../common/styles/GlobalStyles'
 import DishEntry from '../DishEntry/DishEntry'
 import EatingPreference from '../EatingPreference'
 import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'

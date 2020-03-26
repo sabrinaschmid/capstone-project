@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import SearchResults from '../components/SearchResults/SearchResults'
 import SearchForm from '../components/SearchForm/SearchForm'
-import Grid from './Grid'
-import useQuery from '../components/hooks/useQuery'
+import Grid from '../common/Grid'
+import useQuery from '../hooks/useQuery'
 import ScrollToTop from '../components/ScrollToTop'
 
 SearchPage.propTypes = {
