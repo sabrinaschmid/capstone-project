@@ -13,7 +13,7 @@ export default function Header({ title }) {
   const history = useHistory()
 
   return (
-    <HeaderStyled>
+    <HeaderWrapper>
       <Logo>
         <Route exact path="/" render={() => <IconStyled src={logo} alt="" />} />
       </Logo>
@@ -29,7 +29,7 @@ export default function Header({ title }) {
       />
 
       <TitleStyled>{title}</TitleStyled>
-    </HeaderStyled>
+    </HeaderWrapper>
   )
 
   function onClick() {
@@ -37,7 +37,7 @@ export default function Header({ title }) {
   }
 }
 
-const HeaderStyled = styled.header`
+const HeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@ const Logo = styled.div`
 
 const IconStyled = styled.img`
   height: 36px;
-  padding-right: 12px;
+  padding-right: 6px;
 `
 
 const Button = styled.button`
@@ -68,12 +68,7 @@ const Button = styled.button`
   transition: all 0.3s ease-out;
 
   .back-icon {
-    display: flex;
-    align-items: center;
-    /* color: var(--dark-green); */
     height: 46px;
-    margin-left: 8px;
-    margin-right: 8px;
   }
 
   :hover {

@@ -5,7 +5,7 @@ import FructoseIngredients from '../components/FructoseIngredients/FructoseIngre
 import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
 import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
-import AppGrid from './AppGrid'
+import Grid from './Grid'
 
 export default function DishDetail({ match }) {
   const [singleDish, setSingleDish] = useState({})
@@ -35,7 +35,7 @@ export default function DishDetail({ match }) {
   }, [match.params.dishId])
 
   return (
-    <AppGrid title={originalDishTitle}>
+    <Grid title={originalDishTitle}>
       <DetailPageStyled>
         <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
         <ImageWithPreferenceStyled>
@@ -49,7 +49,7 @@ export default function DishDetail({ match }) {
         <HeadlineStyled>Alle Zutaten</HeadlineStyled>
         <AllIngredientsStyled>{renderAllIngredients()} </AllIngredientsStyled>
       </DetailPageStyled>
-    </AppGrid>
+    </Grid>
   )
 
   function renderAllIngredients() {
@@ -63,26 +63,23 @@ export default function DishDetail({ match }) {
 }
 
 const DetailPageStyled = styled.section`
-  margin: 20px 8px 0;
-  padding: 4px;
+  margin-bottom: 24px;
 `
-const TranslatedTitleStyled = styled.h2`
-  margin-top: 2px;
-`
+const TranslatedTitleStyled = styled.h2``
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
   position: relative;
 `
 const ImageStyled = styled.img`
   width: 100%;
+  margin-top: 8px;
   background: var(--white);
   border-radius: 10px;
 `
 const HeadlineStyled = styled.h3`
-  margin: 24px 0 18px;
-  font-size: 20px;
+  margin-top: 18px;
 `
 const AllIngredientsStyled = styled.ul`
-  padding-left: 36px;
+  padding-left: 28px;
   line-height: 1.8em;
 `

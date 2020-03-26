@@ -5,27 +5,34 @@ import styled from 'styled-components/macro'
 
 Search.propTypes = {
   handleInput: PropTypes.func,
+  handleDefault: PropTypes.func,
+  handleReset: PropTypes.func,
+  setInputFocus: PropTypes.func,
+  searchDish: PropTypes.string,
 }
 
 export default function Search({
   handleInput,
   handleDefault,
   handleReset,
+  setInputFocus,
   searchDish,
 }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
       <SearchFormStyled onSubmit={handleDefault}>
-        <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
+        <LabelStyled htmlFor="searchdish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
           type="search"
-          name="search-dish"
-          id="search-dish"
+          name="searchdish"
+          id="searchdish"
           value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
+          onFocus={() => setInputFocus(true)}
+          onBlur={() => setInputFocus(false)}
         />
         <LabelStyled htmlFor="select-country">Land</LabelStyled>
         <SelectStyled name="select-country" id="select-country" disabled>
@@ -43,15 +50,12 @@ export default function Search({
 
 const SearchStyled = styled.section``
 
-const SearchHeadlineStyled = styled.h2`
-  margin-bottom: 0;
-  padding: 4px 10px 0;
-`
+const SearchHeadlineStyled = styled.h2``
 const SearchFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 8px 8px 2px;
-  padding: 18px 12px 20px 12px;
+  margin-bottom: 24px;
+  padding: 18px 12px;
   background: #bbc0b6;
   border-radius: 10px;
   box-shadow: 0 1px 3px var(--light-green);
@@ -60,12 +64,11 @@ const LabelStyled = styled.label`
   display: inline-block;
   padding-bottom: 6px;
 `
-
 const InputStyled = styled.input`
   box-sizing: border-box;
   height: 40px;
   margin-bottom: 12px;
-  padding-left: 6px;
+  padding-left: 8px;
   border-radius: 5px;
   border: 0.7px solid var(--light-green);
 `
@@ -81,7 +84,6 @@ const SelectStyled = styled.select`
   border: 0.7px solid var(--light-green);
 `
 const OptionStyled = styled.option``
-
 const NoteStyled = styled.p`
   display: flex;
   margin-top: 2px;

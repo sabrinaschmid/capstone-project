@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import DishList from '../components/DishList/DishList'
 import Search from '../components/Search/Search'
-import AppGrid from './AppGrid'
+import Grid from './Grid'
+import useQuery from '../components/hooks/useQuery'
+import ScrollToTop from '../components/ScrollToTop'
 
 HomePage.propTypes = {
   dishes: PropTypes.array,
@@ -19,26 +21,25 @@ export default function HomePage({ dishes }) {
     }
   }, [])
 
-  function useQuery() {
-    return new URLSearchParams(useLocation().search)
-  }
-
   useQuery()
   const history = useHistory()
   const [searchDish, setSearchDish] = useState('')
   const dishListRef = useRef()
+  const [inputFocus, setInputFocus] = useState(false)
 
   return (
-    <AppGrid title="TastyTravel">
+    <Grid title="TastyTravel">
       <Search
         handleInput={handleInput}
         handleDefault={handleDefault}
         handleReset={handleReset}
+        setInputFocus={setInputFocus}
         searchDish={searchDish}
       />
       <div ref={dishListRef}></div>
       <DishList dishes={dishes} searchDish={searchDish} />
-    </AppGrid>
+      <ScrollToTop inputFocus={inputFocus} />
+    </Grid>
   )
 
   function handleInput(event) {
@@ -49,12 +50,12 @@ export default function HomePage({ dishes }) {
   function handleDefault(event) {
     return (
       event.preventDefault() ||
-      event.target.blur() ||
       window.scrollTo({
         top: dishListRef.current.offsetTop,
         left: 0,
         behavior: 'smooth',
-      })
+      }) ||
+      event.target.searchdish.blur()
     )
   }
 

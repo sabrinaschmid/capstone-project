@@ -37,8 +37,8 @@ const EatingPreferenceStyled = styled.span`
   position: absolute;
   right: -4px;
   top: 2px;
-  margin: 6px 12px;
-  padding: 8px 10px;
+  margin: 12px 10px;
+  padding: 10px;
   background: var(--light-green);
   color: var(--dark-green);
   border-radius: 40px;

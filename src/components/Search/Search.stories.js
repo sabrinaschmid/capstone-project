@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions'
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/GlobalStyles'
@@ -15,6 +16,10 @@ export default {
 export const SearchForm = () => (
   <Wrapper>
     <GlobalStyles />
-    <Search />
+    <Search
+      handleReset={action('reset input')}
+      handleInput={action('search for dish')}
+      handleDefault={action('prevent default')}
+    />
   </Wrapper>
 )

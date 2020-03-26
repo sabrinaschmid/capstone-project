@@ -21,7 +21,7 @@ const singleDishA = {
 export const Critical = () => (
   <Wrapper>
     <GlobalStyles />
-    <LactoseIngredients singleDish={singleDishA}></LactoseIngredients>
+    <LactoseIngredients singleDish={singleDishA} />
   </Wrapper>
 )
 

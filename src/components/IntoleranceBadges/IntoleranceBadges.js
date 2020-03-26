@@ -15,7 +15,7 @@ export default function IntolerancesBadges({ dish }) {
   const { lactose, fructose, histamine } = dish
 
   return (
-    <IntolerancesStyled>
+    <BadgesContainer>
       {lactose ? (
         <IntolerantStyled>
           <IconStyled src={milk} alt="" />
@@ -51,17 +51,17 @@ export default function IntolerancesBadges({ dish }) {
           histaminfrei
         </NotIntolerantStyled>
       )}
-    </IntolerancesStyled>
+    </BadgesContainer>
   )
 }
 
-const IntolerancesStyled = styled.div`
+const BadgesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 const IntolerantStyled = styled.span`
   display: flex;
-  margin: 0 4px 8px 0;
+  margin: 6px 4px 0 0;
   padding: 10px;
   background: var(--medium-orange);
   color: var(--white);
@@ -69,7 +69,7 @@ const IntolerantStyled = styled.span`
 `
 const NotIntolerantStyled = styled.span`
   display: flex;
-  margin: 0 6px 8px 0;
+  margin: 6px 4px 0 0;
   padding: 10px;
   background: var(--dark-green);
   color: var(--white);
