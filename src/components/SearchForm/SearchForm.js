@@ -61,6 +61,7 @@ const FormStyled = styled.form`
 `
 const LabelStyled = styled.label``
 const InputStyled = styled.input`
+  -webkit-appearance: none;
   box-sizing: border-box;
   height: 40px;
   margin-bottom: 12px;
