@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import DetailPage from '../../pages/DetailPage'
-import Dish from '../Dish/Dish'
+import DishEntry from '../DishEntry/DishEntry'
 
 SearchResults.propTypes = {
   dishes: PropTypes.array,
@@ -33,7 +33,7 @@ export default function SearchResults({ dishes, searchDish }) {
               key={dish.id}
               onClick={linkToTop}
             >
-              <Dish dish={dish} key={dish.id} {...dish} />
+              <DishEntry dish={dish} key={dish.id} {...dish} />
             </Link>
           ))}
         </ResultsStyled>

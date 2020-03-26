@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/GlobalStyles'
 import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
-import Dish from './Dish'
+import DishEntry from './DishEntry'
 import EatingPreference from '../EatingPreference'
 
 const Wrapper = styled.div`
@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Dish',
-  component: Dish,
+  title: 'Dish Entry',
+  component: DishEntry,
   IntoleranceBadges,
   EatingPreference,
 }
@@ -23,9 +23,9 @@ const dish = {
   vegan: 'true',
 }
 
-export const DishEntry = () => (
+export const Dish = () => (
   <Wrapper>
     <GlobalStyles />
-    <Dish dish={dish}></Dish>
+    <DishEntry dish={dish}></DishEntry>
   </Wrapper>
 )

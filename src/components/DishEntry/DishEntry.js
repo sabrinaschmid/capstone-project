@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import EatingPreference from '../EatingPreference'
 import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
 
-Dish.propTypes = {
+DishEntry.propTypes = {
   dish: PropTypes.object,
   id: PropTypes.string,
   originalDishTitle: PropTypes.string,
@@ -12,11 +12,11 @@ Dish.propTypes = {
   translatedDishTitle: PropTypes.string,
 }
 
-export default function Dish({ dish }) {
+export default function DishEntry({ dish }) {
   const { id, originalDishTitle, imagePath, translatedDishTitle } = dish
 
   return (
-    <DishStyled key={id}>
+    <EntryStyled key={id}>
       <OriginalTitleStyled>{originalDishTitle}</OriginalTitleStyled>
       <ImageWithPreferenceStyled>
         <ImageStyled src={imagePath} alt="" />
@@ -24,11 +24,11 @@ export default function Dish({ dish }) {
       </ImageWithPreferenceStyled>
       <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
       <IntoleranceBadges dish={dish} />
-    </DishStyled>
+    </EntryStyled>
   )
 }
 
-const DishStyled = styled.section`
+const EntryStyled = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;

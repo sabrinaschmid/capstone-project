@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Search',
+  title: 'Search Form',
   component: SearchForm,
 }
 
