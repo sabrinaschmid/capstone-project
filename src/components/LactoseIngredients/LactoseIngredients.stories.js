@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/styles/GlobalStyles'
-import LactoseIngredients from './LactoseIngredients'
 import DetailPage from '../../pages/DetailPage'
+import LactoseIngredients from './LactoseIngredients'
 
 const Wrapper = styled.div`
   margin: 20px 0 0 20px;

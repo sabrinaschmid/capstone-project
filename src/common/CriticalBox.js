@@ -5,9 +5,9 @@ import styled from 'styled-components/macro'
 
 CriticalBox.propTypes = {
   singleDish: PropTypes.object,
-  intoleranceName: PropTypes.string,
-  subheadlineText: PropTypes.string,
-  criticalIngredients: PropTypes.array,
+  intoleranceName: PropTypes.string.isRequired,
+  subheadlineText: PropTypes.string.isRequired,
+  criticalIngredients: PropTypes.array.isRequired,
 }
 
 export default function CriticalBox({

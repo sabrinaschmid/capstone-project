@@ -7,9 +7,9 @@ import greenwine from '../../icons/greenwine.svg'
 import orangewine from '../../icons/orangewine.svg'
 
 LactoseIngredients.propTypes = {
-  singleDish: PropTypes.object,
-  histamine: PropTypes.bool,
+  singleDish: PropTypes.object.isRequired,
 }
+
 export default function LactoseIngredients({ singleDish }) {
   const { histamine, ingredientsWithHistamine } = singleDish
 

@@ -4,19 +4,19 @@ import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components/macro'
 
 SearchForm.propTypes = {
-  handleInput: PropTypes.func,
-  handleDefault: PropTypes.func,
-  handleReset: PropTypes.func,
-  setInputFocus: PropTypes.func,
-  searchDish: PropTypes.string,
+  handleDefault: PropTypes.func.isRequired,
+  handleInput: PropTypes.func.isRequired,
+  searchDish: PropTypes.string.isRequired,
+  setInputFocus: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
 }
 
 export default function SearchForm({
-  handleInput,
   handleDefault,
-  handleReset,
-  setInputFocus,
+  handleInput,
   searchDish,
+  setInputFocus,
+  handleReset,
 }) {
   return (
     <SearchStyled>
@@ -49,7 +49,6 @@ export default function SearchForm({
 }
 
 const SearchStyled = styled.section``
-
 const HeadlineStyled = styled.h2``
 const FormStyled = styled.form`
   display: flex;
@@ -60,10 +59,7 @@ const FormStyled = styled.form`
   border-radius: 10px;
   box-shadow: 0 1px 3px var(--light-green);
 `
-const LabelStyled = styled.label`
-  display: inline-block;
-  padding-bottom: 6px;
-`
+const LabelStyled = styled.label``
 const InputStyled = styled.input`
   box-sizing: border-box;
   height: 40px;

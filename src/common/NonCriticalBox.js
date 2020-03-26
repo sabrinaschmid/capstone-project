@@ -3,8 +3,8 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 NonCriticalBox.propTypes = {
-  intoleranceName: PropTypes.string,
-  subheadlineText: PropTypes.string,
+  intoleranceName: PropTypes.string.isRequired,
+  subheadlineText: PropTypes.string.isRequired,
 }
 
 export default function NonCriticalBox({

@@ -19,4 +19,5 @@ const FooterStyled = styled.footer`
   background: var(--light-green);
   color: var(--dark-grey);
   font-size: 12px;
+  z-index: 0;
 `

@@ -44,17 +44,14 @@ const HeaderWrapper = styled.header`
   background: var(--light-green);
   position: relative;
 `
-
 const Logo = styled.div`
   display: flex;
   align-content: center;
 `
-
 const IconStyled = styled.img`
   height: 36px;
   padding-right: 6px;
 `
-
 const Button = styled.button`
   cursor: pointer;
   display: flex;

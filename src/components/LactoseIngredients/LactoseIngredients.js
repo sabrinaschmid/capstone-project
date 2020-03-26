@@ -7,8 +7,9 @@ import greenmilk from '../../icons/greenmilk.svg'
 import orangemilk from '../../icons/orangemilk.svg'
 
 LactoseIngredients.propTypes = {
-  singleDish: PropTypes.object,
+  singleDish: PropTypes.object.isRequired,
 }
+
 export default function LactoseIngredients({ singleDish }) {
   const { lactose, ingredientsWithLactose } = singleDish
 

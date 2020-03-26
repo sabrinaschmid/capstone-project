@@ -41,6 +41,11 @@ export default createGlobalStyle`
     font-size: 16px;
   }
 
+  label {
+    display: inline-block;
+    padding-bottom: 6px;
+  }
+
   a {
     text-decoration: none;
     color: var(--dark-grey);

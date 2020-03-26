@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
+import Grid from '../common/Grid'
 import EatingPreference from '../components/EatingPreference'
 import FructoseIngredients from '../components/FructoseIngredients/FructoseIngredients'
 import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
 import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
-import Grid from '../common/Grid'
 
 export default function DetailPage({ match }) {
   const [singleDish, setSingleDish] = useState({})
@@ -68,6 +68,7 @@ const DetailPageStyled = styled.section`
 const TranslatedTitleStyled = styled.h2``
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
+  align-items: flex-start;
   position: relative;
 `
 const ImageStyled = styled.img`

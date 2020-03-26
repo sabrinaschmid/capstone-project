@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import SearchResults from '../components/SearchResults/SearchResults'
-import SearchForm from '../components/SearchForm/SearchForm'
 import Grid from '../common/Grid'
-import useQuery from '../hooks/useQuery'
 import ScrollToTop from '../components/ScrollToTop'
+import SearchForm from '../components/SearchForm/SearchForm'
+import SearchResults from '../components/SearchResults/SearchResults'
+import useQuery from '../hooks/useQuery'
 
 SearchPage.propTypes = {
-  dishes: PropTypes.array,
+  dishes: PropTypes.array.isRequired,
 }
 
 export default function SearchPage({ dishes }) {
@@ -22,30 +22,25 @@ export default function SearchPage({ dishes }) {
   }, [])
 
   useQuery()
-  const history = useHistory()
   const [searchDish, setSearchDish] = useState('')
-  const dishListRef = useRef()
   const [inputFocus, setInputFocus] = useState(false)
+  const history = useHistory()
+  const dishListRef = useRef()
 
   return (
     <Grid title="TastyTravel">
       <SearchForm
-        handleInput={handleInput}
         handleDefault={handleDefault}
-        handleReset={handleReset}
-        setInputFocus={setInputFocus}
+        handleInput={handleInput}
         searchDish={searchDish}
+        setInputFocus={setInputFocus}
+        handleReset={handleReset}
       />
       <div ref={dishListRef}></div>
       <SearchResults dishes={dishes} searchDish={searchDish} />
       <ScrollToTop inputFocus={inputFocus} />
     </Grid>
   )
-
-  function handleInput(event) {
-    history.push('/?search=' + event.target.value)
-    return setSearchDish(event.target.value)
-  }
 
   function handleDefault(event) {
     return (
@@ -57,6 +52,11 @@ export default function SearchPage({ dishes }) {
       }) ||
       event.target.searchdish.blur()
     )
+  }
+
+  function handleInput(event) {
+    history.push('/?search=' + event.target.value)
+    return setSearchDish(event.target.value)
   }
 
   function handleReset() {

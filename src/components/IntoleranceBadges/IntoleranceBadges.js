@@ -6,11 +6,9 @@ import milk from '../../icons/milk.svg'
 import wine from '../../icons/wine.svg'
 
 IntolerancesBadges.propTypes = {
-  dish: PropTypes.object,
-  lactose: PropTypes.bool,
-  fructose: PropTypes.string,
-  histamine: PropTypes.bool,
+  dish: PropTypes.object.isRequired,
 }
+
 export default function IntolerancesBadges({ dish }) {
   const { lactose, fructose, histamine } = dish
 

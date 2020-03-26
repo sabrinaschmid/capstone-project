@@ -5,11 +5,7 @@ import EatingPreference from '../EatingPreference'
 import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
 
 DishEntry.propTypes = {
-  dish: PropTypes.object,
-  id: PropTypes.string,
-  originalDishTitle: PropTypes.string,
-  imagePath: PropTypes.string,
-  translatedDishTitle: PropTypes.string,
+  dish: PropTypes.object.isRequired,
 }
 
 export default function DishEntry({ dish }) {
@@ -44,6 +40,7 @@ const OriginalTitleStyled = styled.h3`
 const ImageWithPreferenceStyled = styled.div`
   display: flex;
   position: relative;
+  align-items: flex-start;
 `
 const ImageStyled = styled.img`
   width: 100%;

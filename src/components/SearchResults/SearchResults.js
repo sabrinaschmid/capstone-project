@@ -6,8 +6,8 @@ import DetailPage from '../../pages/DetailPage'
 import DishEntry from '../DishEntry/DishEntry'
 
 SearchResults.propTypes = {
-  dishes: PropTypes.array,
-  searchDish: PropTypes.string,
+  dishes: PropTypes.array.isRequired,
+  searchDish: PropTypes.string.isRequired,
 }
 
 export default function SearchResults({ dishes, searchDish }) {
