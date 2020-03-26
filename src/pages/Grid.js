@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import ScrollToTop from '../components/ScrollToTop'
 
 Grid.propTypes = {
   title: PropTypes.string,
@@ -15,7 +14,6 @@ export default function Grid({ title, children }) {
       <Header title={title} />
       <PageContentGrid>{children}</PageContentGrid>
       <Footer />
-      <ScrollToTop />
     </AppGridStyled>
   )
 }

@@ -1,13 +1,20 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { FaChevronUp } from 'react-icons/fa'
 import { useSpring } from 'react-spring'
 import styled from 'styled-components/macro'
 
-export default function ScrollToTop() {
+ScrollToTop.propTypes = {
+  inputFocus: PropTypes.bool,
+}
+export default function ScrollToTop({ inputFocus }) {
   const [, setY] = useSpring(() => ({ y: 0 }))
 
   return (
-    <ToTopButton onClick={scrollToTop}>
+    <ToTopButton
+      display={inputFocus ? 'none' : 'inline-block'}
+      onClick={scrollToTop}
+    >
       <FaChevronUp className="to-top-icon" />
     </ToTopButton>
   )

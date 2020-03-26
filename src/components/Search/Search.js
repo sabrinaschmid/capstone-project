@@ -5,27 +5,34 @@ import styled from 'styled-components/macro'
 
 Search.propTypes = {
   handleInput: PropTypes.func,
+  handleDefault: PropTypes.func,
+  handleReset: PropTypes.func,
+  setInputFocus: PropTypes.func,
+  searchDish: PropTypes.string,
 }
 
 export default function Search({
   handleInput,
   handleDefault,
   handleReset,
+  setInputFocus,
   searchDish,
 }) {
   return (
     <SearchStyled>
       <SearchHeadlineStyled>Welches Gericht suchst Du?</SearchHeadlineStyled>
       <SearchFormStyled onSubmit={handleDefault}>
-        <LabelStyled htmlFor="search-dish">Name des Gerichts</LabelStyled>
+        <LabelStyled htmlFor="searchdish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
           type="search"
-          name="search-dish"
-          id="search-dish"
+          name="searchdish"
+          id="searchdish"
           value={searchDish}
           placeholder="z.B. Pasta alla Norma"
           required
+          onFocus={() => setInputFocus(true)}
+          onBlur={() => setInputFocus(false)}
         />
         <LabelStyled htmlFor="select-country">Land</LabelStyled>
         <SelectStyled name="select-country" id="select-country" disabled>
