@@ -7,11 +7,11 @@ import Grid from './Grid'
 import useQuery from '../components/hooks/useQuery'
 import ScrollToTop from '../components/ScrollToTop'
 
-HomePage.propTypes = {
+SearchPage.propTypes = {
   dishes: PropTypes.array,
 }
 
-export default function HomePage({ dishes }) {
+export default function SearchPage({ dishes }) {
   useEffect(() => {
     const url = window.location.href
     if (url.includes('=')) {
