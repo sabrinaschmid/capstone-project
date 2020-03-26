@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import DishDetail from '../../pages/DishDetail'
+import DetailPage from '../../pages/DetailPage'
 import Dish from '../Dish/Dish'
 
 DishList.propTypes = {
@@ -29,7 +29,7 @@ export default function DishList({ dishes, searchDish }) {
           {filteredDishes.map(dish => (
             <Link
               to={`/dish/${dish.id}`}
-              children={<DishDetail />}
+              children={<DetailPage />}
               key={dish.id}
               onClick={linkToTop}
             >

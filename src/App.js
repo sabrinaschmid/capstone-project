@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import DishDetail from './pages/DishDetail'
+import DetailPage from './pages/DetailPage'
 import HomePage from './pages/HomePage'
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
         <Route exact path="/">
           <HomePage dishes={dishes} />
         </Route>
-        <Route path="/dish/:dishId" component={DishDetail}></Route>
+        <Route path="/dish/:dishId" component={DetailPage}></Route>
       </Switch>
     </Router>
   )

@@ -7,7 +7,7 @@ import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredie
 import firebase from '../firebase'
 import Grid from './Grid'
 
-export default function DishDetail({ match }) {
+export default function DetailPage({ match }) {
   const [singleDish, setSingleDish] = useState({})
   const { originalDishTitle, translatedDishTitle, imagePath } = singleDish
 
