@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import Grid from '../common/Grid'
-import EatingPreference from '../components/EatingPreference'
 import FructoseIngredients from '../components/FructoseIngredients/FructoseIngredients'
 import HistamineIngredients from '../components/HistamineIngredients/HistamineIngredients'
+import ImageWithDiet from '../components/ImageWithDiet'
 import LactoseIngredients from '../components/LactoseIngredients/LactoseIngredients'
 import firebase from '../firebase'
 
@@ -38,10 +38,7 @@ export default function DetailPage({ match }) {
     <Grid title={originalDishTitle}>
       <DetailPageStyled>
         <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
-        <ImageWithPreferenceStyled>
-          <ImageStyled src={imagePath} alt="" />
-          <EatingPreference dish={singleDish} />
-        </ImageWithPreferenceStyled>
+        <ImageWithDiet singleDish={singleDish} imagePath={imagePath} />
         <HeadlineStyled>Intoleranzen</HeadlineStyled>
         <LactoseIngredients singleDish={singleDish} />
         <FructoseIngredients singleDish={singleDish} />
@@ -66,17 +63,6 @@ const DetailPageStyled = styled.section`
   margin-bottom: 24px;
 `
 const TranslatedTitleStyled = styled.h2``
-const ImageWithPreferenceStyled = styled.div`
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-`
-const ImageStyled = styled.img`
-  width: 100%;
-  margin-top: 8px;
-  background: var(--white);
-  border-radius: 10px;
-`
 const HeadlineStyled = styled.h3`
   margin-top: 18px;
 `

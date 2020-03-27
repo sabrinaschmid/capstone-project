@@ -4,26 +4,25 @@ import styled from 'styled-components/macro'
 import carrot from '../icons/carrot.svg'
 import leaf from '../icons/leaf.svg'
 
-EatingPreference.propTypes = {
-  vegan: PropTypes.bool,
-  vegetarian: PropTypes.bool,
+Diet.propTypes = {
+  dish: PropTypes.object,
 }
 
-export default function EatingPreference({ dish }) {
+export default function Diet({ dish }) {
   const { vegan, vegetarian } = dish
 
   return (
     <>
       {vegan ? (
-        <EatingPreferenceStyled>
+        <BadgeStyled>
           <IconStyled src={leaf} alt="" />
           vegan
-        </EatingPreferenceStyled>
+        </BadgeStyled>
       ) : vegetarian ? (
-        <EatingPreferenceStyled>
+        <BadgeStyled>
           <IconStyled src={carrot} alt="" />
           vegetarisch
-        </EatingPreferenceStyled>
+        </BadgeStyled>
       ) : (
         ''
       )}
@@ -31,7 +30,7 @@ export default function EatingPreference({ dish }) {
   )
 }
 
-const EatingPreferenceStyled = styled.span`
+const BadgeStyled = styled.span`
   display: flex;
   align-items: stretch;
   position: absolute;

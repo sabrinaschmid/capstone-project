@@ -34,7 +34,6 @@ const AppGridStyled = styled.main`
   background: var(--light-orange);
   border: solid 1px #bbc0b6;
 `
-
 const PageContentGrid = styled.div`
   margin: 8px 12px;
 `
