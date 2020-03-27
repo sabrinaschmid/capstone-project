@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/styles/GlobalStyles'
-import EatingPreference from '../EatingPreference'
-import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
+import Diet from '../Diet'
+import Badges from '../Badges/Badges'
 import DishEntry from './DishEntry'
 
 const Wrapper = styled.div`
@@ -12,8 +12,8 @@ const Wrapper = styled.div`
 export default {
   title: 'Dish Entry',
   component: DishEntry,
-  IntoleranceBadges,
-  EatingPreference,
+  Badges,
+  Diet,
 }
 
 const dish = {

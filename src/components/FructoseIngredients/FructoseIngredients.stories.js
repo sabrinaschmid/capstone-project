@@ -15,7 +15,7 @@ export default {
 }
 
 const singleDishA = {
-  fructose: 'viel enthalten',
+  fructose: true,
   ingredientsWithFructose: ['Zucker', 'Zitronensaft', 'Aubergine'],
 }
 export const Critical = () => (
@@ -26,7 +26,7 @@ export const Critical = () => (
 )
 
 const singleDishB = {
-  fructose: 'wenig enthalten',
+  fructose: false,
 }
 
 export const NotCritical = () => (

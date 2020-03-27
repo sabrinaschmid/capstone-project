@@ -15,7 +15,7 @@ export default function FructoseIngredients({ singleDish }) {
 
   return (
     <CheckForCriticalIngredients>
-      {fructose === 'viel enthalten' ? (
+      {fructose ? (
         <CriticalBox
           icon={orangeapple}
           intoleranceName="FRUKTOSE"

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 import ImageWithDiet from '../ImageWithDiet'
-import IntoleranceBadges from '../IntoleranceBadges/IntoleranceBadges'
+import Badges from '../Badges/Badges'
 
 DishEntry.propTypes = {
   dish: PropTypes.object.isRequired,
@@ -16,7 +16,7 @@ export default function DishEntry({ dish }) {
       <OriginalTitleStyled>{originalDishTitle}</OriginalTitleStyled>
       <ImageWithDiet singleDish={dish} imagePath={imagePath} />
       <TranslatedTitleStyled>{translatedDishTitle}</TranslatedTitleStyled>
-      <IntoleranceBadges dish={dish} />
+      <Badges dish={dish} />
     </EntryStyled>
   )
 }
