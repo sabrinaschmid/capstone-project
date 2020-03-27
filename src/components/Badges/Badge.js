@@ -17,21 +17,21 @@ export default function Badge({
   return (
     <div>
       {intolerance ? (
-        <IntolerantStyled>
+        <CriticalStyled>
           <IconStyled src={icon} alt="" />
           {intolerantText}
-        </IntolerantStyled>
+        </CriticalStyled>
       ) : (
-        <NotIntolerantStyled>
+        <NotCriticalStyled>
           <IconStyled src={icon} alt="" />
           {notIntolerantText}
-        </NotIntolerantStyled>
+        </NotCriticalStyled>
       )}
     </div>
   )
 }
 
-const IntolerantStyled = styled.span`
+const CriticalStyled = styled.span`
   display: flex;
   margin: 6px 4px 0 0;
   padding: 10px;
@@ -39,7 +39,7 @@ const IntolerantStyled = styled.span`
   color: var(--white);
   border-radius: 40px;
 `
-const NotIntolerantStyled = styled.span`
+const NotCriticalStyled = styled.span`
   display: flex;
   margin: 6px 4px 0 0;
   padding: 10px;
