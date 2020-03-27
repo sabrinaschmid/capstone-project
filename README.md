@@ -2,7 +2,7 @@
 
 **Tasty Travel** is my very first mobile app which I developed as my final project of a three month web development bootcamp at [neuefische](https://www.neuefische.de/).
 
-The app, which is made with [Create React App](https://github.com/facebook/create-react-app), helps people with food intolerances when travelling abroad to navigate their way through the jungle of unknown food. In the restaurant, the user can use a search function to quickly and easily check which dish is suitable for his individual food intolerance. He also receives helpful translations, pictures and a list of ingredients. He can then make an informed decision or alternatively choose another dish.
+The app, which is made with [Create React App](https://github.com/facebook/create-react-app), helps people with food intolerances when travelling abroad to navigate their way through the jungle of unknown food. In restaurants, the user can use a search function to quickly and easily check which dish is suitable for their individual food intolerance. The app delivers helpful translations, pictures and a list of ingredients so that the user can make an informed decision on their meal.
 
 ---
 

@@ -20,7 +20,7 @@ export default function SearchResults({ dishes, searchDish }) {
   })
 
   return (
-    <DishListStyled>
+    <ListStyled>
       <HeadlineStyled ref={headlineRef}>
         {searchDish ? 'Dein Suchergebnis' : 'Alle italienischen Gerichte'}
       </HeadlineStyled>
@@ -42,7 +42,7 @@ export default function SearchResults({ dishes, searchDish }) {
           Es gibt leider kein Suchergebnis für <em>"{searchDish}"</em>.
         </NoResultsStyled>
       )}
-    </DishListStyled>
+    </ListStyled>
   )
 
   function linkToTop() {
@@ -50,7 +50,7 @@ export default function SearchResults({ dishes, searchDish }) {
   }
 }
 
-const DishListStyled = styled.section`
+const ListStyled = styled.section`
   margin-bottom: 24px;
 `
 const HeadlineStyled = styled.h2``
