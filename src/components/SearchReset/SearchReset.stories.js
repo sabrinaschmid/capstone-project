@@ -9,13 +9,13 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Search Reset Button',
+  title: 'Search Form/Reset Button',
   component: SearchReset,
 }
 
-export const SearchResetButton = () => (
+export const Button = () => (
   <Wrapper>
     <GlobalStyles />
-    <SearchReset handleReset={action('reset input')} />
+    <SearchReset handleReset={action('reset search')} />
   </Wrapper>
 )

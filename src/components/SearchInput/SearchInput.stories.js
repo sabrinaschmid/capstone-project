@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Search Input Field',
+  title: 'Search Form/Input Field',
   component: SearchInput,
 }
 
@@ -17,10 +17,10 @@ const Label = styled.p`
   margin-bottom: 6px;
 `
 
-export const SearchResetButton = () => (
+export const Input = () => (
   <Wrapper>
     <GlobalStyles />
     <Label>Name des Gerichts</Label>
-    <SearchInput handleInput={action('handle input')} />
+    <SearchInput handleInput={action('search for dish')} />
   </Wrapper>
 )

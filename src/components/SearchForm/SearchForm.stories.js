@@ -9,15 +9,15 @@ const Wrapper = styled.div`
   width: 414px;
 `
 export default {
-  title: 'Search Form',
+  title: 'Search Form/Form',
   component: SearchForm,
 }
 
-export const Search = () => (
+export const Form = () => (
   <Wrapper>
     <GlobalStyles />
     <SearchForm
-      handleReset={action('reset input')}
+      handleReset={action('reset search')}
       handleInput={action('search for dish')}
       handleDefault={action('prevent default')}
     />

@@ -21,7 +21,7 @@ export const NoSearchResult = () => (
     <GlobalStyles />
     <Headline>Dein Suchergebnis</Headline>
     <NoResultText>
-      Es gibt leider kein Suchergebnis für <em>"asdjas"</em>.
+      Es gibt leider kein Suchergebnis für <em>"xyz"</em>.
     </NoResultText>
   </Wrapper>
 )
