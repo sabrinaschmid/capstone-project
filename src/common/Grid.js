@@ -3,17 +3,19 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Footer from './Footer'
 import Header from './Header'
+import ScrollToTop from '../components/ScrollToTop'
 
 Grid.propTypes = {
   title: PropTypes.string,
 }
 
-export default function Grid({ title, children }) {
+export default function Grid({ title, children, inputFocus }) {
   return (
     <AppGridStyled>
       <Header title={title} />
       <PageContentGrid>{children}</PageContentGrid>
       <Footer />
+      <ScrollToTop inputFocus={inputFocus} />
     </AppGridStyled>
   )
 }

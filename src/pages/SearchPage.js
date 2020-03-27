@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Grid from '../common/Grid'
-import ScrollToTop from '../components/ScrollToTop'
 import SearchForm from '../components/SearchForm/SearchForm'
 import SearchResults from '../components/SearchResults/SearchResults'
 import useQuery from '../hooks/useQuery'
@@ -28,7 +27,7 @@ export default function SearchPage({ dishes }) {
   const dishListRef = useRef()
 
   return (
-    <Grid title="TastyTravel">
+    <Grid title="TastyTravel" inputFocus={inputFocus}>
       <SearchForm
         handleDefault={handleDefault}
         handleInput={handleInput}
@@ -38,7 +37,6 @@ export default function SearchPage({ dishes }) {
       />
       <div ref={dishListRef}></div>
       <SearchResults dishes={dishes} searchDish={searchDish} />
-      <ScrollToTop inputFocus={inputFocus} />
     </Grid>
   )
 

@@ -12,10 +12,7 @@ export default function ScrollToTop({ inputFocus }) {
   const [, setY] = useSpring(() => ({ y: 0 }))
 
   return (
-    <ToTopButton
-      display={inputFocus ? 'none' : 'inline-block'}
-      onClick={scrollToTop}
-    >
+    <ToTopButton className={inputFocus ? 'none' : ''} onClick={scrollToTop}>
       <FaChevronUp className="to-top-icon" />
     </ToTopButton>
   )
@@ -43,6 +40,10 @@ const ToTopButton = styled.button`
   bottom: 12px;
   right: 12px;
   z-index: 1;
+
+  &.none {
+    display: none;
+  }
 
   .to-top-icon {
     height: 46px;
