@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import GlobalStyles from '../../common/GlobalStyles'
+import GlobalStyles from '../../common/styles/GlobalStyles'
+import DetailPage from '../../pages/DetailPage'
 import FructoseIngredients from './FructoseIngredients'
-import DishDetail from '../../pages/DishDetail'
 
 const Wrapper = styled.div`
   margin: 20px 0 0 20px;
@@ -11,11 +11,11 @@ const Wrapper = styled.div`
 export default {
   title: 'IngredientsToggle/Fructose Toggle',
   component: FructoseIngredients,
-  DishDetail,
+  DetailPage,
 }
 
 const singleDishA = {
-  fructose: 'viel enthalten',
+  fructose: true,
   ingredientsWithFructose: ['Zucker', 'Zitronensaft', 'Aubergine'],
 }
 export const Critical = () => (
@@ -26,7 +26,7 @@ export const Critical = () => (
 )
 
 const singleDishB = {
-  fructose: 'wenig enthalten',
+  fructose: false,
 }
 
 export const NotCritical = () => (

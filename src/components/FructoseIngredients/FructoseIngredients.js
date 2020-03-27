@@ -7,14 +7,15 @@ import greenapple from '../../icons/greenapple.svg'
 import orangeapple from '../../icons/orangeapple.svg'
 
 FructoseIngredients.propTypes = {
-  singleDish: PropTypes.object,
+  singleDish: PropTypes.object.isRequired,
 }
+
 export default function FructoseIngredients({ singleDish }) {
   const { fructose, ingredientsWithFructose } = singleDish
 
   return (
     <CheckForCriticalIngredients>
-      {fructose === 'viel enthalten' ? (
+      {fructose ? (
         <CriticalBox
           icon={orangeapple}
           intoleranceName="FRUKTOSE"

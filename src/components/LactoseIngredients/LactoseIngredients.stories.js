@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import GlobalStyles from '../../common/GlobalStyles'
+import GlobalStyles from '../../common/styles/GlobalStyles'
+import DetailPage from '../../pages/DetailPage'
 import LactoseIngredients from './LactoseIngredients'
-import DishDetail from '../../pages/DishDetail'
 
 const Wrapper = styled.div`
   margin: 20px 0 0 20px;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 export default {
   title: 'IngredientsToggle/Lactose Toggle',
   component: LactoseIngredients,
-  DishDetail,
+  DetailPage,
 }
 
 const singleDishA = {

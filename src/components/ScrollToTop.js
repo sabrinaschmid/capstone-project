@@ -7,12 +7,14 @@ import styled from 'styled-components/macro'
 ScrollToTop.propTypes = {
   inputFocus: PropTypes.bool,
 }
+
 export default function ScrollToTop({ inputFocus }) {
   const [, setY] = useSpring(() => ({ y: 0 }))
 
   return (
     <ToTopButton
-      display={inputFocus ? 'none' : 'inline-block'}
+      name="to-top-button"
+      className={inputFocus ? 'none' : ''}
       onClick={scrollToTop}
     >
       <FaChevronUp className="to-top-icon" />
@@ -41,6 +43,11 @@ const ToTopButton = styled.button`
   position: fixed;
   bottom: 12px;
   right: 12px;
+  z-index: 1;
+
+  &.none {
+    display: none;
+  }
 
   .to-top-icon {
     height: 46px;
