@@ -21,7 +21,7 @@ export default function SearchForm({
   return (
     <SearchStyled>
       <HeadlineStyled>Welches Gericht suchst Du?</HeadlineStyled>
-      <FormStyled onSubmit={handleDefault}>
+      <FormStyled name="searchform" onSubmit={handleDefault}>
         <LabelStyled htmlFor="searchdish">Name des Gerichts</LabelStyled>
         <InputStyled
           onChange={handleInput}
