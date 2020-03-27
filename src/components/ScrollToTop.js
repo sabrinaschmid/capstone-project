@@ -12,7 +12,11 @@ export default function ScrollToTop({ inputFocus }) {
   const [, setY] = useSpring(() => ({ y: 0 }))
 
   return (
-    <ToTopButton className={inputFocus ? 'none' : ''} onClick={scrollToTop}>
+    <ToTopButton
+      name="to-top-button"
+      className={inputFocus ? 'none' : ''}
+      onClick={scrollToTop}
+    >
       <FaChevronUp className="to-top-icon" />
     </ToTopButton>
   )

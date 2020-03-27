@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
+import ScrollToTop from '../components/ScrollToTop'
 import Footer from './Footer'
 import Header from './Header'
-import ScrollToTop from '../components/ScrollToTop'
 
 Grid.propTypes = {
   title: PropTypes.string,
+  inputFocus: PropTypes.bool,
 }
 
 export default function Grid({ title, children, inputFocus }) {
