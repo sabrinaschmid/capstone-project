@@ -3,11 +3,11 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components/macro'
 
-ResetSearch.propTypes = {
+SearchReset.propTypes = {
   handleReset: PropTypes.func.isRequired,
 }
 
-export default function ResetSearch({ handleReset }) {
+export default function SearchReset({ handleReset }) {
   return (
     <ResetButtonStyled type="reset" onClick={handleReset}>
       <FaTimes className="reset-icon" />

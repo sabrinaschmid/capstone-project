@@ -15,9 +15,8 @@ const FooterStyled = styled.footer`
   display: flex;
   position: absolute;
   bottom: 0;
-  padding: 12px 10px;
+  padding: 10px 20px 10px 12px;
   background: var(--light-green);
   color: var(--dark-grey);
   font-size: 12px;
-  z-index: 0;
 `

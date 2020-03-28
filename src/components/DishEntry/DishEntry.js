@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import ImageWithDiet from '../ImageWithDiet'
 import Badges from '../Badges/Badges'
+import ImageWithDiet from '../ImageWithDiet'
 
 DishEntry.propTypes = {
   dish: PropTypes.object.isRequired,

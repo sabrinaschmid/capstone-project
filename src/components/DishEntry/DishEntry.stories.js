@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/styles/GlobalStyles'
-import Diet from '../Diet'
 import Badges from '../Badges/Badges'
+import Diet from '../Diet'
 import DishEntry from './DishEntry'
 
 const Wrapper = styled.div`
