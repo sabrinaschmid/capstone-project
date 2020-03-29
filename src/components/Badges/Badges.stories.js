@@ -4,6 +4,7 @@ import GlobalStyles from '../../common/styles/GlobalStyles'
 import Badges from './Badges'
 
 const Wrapper = styled.div`
+  width: 400px;
   margin: 20px 0 0 20px;
 `
 export default {

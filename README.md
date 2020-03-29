@@ -25,7 +25,7 @@ The app, which is made with [Create React App](https://github.com/facebook/creat
 - React
 - React Router
 - React Hooks
-- StyledComponents
+- Styled Components
 - Storybook
 - Node.js
 - Firebase
@@ -40,19 +40,19 @@ You can check out the mobile app [here](https://capstone-project-aaa24.firebasea
 
 If you want to make sure that you are using the latest version please use the following instructions:
 
-Respository:
+### Respository:
 
 ```
 git@github.com:sabrinaschmid/capstone-project.git
 ```
 
-Install dependencies:
+### Install dependencies:
 
 ```
 npm install
 ```
 
-Run the app:
+### Run the app:
 
 ```
 npm start

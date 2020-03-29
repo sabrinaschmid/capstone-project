@@ -3,15 +3,15 @@ import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/styles/GlobalStyles'
 import Badges from '../Badges/Badges'
 import Diet from '../Diet'
-import DishEntry from './DishEntry'
+import ListEntry from './ListEntry'
 
 const Wrapper = styled.div`
   margin: 20px 0 0 20px;
   width: 414px;
 `
 export default {
-  title: 'Dish Entry',
-  component: DishEntry,
+  title: 'List Entry',
+  component: ListEntry,
   Badges,
   Diet,
 }
@@ -23,9 +23,9 @@ const dish = {
   vegan: 'true',
 }
 
-export const Dish = () => (
+export const Entry = () => (
   <Wrapper>
     <GlobalStyles />
-    <DishEntry dish={dish}></DishEntry>
+    <ListEntry dish={dish}></ListEntry>
   </Wrapper>
 )

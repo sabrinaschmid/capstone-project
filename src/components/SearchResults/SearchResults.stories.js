@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import GlobalStyles from '../../common/styles/GlobalStyles'
-import DishEntry from '../DishEntry/DishEntry'
-import Diet from '../Diet'
 import Badges from '../Badges/Badges'
+import Diet from '../Diet'
+import ListEntry from '../ListEntry/ListEntry'
 import SearchResults from './SearchResults'
 
 const Wrapper = styled.div`
@@ -16,7 +16,7 @@ const Headline = styled.h2``
 export default {
   title: 'Search Results',
   component: SearchResults,
-  DishEntry,
+  ListEntry,
   Badges,
   Diet,
 }
@@ -51,8 +51,8 @@ export const SearchResult = () => (
   <Wrapper>
     <GlobalStyles />
     <Headline>Dein Suchergebnis</Headline>
-    <DishEntry dish={dish1}></DishEntry>
-    <DishEntry dish={dish2}></DishEntry>
-    <DishEntry dish={dish3}></DishEntry>
+    <ListEntry dish={dish1}></ListEntry>
+    <ListEntry dish={dish2}></ListEntry>
+    <ListEntry dish={dish3}></ListEntry>
   </Wrapper>
 )
