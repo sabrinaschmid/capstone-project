@@ -6,6 +6,18 @@ The app, which is made with [Create React App](https://github.com/facebook/creat
 
 ---
 
+## Preview
+
+### Search for a dish or browse through all dishes:
+
+![Tasty Travel: Search](https://media.giphy.com/media/dt1EK9cg6g6rb0q8eN/giphy.gif)
+
+### Get detailed information about ingredients:
+
+![Tasty Travel: Get details](https://media.giphy.com/media/ll66SEpinrkNPjje1l/giphy.gif)
+
+---
+
 ## Tech stack
 
 **Tasty Travel** was built and tested using:
@@ -13,7 +25,7 @@ The app, which is made with [Create React App](https://github.com/facebook/creat
 - React
 - React Router
 - React Hooks
-- StyledComponents
+- Styled Components
 - Storybook
 - Node.js
 - Firebase
@@ -28,19 +40,19 @@ You can check out the mobile app [here](https://capstone-project-aaa24.firebasea
 
 If you want to make sure that you are using the latest version please use the following instructions:
 
-Respository:
+### Respository:
 
 ```
 git@github.com:sabrinaschmid/capstone-project.git
 ```
 
-Install dependencies:
+### Install dependencies:
 
 ```
 npm install
 ```
 
-Run the app:
+### Run the app:
 
 ```
 npm start

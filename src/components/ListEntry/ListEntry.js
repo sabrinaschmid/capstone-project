@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
-import ImageWithDiet from '../ImageWithDiet'
 import Badges from '../Badges/Badges'
+import ImageWithDiet from '../ImageWithDiet'
 
-DishEntry.propTypes = {
+ListEntry.propTypes = {
   dish: PropTypes.object.isRequired,
 }
 
-export default function DishEntry({ dish }) {
+export default function ListEntry({ dish }) {
   const { id, originalDishTitle, imagePath, translatedDishTitle } = dish
 
   return (

@@ -33,6 +33,9 @@ export default function ScrollToTop({ inputFocus }) {
 
 const ToTopButton = styled.button`
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 48px;
   width: 48px;
   background: var(--medium-orange);
@@ -43,14 +46,14 @@ const ToTopButton = styled.button`
   position: fixed;
   bottom: 12px;
   right: 12px;
-  z-index: 1;
+  opacity: 0.8;
 
   &.none {
     display: none;
   }
 
   .to-top-icon {
-    height: 46px;
+    height: 44px;
   }
 
   :hover,
