@@ -36,7 +36,7 @@ The app, which is made with [Create React App](https://github.com/facebook/creat
 
 ## Usage
 
-You can check out the mobile app [here](https://capstone-project-aaa24.firebaseapp.com/) (currently only available in German).
+You can check out the mobile app [here](https://tasty-travel.firebaseapp.com/) (currently only available in German).
 
 If you want to make sure that you are using the latest version please use the following instructions:
 
